@@ -2,11 +2,12 @@ import { graphql, useStaticQuery } from 'gatsby'
 
 const leadershipQuery = graphql`
     {
-        leadership: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/leadership/"}}, sort: {order: DESC, fields: fileAbsolutePath}) {
+        leadership: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/leadership/"}}, sort: {order: ASC, fields: [frontmatter___order]}) {
             edges {
                 node {
                     frontmatter {
                         name
+                        order
                         photo {
                             childImageSharp {
                                 fixed(width: 150) {
