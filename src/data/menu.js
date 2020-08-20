@@ -5,7 +5,7 @@ module.exports = [
         submenu: [
             {
                 text: 'Overview',
-                path: '/about',
+                path: '/about/overview',
             },
             {
                 text: 'SAC',
@@ -14,7 +14,7 @@ module.exports = [
             {
               text: 'Leadership',
               path: '/about/leadership',
-          },
+            },
         ],
     },
     {

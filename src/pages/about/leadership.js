@@ -17,7 +17,6 @@ const LeaderPhoto = styled(Img)`
 `
 
 const Profile = styled.article`
-    // border: 1px solid #f99;
     display: flex;
     flex-direction: ${ props => props.compact ? 'column' : 'row' };
     justify-content: center;
@@ -55,7 +54,7 @@ const LeadershipPage = () => {
             <section>
                 {
                     leaders.map(member => (
-                        <Profile compact={ isCompact }>
+                        <Profile key={ member.frontmatter.name } compact={ isCompact }>
                             <LeaderPhoto fixed={ member.frontmatter.photo.childImageSharp.fixed } />
                             <LeaderDetails>
                                 <LeaderName center={ isCompact }>{ member.frontmatter.name }</LeaderName>
