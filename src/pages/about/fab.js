@@ -4,11 +4,14 @@ import Img from 'gatsby-image'
 import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
 import { Title, Heading, Subheading, Paragraph } from '../../components/typography'
+import { ExternalLink } from '../../components/link'
 import { List, ListItem } from '../../components/list'
 import { Module } from '../../components/layout'
 import { ButtonLink } from '../../components/button'
+import { contributors } from '../../data'
 
 const AboutFABPage = () => {
+  const fabCoreTeam = contributors.find(team => team.id === 'fab-core-team')
   return (
     <AnimateOnMount>
       <SEO
@@ -70,12 +73,40 @@ const AboutFABPage = () => {
       <Heading>International Connections</Heading>
 
       <Paragraph>
+        FAB will connect FABRIC to five global partners:
       </Paragraph>
+
+      <List>
+        <ListItem primary="University of Tokyo" secondary="Japan" />
+        <ListItem primary="CERN, the European Organization for Nuclear Research" secondary="Switzerland" />
+        <ListItem primary="University of Bristol" secondary="U.K." />
+        <ListItem primary="University of Amsterdam" secondary="The Netherlands" />
+        <ListItem primary="CPTEC/INPE" secondary="Brazil" />
+      </List>
+
+      <Paragraph>
+        High-speed links will be provided by NSF’s International Research & Education Network Connections:
+      </Paragraph>
+
+      <List>
+        <ListItem primary="TransPAC " secondary="(U.S. to Asia)" />
+        <ListItem primary="StarLight" secondary="(U.S. to Europe)" />
+        <ListItem primary="Networks for European, American, and African Research (NEAAR) " secondary="(U.S. to Europe and Africa)" />
+        <ListItem primary="AmLight-ExP " secondary="(U.S. to South America and Africa)" />
+      </List>
 
       <Heading>FAB Core Team</Heading>
 
-      <Paragraph>
-      </Paragraph>
+      <List>
+        {
+          fabCoreTeam.members.map(member => (
+            <ListItem key={ member.name }
+              primary={ member.name }
+              secondary={ <ExternalLink to={ member.url }>{ member.organization }</ExternalLink> }
+            />
+          ))
+        }
+      </List>
 
     </AnimateOnMount>
 
