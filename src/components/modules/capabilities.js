@@ -94,7 +94,7 @@ export const CapabilitiesModule = ({ capabilitys }) => {
             
             <Paragraph center style={{ display: 'flex', justifyContent: 'space-around' }}>
                 <ButtonLink to="/about/overview" secondary>More about FABRIC</ButtonLink>
-                <ButtonLink to="/about/overview" secondary>More about FAB</ButtonLink>
+                <ButtonLink to="/about/fab" secondary>More about FAB</ButtonLink>
             </Paragraph>
         </Wrapper>
     )
