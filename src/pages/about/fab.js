@@ -108,6 +108,10 @@ const AboutFABPage = () => {
         }
       </List>
 
+      <Paragraph>
+        FAB is supported by NSF grants 2029200, 2020260, 2029176, 2029235, and 2029261.
+      </Paragraph>
+
     </AnimateOnMount>
 
   )
