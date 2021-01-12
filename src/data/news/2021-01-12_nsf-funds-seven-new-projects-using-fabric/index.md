@@ -3,10 +3,10 @@ path: /news/2021-01-12_nsf-funds-seven-new-projects-using-fabric
 date: 2021-01-12
 title: "NSF Funds Seven New Campus Cyberinfrastructure Projects Using FABRIC"
 subtitle: ""
-tags: ["NSF", "FABRIC Across Borders"]
+tags: ["NSF", "CC*"]
 seo:
   title: "NSF Funds Seven New Campus Cyberinfrastructure Projects Using FABRIC"
-  description: "The FABRIC team submitted a proposal to the 2020 NSF International Research and Education Network Connections (IRNC) program to expand FABRIC globally"
+  description: "We are excited to announce that we will be working with seven recent Campus Cyberinfrastructure (CC*) solicitation awardees as they use FABRIC to perform experimental deployment, protocol testing, and evaluation."
   keywords: []
 ---
 
