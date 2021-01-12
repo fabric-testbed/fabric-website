@@ -1,12 +1,12 @@
 ---
 path: /news/2021-01-12_nsf-funds-seven-new-projects-using-fabric
-date: 2021-01-12
+date: 2021-01-15
 title: "NSF Funds Seven New Campus Cyberinfrastructure Projects Using FABRIC"
 subtitle: ""
-tags: ["NSF", "FABRIC Across Borders"]
+tags: ["NSF", "CC*"]
 seo:
   title: "NSF Funds Seven New Campus Cyberinfrastructure Projects Using FABRIC"
-  description: "The FABRIC team submitted a proposal to the 2020 NSF International Research and Education Network Connections (IRNC) program to expand FABRIC globally"
+  description: "We are excited to announce that we will be working with seven recent Campus Cyberinfrastructure (CC*) solicitation awardees as they use FABRIC to perform experimental deployment, protocol testing, and evaluation."
   keywords: []
 ---
 
@@ -22,9 +22,7 @@ Communication networks are critical components of today’s scientific workflows
 
 _PI: Jack Brassil | Princeton University | [Award Abstract](https://nsf.gov/awardsearch/showAward?AWD_ID=2018308) | [Project Overview Slides](https://drive.google.com/file/d/1hGI50J5udEzgsN80NMmDqZPYWHR3oTdo/view?usp=sharing)_
 
-Science Traffic as a Service (STAAS) is a decentralized system to collect, create and distribute a diverse collection of real and synthetic science network traffic to the experimental research infrastructure user community. Available on-demand to experimenters through a publish-subscribe dashboard, the tool will elevate traffic selection and distribution to a first class
-
-experimental instrumentation resource. 
+Science Traffic as a Service (STAAS) is a decentralized system to collect, create and distribute a diverse collection of real and synthetic science network traffic to the experimental research infrastructure user community. Available on-demand to experimenters through a publish-subscribe dashboard, the tool will elevate traffic selection and distribution to a first class experimental instrumentation resource. 
 
 The STAAS team is developing a cooperative, scalable, infrastructure-agnostic end system traffic generation service. They will deploy the system first on the Network Programming Initiative testbed reaching from Princeton to Cornell, and then ready STAAS for later deployment on the FABRIC research infrastructure. Their key insight is that plenty of science flows are already in transit at any moment, either on campus or crossing the campus border. They plan to tap these available active science flows and process each for forwarding onto the experimental testbed, while preserving both the timing integrity of the flows and the data privacy of their headers and payloads. To do this safely, science traffic will flow only when offered by an originating campus and requested by the experimenter. By introducing a service model, STAAS hopes to help advance the networking research community’s understanding of emerging science traffic and to help the operators of scientific instruments improve the efficiency of global data distribution.
 
@@ -64,4 +62,5 @@ Unmanned Aerial Vehicles (also known as drones) are becoming popular in the sky.
 
 This project will provide an architecture and tools that will enable scientists to include edge computing devices in their computational workflows. This capability is critical for low latency and ultra-low latency applications like drone video analytics and route planning for drones. The proposed work will include four major tasks. First, cutting edge network and compute infrastructure will be integrated into the overall architecture to make them available as part of scientific workflows. Second, in-network processing at the network edge and core will be made available through new programming abstractions. Third, enhanced end-to-end monitoring capabilities will be offered. Finally, the architecture will leverage the Pegasus Workflow Management System to integrate in-network and edge processing capabilities.
 
-**Do you have a project idea that would benefit from using FABRIC? We are interested in working with you. Apply for a Campus Cyberinfrastructure (CC*) grant - the [solicitation's](https://www.nsf.gov/pubs/2021/nsf21528/nsf21528.htm) next deadline is March 1, 2021. **
+
+**Do you have a project idea that would benefit from using FABRIC? We are interested in working with you. Apply for a Campus Cyberinfrastructure (CC*) grant - the [solicitation's](https://www.nsf.gov/pubs/2021/nsf21528/nsf21528.htm) next deadline is March 1, 2021.**
