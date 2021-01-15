@@ -3,7 +3,7 @@ path: /news/2021-01-12_nsf-funds-seven-new-projects-using-fabric
 date: 2021-01-15
 title: "NSF Funds Seven New Campus Cyberinfrastructure Projects Using FABRIC"
 subtitle: ""
-tags: ["NSF", "CC*"]
+tags: ["NSF", "CC*", "FABRIC Profiles"]
 seo:
   title: "NSF Funds Seven New Campus Cyberinfrastructure Projects Using FABRIC"
   description: "We are excited to announce that we will be working with seven recent Campus Cyberinfrastructure (CC*) solicitation awardees as they use FABRIC to perform experimental deployment, protocol testing, and evaluation."
