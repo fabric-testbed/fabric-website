@@ -7,6 +7,7 @@ import { ExternalLink } from '../../components/link'
 import { List, ListItem } from '../../components/list'
 import { contributors } from '../../data'
 import { useNSFLogo, useWindowWidth } from "../../hooks"
+import { MapPhase3 } from '../../components/modules/map-phase-3'
 
 const AboutFABPage = () => {
   const { isCompact } = useWindowWidth()
@@ -71,7 +72,7 @@ const AboutFABPage = () => {
 
 
       <Heading>International Connections</Heading>
-
+      <MapPhase3 />
       <Paragraph>
         FAB will connect FABRIC to five global partners:
       </Paragraph>
