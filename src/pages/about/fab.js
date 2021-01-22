@@ -129,7 +129,7 @@ const AboutFABPage = () => {
             <Img fixed={nsfLogo.childImageSharp.fixed} />
           </div>
         <Paragraph noMargin>
-          FAB is supported by NSF grants 2029200, 2020260, 2029176, 2029235, and 2029261.
+          FAB is supported by NSF IRNC grants 2029200, 2020260, 2029176, 2029235, and 2029261.
         </Paragraph>
       </div>
     </AnimateOnMount>
