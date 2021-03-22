@@ -16,3 +16,7 @@ seo:
 The goal of this workshop is to introduce FABRIC to experimenters and those considering experimenting. We will share information about deployed sites, recent decisions that could affect your experiments, and demos of FABRIC's current capabilities. Additionally, we will share the planned timeline, including future site deployment and testbed access. More information can be found on our website.
 
 This workshop is open to everyone - industry, academic, government, and international researchers. <a href="https://t.co/fwIniOlxNs" target="_blank">Register here</a>!
+
+#### Agenda
+
+<iframe src="https://docs.google.com/document/d/e/2PACX-1vTTx-gGK2eve7MEI3dwJANjmYZCcwg0Zu6JORNXhUxALLWkwJlNYiQyMyOQadDOCIAfys14MStfFyfZ/pub?embedded=true"  height="1600" width="800"></iframe>
