@@ -27,7 +27,7 @@ export const contributors = [
         organization: "University of Kentucky",
       },
       {
-        name: "KC Wang",
+        name: "Kuang-Ching Wang",
         url: "https://www.clemson.edu/",
         organization: "Clemson University",
       },
@@ -52,7 +52,7 @@ export const contributors = [
         organization: "University of Virginia",
       },
       {
-        name: "Alex Afanasiev",
+        name: "Alex Afanasyev",
         url: "https://www.fiu.edu/",
         organization: "Florida International University",
       },
@@ -181,7 +181,7 @@ export const contributors = [
         organization: "University of Kentucky",
       },
       {
-        name: "KC Wang",
+        name: "Kuang-Ching Wang",
         url: "https://www.clemson.edu/",
         organization: "Clemson University",
       },
