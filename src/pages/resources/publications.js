@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
 import { Title, Paragraph } from '../../components/typography'
+import { usePublications } from '../../hooks'
 
 const Toggler = styled.button.attrs({ role: 'button' })`
   width: 9rem;
@@ -20,6 +21,8 @@ const Toggler = styled.button.attrs({ role: 'button' })`
 `
 
 const PublicationsPage = () => {
+  const publications = usePublications()
+  
   const [open, setOpen] = useState(false)
 
   const handleToggleAbstracts = () => setOpen(!open)
