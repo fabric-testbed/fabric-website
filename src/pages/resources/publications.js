@@ -2,20 +2,20 @@ import React, { useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
-import { Title, Paragraph, Subheading } from '../../components/typography'
-import { ChevronDownIcon, ChevronUpIcon } from '../../components/icons'
+import { Title, Paragraph } from '../../components/typography'
 
 const Toggler = styled.button.attrs({ role: 'button' })`
-  width: 100%;
+  width: 9rem;
   height: 2rem;
   font-weight: 600;
-  background-color: var(--color-primary);
-  border: 0;
+  background-color: transparent;
+  border: 2px var(--color-primary) solid;
+  border-radius: 5px;
   cursor: pointer;
-  color: var(--color-white);
+  color: var(--color-primary);
   transition: color 250ms;
   &:hover {
-    color: var(--color-primary-light);
+    color: var(--color-primary-dark);
   }
 `
 
@@ -26,9 +26,8 @@ const PublicationsPage = () => {
 
   const AbstractToggler = useMemo(() => {
     return (
-      <Toggler onClick={ handleToggleAbstracts } style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.5rem 1rem' }}>
+      <Toggler onClick={ handleToggleAbstracts } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '0.5rem 1rem' }}>
         <em>{ open ? 'Hide' : 'View' } Abstract</em>
-        { open ? <ChevronUpIcon fill="var(--color-white)" /> : <ChevronDownIcon fill="var(--color-white)" /> }
       </Toggler>
     )
   }, [open])
@@ -46,7 +45,7 @@ const PublicationsPage = () => {
             </a>
           </h3>
           <p>Ilya Baldin, Anita Nikolich, James Griffioen, Indermohan Inder S. Monga, Kuang-Ching Wang, Tom Lehman, Paul Ruth<br></br>
-          DOI: <a href="10.1109/MIC.2019.2958545" target="_blank" rel="noreferrer">10.1109/MIC.2019.2958545</a>
+          DOI: <a href="https://doi.org/10.1109/MIC.2019.2958545" target="_blank" rel="noreferrer">10.1109/MIC.2019.2958545</a>
           </p>
           <p>{AbstractToggler}</p>
           {
