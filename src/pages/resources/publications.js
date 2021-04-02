@@ -17,7 +17,8 @@ const PublicationsPage = () => {
         {
           publications.map((publication, i) => (
             <Publication
-              key={ i }
+              key={ `publication-${i}` }
+              index={ i }
               data={publication}
             />
           ))

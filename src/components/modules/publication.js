@@ -18,7 +18,9 @@ const Toggler = styled.button.attrs({ role: 'button' })`
 `
 
 export const Publication = props => {
-  const { title, authors, link, doi, abstract } = props.data;
+  const { title, authors, link, doi, abstract } = props.data
+
+  const id = props.index
 
   const [open, setOpen] = useState(false)
 
@@ -26,7 +28,12 @@ export const Publication = props => {
 
   const AbstractToggler = useMemo(() => {
     return (
-      <Toggler onClick={ handleToggleAbstracts } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '0.5rem 1rem' }}>
+      <Toggler
+        onClick={ handleToggleAbstracts }
+        style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: '0.5rem 1rem' }}
+        aria-expanded={ open }
+        aria-controls={ `publicationAbstract${id}` }
+      >
         <em>{ open ? 'Hide' : 'View' } Abstract</em>
       </Toggler>
     )
@@ -45,7 +52,7 @@ export const Publication = props => {
       <p>{AbstractToggler}</p>
       {
         open && 
-        <div>
+        <div id={ `publicationAbstract${id}` }>
           <b>Abstract:</b>
           <p>{ abstract }</p>
         </div>
