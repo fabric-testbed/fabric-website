@@ -18,7 +18,7 @@ const Toggler = styled.button.attrs({ role: 'button' })`
 `
 
 export const Publication = props => {
-  const { title, authors, link, doi, doilink, abstract } = props.data;
+  const { title, authors, link, doi, abstract } = props.data;
 
   const [open, setOpen] = useState(false)
 
@@ -40,7 +40,7 @@ export const Publication = props => {
       <p>
         { authors }
         <br></br>
-        DOI: <a href={ doilink } target="_blank" rel="noreferrer">{ doi }</a>
+        DOI: <a href={ `https://doi.org/${doi}` } target="_blank" rel="noreferrer">{ doi }</a>
       </p>
       <p>{AbstractToggler}</p>
       {

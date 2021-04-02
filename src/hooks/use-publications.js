@@ -8,7 +8,6 @@ const publicationsQuery = graphql`{
                     title
                     authors
                     link
-                    doilink
                     doi
                     abstract
                 }
