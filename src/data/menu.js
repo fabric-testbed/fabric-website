@@ -26,16 +26,16 @@ module.exports = [
         path: '/resources',
         submenu: [
             {
+              text: 'Design Documents',
+              path: '/resources/design-documents',
+            },
+            {
               text: 'Publications',
               path: '/resources/publications',
             },
             {
                 text: 'Brochures',
                 path: '/resources/brochures',
-            },
-            {
-                text: 'Design Documents',
-                path: '/resources/design-documents',
             },
             {
                 text: 'Documentation',
