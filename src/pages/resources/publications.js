@@ -1,5 +1,4 @@
 import React from 'react'
-import { AnimateOnMount } from '../../components/anim'
 import { Module } from '../../components/layout'
 import { SEO } from '../../components/seo'
 import { Title } from '../../components/typography'

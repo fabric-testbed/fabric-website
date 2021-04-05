@@ -1,4 +1,4 @@
-import { graphql, useEffect, useMemo, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 
 const solicitationsQuery = graphql`{
   solicitations: allSolicitationsYaml {
