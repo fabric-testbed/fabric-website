@@ -17,6 +17,29 @@ The goal of this workshop is to introduce FABRIC to experimenters and those cons
 
 This workshop is open to everyone - industry, academic, government, and international researchers. <a href="https://t.co/fwIniOlxNs" target="_blank">Register here</a>!
 
+#### Links
+
+<ul>
+  <li>Event Link:
+    <a
+      href="http://bit.ly/FABRICairmeet"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      bit.ly/FABRICairmeet
+    </a>
+  </li>
+  <li>
+    <a
+      href="https://docs.google.com/document/d/1Wcq0FOTqgcz3Ygh9ol6uZECbpxt2DcG0kY_ryGbTk6o/edit"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Welcome Packet
+    </a>
+  </li>
+</ul>
+
 #### Agenda
 
 <iframe src="https://docs.google.com/document/d/e/2PACX-1vTTx-gGK2eve7MEI3dwJANjmYZCcwg0Zu6JORNXhUxALLWkwJlNYiQyMyOQadDOCIAfys14MStfFyfZ/pub?embedded=true"  height="1600" width="800"></iframe>
