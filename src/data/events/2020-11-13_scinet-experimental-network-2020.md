@@ -1,6 +1,7 @@
 ---
 title: Supercomputing 2020 — SCinet Experimental Network (XNET) Session
 path: /events/scinet-experimental-network-2020
+date: 2020-11-13
 display_date: November 13, 2020
 location: Virtual
 url: https://sc20.supercomputing.org/scinet/experimental-networks/
