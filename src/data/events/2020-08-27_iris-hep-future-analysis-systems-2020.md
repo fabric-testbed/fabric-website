@@ -1,8 +1,8 @@
 ---
 title: IRIS HEP Future Analysis Systems + Facilities Meeting
 path: /events/iris-hep-future-analysis-systems-2020
-date: 2020-08-27
-display_date: August 27, 2020
+date: 2020-10-27
+display_date: October 27, 2020
 location: Virtual
 url: https://indico.cern.ch/event/960587/
 tags: ["IRIS-HEP", "Anita Nikolich"]
