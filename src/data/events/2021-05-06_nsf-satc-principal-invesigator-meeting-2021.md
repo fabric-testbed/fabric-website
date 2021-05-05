@@ -13,4 +13,4 @@ seo:
   keywords: ["SATC", "Anita Nikolich"]
 ---
 
-The second annual Secure and Trustworthy CyberSpace Principal Investigators’ Town Hall will be held on May 6, 2021. FABRIC co-PI Anita Nikolich will a BoF (Birds of a Feather) session on testbeds during this event.
+The second annual Secure and Trustworthy CyberSpace Principal Investigators’ Town Hall will be held on May 6, 2021. FABRIC co-PI Anita Nikolich will lead a BoF (Birds of a Feather) session on testbeds during this event.
