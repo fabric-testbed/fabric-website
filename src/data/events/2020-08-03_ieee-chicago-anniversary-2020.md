@@ -1,8 +1,8 @@
 ---
 title: IEEE Chicago Anniversary Celebration
 path: /events/ieee-chicago-anniversary-2020
-date: 2020-08-03
-display_date: August 3, 2020
+date: 2020-10-03
+display_date: October 3, 2020
 location: Chicago, IL
 url: https://ieeechicago.org/anniversary/
 tags: ["IEEE Chicago", "Anita Nikolich"]
