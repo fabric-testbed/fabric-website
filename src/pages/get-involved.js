@@ -71,7 +71,7 @@ const GetInvolvedPage = () => {
       <Paragraph>
         Do you have a project idea that would benefit from using FABRIC?
         The FABRIC team welcomes requests for Letters of Collaboration. 
-        To expedite the process, please contacting us by 
+        To expedite the process, please contact us by 
         filling out <a href="https://forms.gle/MKV5SfpdSS24XbFD7" target="_blank" rel="noopener noreferrer">this form</a>.
       </Paragraph>
 
