@@ -31,6 +31,8 @@ export default ({ data, pageContext }) => {
     urlLabel,
     fabricHosted,
     seo,
+    presenter,
+    presentation_link,
   } = frontmatter
 
   return (
@@ -67,6 +69,23 @@ export default ({ data, pageContext }) => {
                 </a>
               </Meta>
             )}
+            {
+              presenter && (
+                <Meta>
+                <b>Presenter</b>:{" "} {presenter}
+                </Meta>
+              )
+            }
+            {
+              presentation_link && (
+                <Meta>
+                <b>Presentation Link</b>:{" "}
+                <a href={presentation_link} target="_blank" rel="noreferrer noopener">
+                  {presentation_link}
+                </a>
+                </Meta>
+              )
+            }
             <Meta>
               <InlineList
                 title="Tags"
@@ -142,6 +161,8 @@ export const newsItemQuery = graphql`
         url
         tags
         fabricHosted
+        presenter
+        presentation_link
         seo {
           title
           description
