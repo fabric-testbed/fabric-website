@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, {  useMemo, useState } from 'react'
 import styled from 'styled-components'
 import { AnimateOnMount } from '../components/anim'
 import { SEO } from '../components/seo'
@@ -6,7 +6,6 @@ import { Title, Heading, Paragraph } from '../components/typography'
 import HubspotForm from 'react-hubspot-form'
 import { HorizontalRule } from '../components/horizontal-rule'
 import { ExternalLink } from '../components/link'
-import { IconButton } from '../components/button'
 import { ChevronDownIcon, ChevronUpIcon } from '../components/icons'
 import { useSolicitations } from '../hooks'
 import { LinkIcon } from '../components/icons'
@@ -71,7 +70,9 @@ const GetInvolvedPage = () => {
 
       <Paragraph>
         Do you have a project idea that would benefit from using FABRIC?
-        We are interested in working with you. Check out the funding opportunities below.
+        The FABRIC team welcomes requests for Letters of Collaboration. 
+        To expedite the process, please contact us by 
+        filling out <a href="https://forms.gle/MKV5SfpdSS24XbFD7" target="_blank" rel="noopener noreferrer">this form</a>.
       </Paragraph>
 
       <Table>
