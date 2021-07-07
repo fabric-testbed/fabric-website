@@ -31,6 +31,7 @@ export default ({ data, pageContext }) => {
     urlLabel,
     fabricHosted,
     seo,
+    presenter,
   } = frontmatter
 
   return (
@@ -67,6 +68,13 @@ export default ({ data, pageContext }) => {
                 </a>
               </Meta>
             )}
+            {
+              presenter && (
+                <Meta>
+                <b>Presenter:</b> {presenter}
+                </Meta>
+              )
+            }
             <Meta>
               <InlineList
                 title="Tags"
@@ -142,6 +150,7 @@ export const newsItemQuery = graphql`
         url
         tags
         fabricHosted
+        presenter
         seo {
           title
           description

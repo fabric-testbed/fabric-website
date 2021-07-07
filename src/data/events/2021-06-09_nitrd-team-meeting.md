@@ -7,6 +7,7 @@ location: Virtual
 url: https://internet2.edu/internet2-community-voices-series/
 tags: ["NITRD", "Ilya Baldin"]
 fabricHosted: false
+presenter: Ilya Baldin
 seo:
   title: NITRD Advanced Wireless Test Platform Team Meeting
   description: FABRIC leadership team member Ilya Baldin will speak to the NITRD's Advanced Wireless Test Platform Team at 3 p.m. ET.
