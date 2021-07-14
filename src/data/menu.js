@@ -39,7 +39,7 @@ module.exports = [
             },
             {
                 text: 'Documentation',
-                path: '/resources/docs',
+                path: 'https://learn.fabric-testbed.net/',
             },
             {
                 text: 'Workshop Reports',
