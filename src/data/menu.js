@@ -62,10 +62,24 @@ module.exports = [
     {
         text: 'Get Involved',
         path: '/get-involved',
+        submenu: [
+          {
+              text: 'Funding Opportunities',
+              path: '/get-involved/funding-opportunities',
+          },
+          {
+              text: 'Beta Testers Request',
+              path: '/get-involved/beta-testers-request',
+          },
+          {
+              text: 'Learn More',
+              path: '/get-involved/learn-more',
+          },
+      ],
     },
     {
         text: 'Portal',
         path: 'https://portal.fabric-testbed.net/',
-        isDisctinct: true,
+        isExternalLink: true,
     },
 ]

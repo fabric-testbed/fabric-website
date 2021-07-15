@@ -15,7 +15,7 @@ export const MenuLink = styled(Link)`
     // justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    color: var(--color-white);
+    color: var(--color-light);
     border: 0;
     padding: 0.5rem 1.5rem;
     margin: 0;
