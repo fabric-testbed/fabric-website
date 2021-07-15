@@ -72,8 +72,8 @@ module.exports = [
               path: '/get-involved/beta-testers-request',
           },
           {
-              text: 'Learn More',
-              path: '/get-involved/learn-more',
+              text: 'Newsletter Signup',
+              path: '/get-involved/newsletter-signup',
           },
       ],
     },

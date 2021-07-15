@@ -5,18 +5,18 @@ import { Title, Heading, Paragraph } from '../../components/typography'
 import HubspotForm from 'react-hubspot-form'
 import { HorizontalRule } from '../../components/horizontal-rule'
 
-const LearnMorePage = () => {
+const NewsletterSignupPage = () => {
   return (
     <AnimateOnMount>
       <SEO
-        title="Get Involved: Learn More" 
+        title="Get Involved: Newsletter Signup" 
         description="We're excited to hear from the community, so feel free to contact us to learn how you or your organization can get involved with FABRIC." 
         keywords={ ["collaboration", "contact"] }
       />
       
       <Title>Get Involved with FABRIC</Title>
 
-      <Heading>Learn More</Heading>
+      <Heading>Newsletter Signup</Heading>
       
       <Paragraph>
         Interested in learning more about FABRIC?
@@ -40,4 +40,4 @@ const LearnMorePage = () => {
   )
 }
 
-export default LearnMorePage
+export default NewsletterSignupPage
