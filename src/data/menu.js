@@ -63,4 +63,9 @@ module.exports = [
         text: 'Get Involved',
         path: '/get-involved',
     },
+    {
+        text: 'Portal',
+        path: 'https://portal.fabric-testbed.net/',
+        isDisctinct: true,
+    },
 ]
