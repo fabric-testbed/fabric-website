@@ -64,16 +64,16 @@ module.exports = [
         path: '/get-involved/funding-opportunities',
         submenu: [
           {
-              text: 'Funding Opportunities',
-              path: '/get-involved/funding-opportunities',
+              text: 'Newsletter Signup',
+              path: '/get-involved/newsletter-signup',
           },
           {
               text: 'Beta Testers Request',
               path: '/get-involved/beta-testers-request',
           },
           {
-              text: 'Newsletter Signup',
-              path: '/get-involved/newsletter-signup',
+              text: 'Funding Opportunities',
+              path: '/get-involved/funding-opportunities',
           },
       ],
     },
