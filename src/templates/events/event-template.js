@@ -33,8 +33,6 @@ export default ({ data, pageContext }) => {
     presenter,
     presentation_link,
     seo,
-    presenter,
-    presentation_link,
   } = frontmatter
 
   return (
