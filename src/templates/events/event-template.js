@@ -30,6 +30,8 @@ export default ({ data, pageContext }) => {
     url,
     urlLabel,
     fabricHosted,
+    presenter,
+    presentation_link,
     seo,
     presenter,
     presentation_link,

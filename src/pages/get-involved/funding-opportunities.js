@@ -1,14 +1,12 @@
 import React, {  useMemo, useState } from 'react'
 import styled from 'styled-components'
-import { AnimateOnMount } from '../components/anim'
-import { SEO } from '../components/seo'
-import { Title, Heading, Paragraph } from '../components/typography'
-import HubspotForm from 'react-hubspot-form'
-import { HorizontalRule } from '../components/horizontal-rule'
-import { ExternalLink } from '../components/link'
-import { ChevronDownIcon, ChevronUpIcon } from '../components/icons'
-import { useSolicitations } from '../hooks'
-import { LinkIcon } from '../components/icons'
+import { AnimateOnMount } from '../../components/anim'
+import { SEO } from '../../components/seo'
+import { Title, Heading, Paragraph } from '../../components/typography'
+import { ExternalLink } from '../../components/link'
+import { ChevronDownIcon, ChevronUpIcon } from '../../components/icons'
+import { useSolicitations } from '../../hooks'
+import { LinkIcon } from '../../components/icons'
 
 const Table = styled.table`
   border: 2px solid var(--color-primary-light);
@@ -41,7 +39,7 @@ const Toggler = styled.button.attrs({ role: 'button' })`
   }
 `
 
-const GetInvolvedPage = () => {
+const FundingOpportunitiesPage = () => {
   const solicitations = useSolicitations()
   const [open, setOpen] = useState(false)
 
@@ -59,7 +57,7 @@ const GetInvolvedPage = () => {
   return (
     <AnimateOnMount>
       <SEO
-        title="Get Involved" 
+        title="Get Involved: Funding Opportunities" 
         description="We're excited to hear from the community, so feel free to contact us to learn how you or your organization can get involved with FABRIC." 
         keywords={ ["collaboration", "contact"] }
       />
@@ -72,7 +70,7 @@ const GetInvolvedPage = () => {
         Do you have a project idea that would benefit from using FABRIC?
         The FABRIC team welcomes requests for Letters of Collaboration. 
         To expedite the process, please contact us by 
-        filling out <a href="https://forms.gle/MKV5SfpdSS24XbFD7" target="_blank" rel="noopener noreferrer">this form</a>.
+        filling out the <a href="https://forms.gle/MKV5SfpdSS24XbFD7" target="_blank" rel="noopener noreferrer"><b>LoC Request Form</b></a>.
       </Paragraph>
 
       <Table>
@@ -109,29 +107,8 @@ const GetInvolvedPage = () => {
           }
         </tbody>
       </Table>
-
-      <Heading>Learn More</Heading>
-      
-      <Paragraph>
-        Interested in learning more about FABRIC?
-        Sign up here to receive email announcements and be the first to hear about our community workshops, events, and news!
-      </Paragraph>
-      
-      <br/>
-
-      <HorizontalRule />
-      
-      <br/>
-      
-      <HubspotForm
-        portalId='6342968'
-        formId='05693d2f-b08d-4def-8fa7-d31d54c74a59'
-        onSubmit={() => console.log('Submit!')}
-        onReady={(form) => console.log('Form ready!')}
-        loading={<div>Loading...</div>}
-      />
     </AnimateOnMount>
   )
 }
 
-export default GetInvolvedPage
+export default FundingOpportunitiesPage

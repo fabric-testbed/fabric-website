@@ -108,7 +108,7 @@ export const Page = ({ children }) => {
                                     </Heading>
                                 </Col>
                                 <Col xs={ 12 } md={ 5 } style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                                    <ButtonLink secondary to="/get-involved" style={{ padding: '1rem 1.75rem' }}>
+                                    <ButtonLink secondary to="/get-involved/newsletter-signup" style={{ padding: '1rem 1.75rem' }}>
                                         Get Involved Now!
                                     </ButtonLink>
                                 </Col>

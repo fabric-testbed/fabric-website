@@ -39,7 +39,7 @@ module.exports = [
             },
             {
                 text: 'Documentation',
-                path: '/resources/docs',
+                path: 'https://learn.fabric-testbed.net/',
             },
             {
                 text: 'Workshop Reports',
@@ -61,6 +61,25 @@ module.exports = [
     },
     {
         text: 'Get Involved',
-        path: '/get-involved',
+        path: '/get-involved/funding-opportunities',
+        submenu: [
+          {
+              text: 'Funding Opportunities',
+              path: '/get-involved/funding-opportunities',
+          },
+          {
+              text: 'Beta Testers Request',
+              path: '/get-involved/beta-testers-request',
+          },
+          {
+              text: 'Newsletter Signup',
+              path: '/get-involved/newsletter-signup',
+          },
+      ],
+    },
+    {
+        text: 'Portal',
+        path: 'https://portal.fabric-testbed.net/',
+        isExternalLink: true,
     },
 ]
