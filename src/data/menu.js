@@ -61,7 +61,7 @@ module.exports = [
     },
     {
         text: 'Get Involved',
-        path: '/get-involved',
+        path: '/get-involved/funding-opportunities',
         submenu: [
           {
               text: 'Funding Opportunities',

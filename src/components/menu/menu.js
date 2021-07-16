@@ -38,6 +38,34 @@ export const MenuLink = styled(Link)`
     }
 `
 
+export const ExternalMenuLink = styled(Link)`
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--color-secondary-light);
+    font-weight: 600;
+    border: 0;
+    padding: 0.5rem 1.5rem;
+    margin: 0;
+    background-color: transparent;
+    letter-spacing: 2px;
+    position: relative;
+    transition: color 500ms, background-color 150ms;
+    &:hover, &:focus {
+        color: var(--color-secondary);
+        background-color: var(--color-primary-dark);
+    }
+    &.active {
+        color: var(--color-secondary);
+        background-color: var(--color-primary-dark);
+        &:hover, &:focus {
+            color: var(--color-white);
+            background-color: var(--color-primary-dark);
+        }
+    }
+`
+
 export const SubmenuHeader = styled.div`
     display: flex;
     justify-content: center;
@@ -103,7 +131,8 @@ export const Menu = ({ items, showBrand }) => {
             {
                 items.map((item, currentIndex) => {
                     return (
-                        <MenuItem key={ item.path }
+                        <MenuItem
+                            key={ item.path }
                             onMouseOver={ item.submenu && handleOpenSubmenu(currentIndex) } onMouseOut={ item.submenu && handleCloseAllSubmenus }
                             onFocus={ item.submenu && handleOpenSubmenu(currentIndex) } onBlur={ item.submenu && handleCloseAllSubmenus }
                         >
@@ -132,7 +161,11 @@ export const Menu = ({ items, showBrand }) => {
                                           { item.submenu.map(subitem => <MenuLink key={ subitem.text } to={ subitem.path } activeClassName="active" partiallyActive={ true }>{ subitem.text }</MenuLink>) }
                                         </Submenu>
                                     </Fragment>
-                                    : (<MenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuLink>)
+                                    : (
+                                      item.isExternalLink ? 
+                                        (<ExternalMenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</ExternalMenuLink>) : 
+                                        (<MenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuLink>)
+                                      )
                             }
                         </MenuItem>
                     )}
