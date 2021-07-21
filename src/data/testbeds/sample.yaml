@@ -1,0 +1,9 @@
+name: Sample Testbed
+url: https://example.com/
+profileUrl: https://example.com/
+description: >
+  lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum 
+tags:
+  - one
+  - two
+  - three
