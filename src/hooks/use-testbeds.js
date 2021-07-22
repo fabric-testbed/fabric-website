@@ -1,26 +1,23 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
-const timelineQuery = graphql`
-    {
-        timeline: allMarkdownRemark(
-            sort: {fields: frontmatter___dates, order: ASC}
-            filter: {fileAbsolutePath: {regex: "/timeline/"}}
-            limit: 4
-        ) {
-            edges {
-                node {
-                    frontmatter {
-                        title
-                        dates
-                    }
-                    html
-                }
-            }
-        }
+const testbedsQuery = graphql`{
+  testbeds: allTestbedsYaml {
+    nodes {
+      id
+      name
+      url
+      description
     }
-`
+  }
+}`
 
-export const useTimeline = () => {
-    const { timeline } = useStaticQuery(timelineQuery)
-    return timeline.edges.map(({ node }) => ({ ...node.frontmatter, html: node.html }))
+export const useTestbeds = () => {
+    const { testbeds } = useStaticQuery(testbedsQuery)
+    return testbeds.nodes.sort((s, t) => s.name.toLowerCase() < t.name.toLowerCase() ? -1 : 1)
 }
+
+// on the list of testbeds/sc centers
+// name
+// one-line description: "testbed for networking", "super computing center for blah bah", ...
+// 
+// 
