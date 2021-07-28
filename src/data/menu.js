@@ -26,8 +26,8 @@ module.exports = [
         path: '/resources',
         submenu: [
             {
-              text: 'Design Documents',
-              path: '/resources/design-documents',
+              text: 'Documentation',
+              path: 'https://learn.fabric-testbed.net/',
             },
             {
               text: 'Publications',
@@ -38,16 +38,8 @@ module.exports = [
                 path: '/resources/brochures',
             },
             {
-                text: 'Documentation',
-                path: 'https://learn.fabric-testbed.net/',
-            },
-            {
                 text: 'Workshop Reports',
                 path: '/resources/workshop-reports',
-            },
-            {
-                text: 'Frequently Asked Questions',
-                path: '/resources/faqs',
             },
         ],
     },
