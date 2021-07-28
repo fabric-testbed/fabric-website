@@ -1,7 +1,5 @@
 export * from './use-brochures'
 export * from './use-capabilities'
-export * from './use-design-documents'
-export * from './use-faqs'
 export * from './use-news'
 export * from './use-nsf-logo'
 export * from './use-science-advisory-committee'
