@@ -26,7 +26,7 @@ module.exports = [
         path: '/resources',
         submenu: [
             {
-              text: 'Documentation',
+              text: 'Knowledge Base',
               path: 'https://learn.fabric-testbed.net/',
             },
             {
@@ -36,10 +36,6 @@ module.exports = [
             {
                 text: 'Brochures',
                 path: '/resources/brochures',
-            },
-            {
-                text: 'Workshop Reports',
-                path: '/resources/workshop-reports',
             },
         ],
     },
