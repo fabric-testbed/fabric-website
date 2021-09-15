@@ -1,7 +1,7 @@
 import React from 'react'
 import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
-import { Title, Heading, Paragraph } from '../../components/typography'
+import { Title, Heading } from '../../components/typography'
 import HubspotForm from 'react-hubspot-form'
 
 const BetaTestersRequestPage = () => {
