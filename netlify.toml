@@ -8,3 +8,13 @@
   to = "/about/scientific-advisory-committee"
   status = 301
   force = false
+[[redirects]]
+  from = "/resources/faqs"
+  to = "https://learn.fabric-testbed.net/faq/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/resources/design-documents"
+  to = "https://learn.fabric-testbed.net/design-documents/"
+  status = 301
+  force = true
