@@ -186,14 +186,14 @@ export const Menu = ({ items, showBrand }) => {
                                         </Match>
                                         <Submenu open={ openSubmenu === currentIndex } onClick={ handleCloseAllSubmenus } width={ item.submenu.reduce((max, item) => item.text.length > max ? item.text.length : max, 0) }>
                                           { item.submenu.map(subitem => subitem.isExternalLink ? 
-                                              <ExternalSubMenuLink key={ subitem.text } activeClassName="active" partiallyActive={ true } href={subitem.path} target="_blank" rel="noreferrer">{ subitem.text }</ExternalSubMenuLink> : 
+                                              <ExternalSubMenuLink key={ subitem.text } activeClassName="active" partiallyActive={ true } href={ subitem.path } target="_blank" rel="noreferrer">{ subitem.text }</ExternalSubMenuLink> : 
                                               <MenuLink key={ subitem.text } to={ subitem.path } activeClassName="active" partiallyActive={ true }>{ subitem.text }</MenuLink>
                                           )}
                                         </Submenu>
                                     </Fragment>
                                     : (
                                         item.isExternalLink ? 
-                                          <ExternalMenuLink activeClassName="active" partiallyActive={ true } href={item.path} target="_blank" rel="noreferrer">{ item.text }</ExternalMenuLink> : 
+                                          <ExternalMenuLink activeClassName="active" partiallyActive={ true } href={ item.path } target="_blank" rel="noreferrer">{ item.text }</ExternalMenuLink> : 
                                           <MenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuLink>
                                       )
                             }
