@@ -6,18 +6,22 @@ module.exports = [
             {
                 text: 'Overview',
                 path: '/about/overview',
+                isExternalLink: false,
             },
             {
                 text: 'FAB',
                 path: '/about/fab',
+                isExternalLink: false,
             },
             {
                 text: 'SAC',
                 path: '/about/scientific-advisory-committee',
+                isExternalLink: false,
             },
             {
-              text: 'Leadership',
-              path: '/about/leadership',
+                text: 'Leadership',
+                path: '/about/leadership',
+                isExternalLink: false,
             },
         ],
     },
@@ -26,30 +30,31 @@ module.exports = [
         path: '/resources',
         submenu: [
             {
-              text: 'Documentation',
+              text: 'Knowledge Base',
               path: 'https://learn.fabric-testbed.net/',
+              isExternalLink: true,
             },
             {
               text: 'Publications',
               path: '/resources/publications',
+              isExternalLink: false,
             },
             {
-                text: 'Brochures',
-                path: '/resources/brochures',
-            },
-            {
-                text: 'Workshop Reports',
-                path: '/resources/workshop-reports',
+              text: 'Brochures',
+              path: '/resources/brochures',
+              isExternalLink: false,
             },
         ],
     },
     {
         text: 'News',
         path: '/news',
+        isExternalLink: false,
     },
     {
         text: 'Events',
         path: '/events',
+        isExternalLink: false,
     },
     {
         text: 'Get Involved',
@@ -58,14 +63,17 @@ module.exports = [
           {
               text: 'Newsletter Signup',
               path: '/get-involved/newsletter-signup',
+              isExternalLink: false,
           },
           {
               text: 'Beta Testers Request',
               path: '/get-involved/beta-testers-request',
+              isExternalLink: false,
           },
           {
               text: 'Funding Opportunities',
               path: '/get-involved/funding-opportunities',
+              isExternalLink: false,
           },
       ],
     },

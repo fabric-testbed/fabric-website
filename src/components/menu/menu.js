@@ -5,7 +5,6 @@ import { Match } from '@reach/router'
 import { ExpandDownIcon } from '../icons'
 
 export const MenuItem = styled.span`
-    // border: 1px solid #f99;
     background-color: inherit;
     position: relative;
 `
@@ -38,7 +37,35 @@ export const MenuLink = styled(Link)`
     }
 `
 
-export const ExternalMenuLink = styled(Link)`
+export const ExternalSubMenuLink = styled.a`
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--color-light);
+    border: 0;
+    padding: 0.5rem 1.5rem;
+    margin: 0;
+    background-color: transparent;
+    letter-spacing: 2px;
+    position: relative;
+    font-weight: 400;
+    transition: color 500ms, background-color 150ms;
+    &:hover, &:focus {
+        color: var(--color-white);
+        background-color: var(--color-primary-dark);
+    }
+    &.active {
+        color: var(--color-white);
+        background-color: var(--color-primary-dark);
+        &:hover, &:focus {
+            color: var(--color-white);
+            background-color: var(--color-primary-dark);
+        }
+    }
+`
+
+export const ExternalMenuLink = styled.a`
     display: flex;
     // justify-content: center;
     align-items: center;
@@ -158,13 +185,16 @@ export const Menu = ({ items, showBrand }) => {
                                             }
                                         </Match>
                                         <Submenu open={ openSubmenu === currentIndex } onClick={ handleCloseAllSubmenus } width={ item.submenu.reduce((max, item) => item.text.length > max ? item.text.length : max, 0) }>
-                                          { item.submenu.map(subitem => <MenuLink key={ subitem.text } to={ subitem.path } activeClassName="active" partiallyActive={ true }>{ subitem.text }</MenuLink>) }
+                                          { item.submenu.map(subitem => subitem.isExternalLink ? 
+                                              <ExternalSubMenuLink key={ subitem.text } activeClassName="active" partiallyActive={ true } href={ subitem.path } target="_blank" rel="noreferrer">{ subitem.text }</ExternalSubMenuLink> : 
+                                              <MenuLink key={ subitem.text } to={ subitem.path } activeClassName="active" partiallyActive={ true }>{ subitem.text }</MenuLink>
+                                          )}
                                         </Submenu>
                                     </Fragment>
                                     : (
-                                      item.isExternalLink ? 
-                                        (<ExternalMenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</ExternalMenuLink>) : 
-                                        (<MenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuLink>)
+                                        item.isExternalLink ? 
+                                          <ExternalMenuLink activeClassName="active" partiallyActive={ true } href={ item.path } target="_blank" rel="noreferrer">{ item.text }</ExternalMenuLink> : 
+                                          <MenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuLink>
                                       )
                             }
                         </MenuItem>

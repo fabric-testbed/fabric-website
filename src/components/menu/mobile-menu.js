@@ -83,6 +83,33 @@ export const MobileMenuLink = styled(Link)`
     }
 `
 
+export const ExternalMobileMenuLink = styled.a`
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--color-white);
+    border: 0;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    background-color: transparent;
+    letter-spacing: 2px;
+    position: relative;
+    font-weight: 400;
+    transition: color 500ms, background-color 250ms;
+    // background-color: var(--color-primary);
+    &:hover {
+        background-color: var(--color-primary-dark);
+    }
+    &.active {
+        background-color: var(--color-primary-dark);
+        &:hover {
+            background-color: var(--color-primary-dark);
+        }
+    }
+`
+
 // Submenu items
 
 export const MobileSubmenuHeader = styled.div`
@@ -188,11 +215,18 @@ export const MobileMenu = ({ children, showBrand, items }) => {
                                         </MobileSubmenuHeader>
                                         <Collapse opened={ activeSubmenus.includes(currentIndex) }>
                                             <MobileSubmenu active={ activeSubmenus.includes(currentIndex) } onClick={ handleCloseMenu }>
-                                                { item.submenu.map(subitem => <MobileMenuLink key={ subitem.path } to={ subitem.path } activeClassName="active" partiallyActive={ true }>- { subitem.text }</MobileMenuLink>) }
+                                                { item.submenu.map(subitem => subitem.isExternalLink ? 
+                                                  <ExternalMobileMenuLink  key={ subitem.path } href={ subitem.path } target="_blank" rel="noreferrer" activeClassName="active" partiallyActive={ true }>- { subitem.text }</ExternalMobileMenuLink> : 
+                                                  <MobileMenuLink key={ subitem.path } to={ subitem.path } activeClassName="active" partiallyActive={ true }>- { subitem.text }</MobileMenuLink>
+                                                )}
                                             </MobileSubmenu>
                                         </Collapse>
                                     </Fragment>
                                 ) : (
+                                  item.isExternalLink ? 
+                                    <ExternalMobileMenuLink onClick={ handleCloseMenu } key={ item.path }  href={ item.path } target="_blank" rel="noreferrer" activeClassName="active" partiallyActive={ true }>
+                                        { item.text }
+                                    </ExternalMobileMenuLink> : 
                                     <MobileMenuLink onClick={ handleCloseMenu } key={ item.path } to={ item.path } activeClassName="active" partiallyActive={ true }>
                                         { item.text }
                                     </MobileMenuLink>
