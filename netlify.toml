@@ -18,3 +18,8 @@
   to = "https://learn.fabric-testbed.net/design-documents/"
   status = 301
   force = true
+[[redirects]]
+  from = "/resources/workshop-reports"
+  to = "https://learn.fabric-testbed.net/workshop-reports/"
+  status = 301
+  force = true
