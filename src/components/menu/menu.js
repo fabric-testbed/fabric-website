@@ -145,7 +145,7 @@ export const Menu = ({ items, showBrand }) => {
                                     </Fragment>
                                     : (
                                         isExternalLink(item.path) ? 
-                                          <ExternalMenuLink activeClassName="active" partiallyActive={ true } href={ item.path } target="_blank" rel="noreferrer">{ item.text }</ExternalMenuLink> : 
+                                          <ExternalMenuLink as="a" activeClassName="active" partiallyActive={ true } href={ item.path } target="_blank" rel="noreferrer">{ item.text }</ExternalMenuLink> : 
                                           <MenuLink to={ item.path } activeClassName="active" partiallyActive={ true }>{ item.text }</MenuLink>
                                       )
                             }
