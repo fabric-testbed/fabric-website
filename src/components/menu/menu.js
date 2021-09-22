@@ -37,60 +37,9 @@ export const MenuLink = styled(Link)`
     }
 `
 
-export const ExternalSubMenuLink = styled.a`
-    display: flex;
-    // justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    color: var(--color-light);
-    border: 0;
-    padding: 0.5rem 1.5rem;
-    margin: 0;
-    background-color: transparent;
-    letter-spacing: 2px;
-    position: relative;
-    font-weight: 400;
-    transition: color 500ms, background-color 150ms;
-    &:hover, &:focus {
-        color: var(--color-white);
-        background-color: var(--color-primary-dark);
-    }
-    &.active {
-        color: var(--color-white);
-        background-color: var(--color-primary-dark);
-        &:hover, &:focus {
-            color: var(--color-white);
-            background-color: var(--color-primary-dark);
-        }
-    }
-`
-
-export const ExternalMenuLink = styled.a`
-    display: flex;
-    // justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
+export const ExternalMenuLink = styled(MenuLink)`
     color: var(--color-secondary-light);
     font-weight: 600;
-    border: 0;
-    padding: 0.5rem 1.5rem;
-    margin: 0;
-    background-color: transparent;
-    letter-spacing: 2px;
-    position: relative;
-    transition: color 500ms, background-color 150ms;
-    &:hover, &:focus {
-        color: var(--color-secondary);
-        background-color: var(--color-primary-dark);
-    }
-    &.active {
-        color: var(--color-secondary);
-        background-color: var(--color-primary-dark);
-        &:hover, &:focus {
-            color: var(--color-white);
-            background-color: var(--color-primary-dark);
-        }
-    }
 `
 
 export const SubmenuHeader = styled.div`
@@ -189,7 +138,7 @@ export const Menu = ({ items, showBrand }) => {
                                         </Match>
                                         <Submenu open={ openSubmenu === currentIndex } onClick={ handleCloseAllSubmenus } width={ item.submenu.reduce((max, item) => item.text.length > max ? item.text.length : max, 0) }>
                                           { item.submenu.map(subitem => isExternalLink(subitem.path) ? 
-                                              <ExternalSubMenuLink key={ subitem.text } activeClassName="active" partiallyActive={ true } href={ subitem.path } target="_blank" rel="noreferrer">{ subitem.text }</ExternalSubMenuLink> : 
+                                              <MenuLink as="a" key={ subitem.text } activeClassName="active" partiallyActive={ true } href={ subitem.path } target="_blank" rel="noreferrer">{ subitem.text }</MenuLink> : 
                                               <MenuLink key={ subitem.text } to={ subitem.path } activeClassName="active" partiallyActive={ true }>{ subitem.text }</MenuLink>
                                           )}
                                         </Submenu>
