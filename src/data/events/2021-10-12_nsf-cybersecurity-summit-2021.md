@@ -1,6 +1,6 @@
 ---
 title: 2021 NSF Cybersecurity Summit
-path: /events/2021-nsf-cybersecurity-summit
+path: /events/nsf-cybersecurity-summit-2021
 date: 2021-10-12
 display_date: October 12, 2021
 location: Virtual
