@@ -10,7 +10,7 @@ fabricHosted: false
 presenter: Paul Ruth
 presentation_link: ""
 seo:
-  title: Workshop on Data for AI in Network Systems
+  title: "INDIS'21: 8th Workshop on Innovating the Network for Data-Intensive Science"
   description: "On November 15 at 5:40 PM EST, FABRIC leadership team member Paul Ruth will participate in a virtual panel on experimental networks and the integration of Supercomputing’s high-capacity network, as part of INDIS’21: 8th Workshop on Innovating the Network for Data-Intensive Science."
   keywords: ["Paul Ruth", "Workshop"]
 ---
