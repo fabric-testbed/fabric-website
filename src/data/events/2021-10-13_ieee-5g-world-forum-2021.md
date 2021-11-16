@@ -1,13 +1,13 @@
 ---
 title: 2021 IEEE 4th 5G World Forum
-path: /events/ieee-5g-world-forum-2021.md
+path: /events/ieee-5g-world-forum-2021
 date: 2021-10-13
 display_date: October 13, 2021
 location: Virtual
 url: https://ieee-wf-5g.org/8951-2/
 tags: ["Inder Monga", "Forum"]
 fabricHosted: false
-presenter: Anita Nikolich
+presenter: Inder Monga
 presentation_link: ""
 seo:
   title: 2021 IEEE 4th 5G World Forum
