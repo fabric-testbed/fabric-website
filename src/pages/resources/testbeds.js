@@ -9,7 +9,7 @@ import { LinkIcon } from "../../components/icons"
 import { Container as Grid, Row, Col } from 'react-grid-system'
 
 const TestbedWrapper = styled.article`
-  height: 400px;
+  height: 600px;
   margin: 0 0 2rem 0;
   background-color: var(--color-lightgrey);
   display: flex;
@@ -21,15 +21,22 @@ const TestbedWrapper = styled.article`
   &:hover {
     filter: drop-shadow(0 0 5px #00000033);
   }
-  & ${ Subheading } {
-    padding: 1rem;
+  & .header {
+    min-height: 200px;
+    max-height: 200px;
+    border: 1px dashed crimson;
     background-color: var(--color-white);
     border: solid var(--color-primary);
     border-width: 0 0 4px 0;
+    padding: 1rem;
+    background-repeat: no-repeat;
+    background-size: 150px;
+    background-position: center center;
   }
   & .description {
-    padding: 0 1rem;
     flex: 1;
+    padding: 1rem;
+    overflow: auto;
     // color: var(--color-white);
   }
   & .footer {
@@ -49,7 +56,9 @@ const TestbedWrapper = styled.article`
 const TestbedCard = ({ testbed }) => {
   return (
     <TestbedWrapper>
-      <Subheading center>{ testbed.name }</Subheading>
+      <div className="header" style={{ backgroundImage: `url(${ testbed.image.childImageSharp.original.src })` }}>
+        <Subheading center hidden>{ testbed.name }</Subheading>
+      </div>
       <div className="description">
         <Paragraph>
           { testbed.description }

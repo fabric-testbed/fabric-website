@@ -6,6 +6,15 @@ const testbedsQuery = graphql`{
       id
       name
       url
+      image {
+        childImageSharp {
+          original {
+            width
+            height
+            src
+          }
+        }
+      }
       description
     }
   }
