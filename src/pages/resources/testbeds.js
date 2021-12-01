@@ -21,6 +21,12 @@ const TestbedWrapper = styled.article`
   filter: drop-shadow(0 0 3px #00000033);
   &:hover {
     filter: drop-shadow(0 0 5px #00000033);
+    .description {
+      filter: opacity(1.0);
+    }
+    .footer {
+      background-color: var(--color-primary-dark);
+    }
   }
   & .header {
     min-height: 200px;
@@ -38,12 +44,14 @@ const TestbedWrapper = styled.article`
     flex: 1;
     padding: 1rem;
     overflow: auto;
-    // color: var(--color-white);
+    filter: opacity(0.8);
+    transition: filter 250ms;
   }
   & .footer {
     display: flex;
     justify-content: flex-end;
     background-color: var(--color-grey);
+    transition: background-color 250ms;
     & .testbed-link {
       width: 3rem;
       height: 3rem;
