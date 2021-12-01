@@ -6,6 +6,7 @@ import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
 import { Subheading, Title, Paragraph } from '../../components/typography'
 import { LinkIcon } from "../../components/icons"
+import { ExternalLink } from "../../components/link"
 import { Container as Grid, Row, Col } from 'react-grid-system'
 
 const TestbedWrapper = styled.article`
@@ -30,7 +31,7 @@ const TestbedWrapper = styled.article`
     border-width: 0 0 4px 0;
     padding: 1rem;
     background-repeat: no-repeat;
-    background-size: 150px;
+    background-size: 200px;
     background-position: center center;
   }
   & .description {
@@ -82,6 +83,23 @@ const TestbedsView = () => {
       <Title>Testbeds</Title>
 
       <br />
+
+      <Paragraph>
+        FABRIC is a testbed of testbeds, helping users experiment using multiple testbeds. Like Lego blocks, users can get accounts on several testbeds and build an experiment using all of them.
+      </Paragraph>
+
+      <Paragraph>
+        Additionally, testbeds can be powered by FABRIC. FABRIC can support testbeds as an underlying infrastructure, while not necessarily exposing the FABRIC interfaces to their users. Find a list of participating testbeds and facilities below.
+      </Paragraph>
+
+      <Paragraph>
+        Don't see your testbed? Add it <ExternalLink to="https://share.hsforms.com/13ryeyx2VRjyaY9Q8kB9Wgg3ry9k">here</ExternalLink>.
+        Need to update the information for your testbed? Update it <ExternalLink to="https://share.hsforms.com/1ITfbhOzyQqysDzXoEiodUg3ry9k">here</ExternalLink>.
+      </Paragraph>
+
+      <Paragraph>
+        The page is community sourced. FABRIC is not responsible for its user-generated content.
+      </Paragraph>
 
       <Grid fluid>
         <Row>

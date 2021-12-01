@@ -37,7 +37,7 @@
 
 - name: MERGE
   url: https://www.mergetb.org/
-  image: ./merge.png
+  image: ./merge-tb.png
   description: >
     MergeTB is a large distributed system with a number of moving parts. The primary components in a Merge deployment are the Merge portal and a collection of testbed facilities. The portal provides user accounts, projects, shared storage, experiment control, access to running experiments, a web interface, and other user facing services. Testbed facilities provide the resources that underpin experiments. 
 
