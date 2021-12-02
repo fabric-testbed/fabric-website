@@ -178,7 +178,7 @@ const TestbedsView = () => {
       <Grid fluid>
         <Row justify="around">
           <Col xs={ 12 } sm={ 10 }>
-            <Subsubheading>Filter Testbeds</Subsubheading>
+            <Subsubheading>Filter Testbeds and Facilities</Subsubheading>
             <SearchForm>
               <QueryField value={ query } onChange={ handleChangeQuery } />
               <button className="clear-button" onClick={ () => setQuery('') }>
