@@ -7,7 +7,6 @@ import { Heading, Subheading, Subsubheading, Title, Paragraph } from '../../comp
 import { BackspaceIcon, LinkIcon } from "../../components/icons"
 import { ExternalLink } from "../../components/link"
 import { Container as Grid, Row, Col } from 'react-grid-system'
-import fabricLogo from '../../images/fabric-brand.png'
 
 const TestbedWrapper = styled.article`
   height: 600px;
@@ -35,6 +34,13 @@ const TestbedWrapper = styled.article`
     background-repeat: no-repeat;
     background-size: 200px;
     background-position: center center;
+    & ${ Subheading } {
+      color: var(--color-grey);
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
   & .description {
     background-color: #ffffffaa;
@@ -101,10 +107,11 @@ const QueryField = styled.input.attrs({ type: 'text' })`
 `
 
 const TestbedCard = ({ testbed }) => {
+  console.log(testbed)
   return (
     <TestbedWrapper>
-      <div className="header" style={{ backgroundImage: `url(${ testbed.image ? testbed.image.childImageSharp.original.src : fabricLogo })` }}>
-        <Subheading center hidden>{ testbed.name }</Subheading>
+      <div className="header" style={{ backgroundImage: `url(${ testbed.image ? testbed.image.childImageSharp.original.src : undefined })` }}>
+        <Subheading center style={{ display: testbed.image ? 'none' : 'flex' }}>{ testbed.name }</Subheading>
       </div>
       <div className="description">
         <Paragraph>
@@ -155,7 +162,8 @@ const TestbedsView = () => {
       </Paragraph>
 
       <Paragraph>
-        Additionally, testbeds can be powered by FABRIC. FABRIC can support testbeds as an underlying infrastructure, while not necessarily exposing the FABRIC interfaces to their users. Find a list of participating testbeds and facilities below.
+        Additionally, the FABRIC infrastructure can support other testbeds without exposing the FABRIC interfaces to those users.
+        Find a list of participating testbeds and facilities below.
       </Paragraph>
 
       <Paragraph>

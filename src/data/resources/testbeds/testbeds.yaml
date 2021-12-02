@@ -63,7 +63,7 @@
   url: null
   image: null
   description: >
-    The project enables the use of unique programmable wireless, optical, and edge-cloud network testbed infrastructure for international collaborative experiments. It builds on the interfaces of the PAWR COSMOS (NYC) and ORBIT (NJ) testbeds with the PEERING (US/International) and FABRIC (US) testbeds, and adds connections to international testbeds, including CPQD (Brazil), Kyutech/StarBED (Japan), OneLab/NITOS (EU/Greece), and CONNECT (Ireland).
+    COSMIC enables the use of unique programmable wireless, optical, and edge-cloud network testbed infrastructure for international collaborative experiments. It builds on the interfaces of the PAWR COSMOS (NYC) and ORBIT (NJ) testbeds with the PEERING (US/International) and FABRIC (US) testbeds, and adds connections to international testbeds, including CPQD (Brazil), Kyutech/StarBED (Japan), OneLab/NITOS (EU/Greece), and CONNECT (Ireland).
 
 - name: FAB
   url: https://fabric-testbed.net/about/fab
