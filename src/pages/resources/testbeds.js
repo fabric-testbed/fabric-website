@@ -1,14 +1,13 @@
 import React, { useMemo, useState } from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { useTestbeds } from '../../hooks'
 import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
 import { Heading, Subheading, Subsubheading, Title, Paragraph } from '../../components/typography'
 import { BackspaceIcon, LinkIcon } from "../../components/icons"
-import { Button } from "../../components/button"
 import { ExternalLink } from "../../components/link"
 import { Container as Grid, Row, Col } from 'react-grid-system'
+import fabricLogo from '../../images/fabric-brand.png'
 
 const TestbedWrapper = styled.article`
   height: 600px;
@@ -50,6 +49,7 @@ const TestbedWrapper = styled.article`
     justify-content: flex-end;
     background-color: var(--color-grey);
     transition: background-color 250ms;
+    height: 3rem;
     &:hover {
       background-color: var(--color-primary);
     }
@@ -103,7 +103,7 @@ const QueryField = styled.input.attrs({ type: 'text' })`
 const TestbedCard = ({ testbed }) => {
   return (
     <TestbedWrapper>
-      <div className="header" style={{ backgroundImage: `url(${ testbed.image.childImageSharp.original.src })` }}>
+      <div className="header" style={{ backgroundImage: `url(${ testbed.image ? testbed.image.childImageSharp.original.src : fabricLogo })` }}>
         <Subheading center hidden>{ testbed.name }</Subheading>
       </div>
       <div className="description">
@@ -112,9 +112,13 @@ const TestbedCard = ({ testbed }) => {
         </Paragraph>
       </div>
       <div className="footer">
-        <a href={ testbed.url } target="_blank" rel="noopener noreferrer" className="testbed-link" aria-label={ `Visit the ${ testbed.name } website` }>
-          <LinkIcon fill="var(--color-white)" />
-        </a>
+        {
+          testbed.url && (
+            <a href={ testbed.url } target="_blank" rel="noopener noreferrer" className="testbed-link" aria-label={ `Visit the ${ testbed.name } website` }>
+              <LinkIcon fill="var(--color-white)" />
+            </a>
+          )
+        }
       </div>
     </TestbedWrapper>
   )
@@ -126,10 +130,15 @@ const TestbedsView = () => {
 
   const filteredTestbeds = useMemo(() => {
     const reducedQuery = query.toLowerCase().trim()
-    return testbeds.filter(testbed => (
-      testbed.name.toLowerCase().includes(reducedQuery) || testbed.description.toLowerCase().includes(reducedQuery))
-    )
-  }, [query])
+    const newTestbedList = testbeds.sort((t, u) => t.name.toLowerCase() < u.name.toLowerCase() ? -1 : 1)
+    if (!reducedQuery) {
+      return newTestbedList
+    }
+    return newTestbedList
+      .filter(testbed => (
+        testbed.name.toLowerCase().includes(reducedQuery) || testbed.description.toLowerCase().includes(reducedQuery))
+      )
+  }, [query, testbeds])
 
   const handleChangeQuery = event => setQuery(event.target.value)
 

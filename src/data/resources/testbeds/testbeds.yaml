@@ -52,3 +52,22 @@
   image: ./bristol-is-open.png
   description: >
     Bristol is Open (BiO), was set up as a joint venture between Bristol City Council and the University of Bristol, to develop a ‘test-bed’ programmable, digital infrastructure. 
+
+- name: Bridges
+  url: https://cnl.gmu.edu/bridges/
+  image: ./bridges.png
+  description: >
+    Binding Research Infrastructures for the Deployment of Global Experimental Science, BRIDGES goal is to make customized deterministic cyber-infrastructure resources available to advanced experimental applications globally.
+
+- name: COSMIC
+  url: null
+  image: null
+  description: >
+    The project enables the use of unique programmable wireless, optical, and edge-cloud network testbed infrastructure for international collaborative experiments. It builds on the interfaces of the PAWR COSMOS (NYC) and ORBIT (NJ) testbeds with the PEERING (US/International) and FABRIC (US) testbeds, and adds connections to international testbeds, including CPQD (Brazil), Kyutech/StarBED (Japan), OneLab/NITOS (EU/Greece), and CONNECT (Ireland).
+
+- name: FAB
+  url: https://fabric-testbed.net/about/fab
+  image: fab.png
+  description: >
+    FABRIC Across Borders (FAB) is an extension of the FABRIC testbed connecting the core North America infrastructure to four nodes in Asia, Europe, and South America. By creating the networks needed to move vast amounts of data across oceans and time zones seamlessly and securely, the project enables international collaboration to speed scientific discovery.
+
