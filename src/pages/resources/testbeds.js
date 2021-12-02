@@ -26,7 +26,6 @@ const TestbedWrapper = styled.article`
   & .header {
     min-height: 200px;
     max-height: 200px;
-    border: 1px dashed crimson;
     background-color: var(--color-white);
     border: solid var(--color-primary);
     border-width: 0 0 4px 0;
@@ -153,7 +152,7 @@ const TestbedsView = () => {
     <AnimateOnMount>
       <SEO title="Testbeds" />
 
-      <Title>Testbeds</Title>
+      <Title>Participating Testbeds and Facilities</Title>
 
       <br />
 
