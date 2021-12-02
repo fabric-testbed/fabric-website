@@ -157,11 +157,14 @@ const TestbedsView = () => {
       <br />
 
       <Paragraph>
-        FABRIC is a testbed of testbeds, helping users experiment using multiple testbeds. Like Lego blocks, users can get accounts on several testbeds and build an experiment using all of them.
+        FABRIC is a testbed of testbeds, helping users experiment using multiple testbeds.
+        Like Lego blocks, users can get accounts on several testbeds and build an experiment using all of them.
       </Paragraph>
 
       <Paragraph>
-        Additionally, the FABRIC infrastructure can support other testbeds without exposing the FABRIC interfaces to those users.
+        Additionally, testbeds can be powered by FABRIC.
+        FABRIC can support testbeds as an underlying infrastructure,
+        while not necessarily exposing the FABRIC interfaces to their users.
         Find a list of participating testbeds and facilities below.
       </Paragraph>
 
