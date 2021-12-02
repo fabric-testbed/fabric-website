@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import { useTestbeds } from '../../hooks'
 import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
-import { Subheading, Title, Paragraph } from '../../components/typography'
-import { LinkIcon } from "../../components/icons"
+import { Heading, Subheading, Subsubheading, Title, Paragraph } from '../../components/typography'
+import { BackspaceIcon, LinkIcon } from "../../components/icons"
+import { Button } from "../../components/button"
 import { ExternalLink } from "../../components/link"
 import { Container as Grid, Row, Col } from 'react-grid-system'
 
@@ -20,12 +21,8 @@ const TestbedWrapper = styled.article`
   transition: filter 250ms;
   filter: drop-shadow(0 0 3px #00000033);
   &:hover {
-    filter: drop-shadow(0 0 5px #00000033);
     .description {
       filter: opacity(1.0);
-    }
-    .footer {
-      background-color: var(--color-primary-dark);
     }
   }
   & .header {
@@ -41,6 +38,7 @@ const TestbedWrapper = styled.article`
     background-position: center center;
   }
   & .description {
+    background-color: #ffffffaa;
     flex: 1;
     padding: 1rem;
     overflow: auto;
@@ -52,14 +50,54 @@ const TestbedWrapper = styled.article`
     justify-content: flex-end;
     background-color: var(--color-grey);
     transition: background-color 250ms;
+    &:hover {
+      background-color: var(--color-primary);
+    }
     & .testbed-link {
       width: 3rem;
       height: 3rem;
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
+      margin: 0 1rem;
       align-items: center;
+      width: 100%;
     }
   }
+`
+
+const SearchForm = styled.div`
+  margin-bottom: 3rem;
+  position: relative;
+  display: flex
+  ${ Heading } {
+    font-size: 120%;
+    margin-bottom: 0.5rem;
+  }
+  .clear-button {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-primary) !important;
+    border: 0;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: filter 250ms;
+    padding: 0.5rem;
+    &:hover {
+      filter: saturate(0.5);
+    }
+  }
+`
+
+const QueryField = styled.input.attrs({ type: 'text' })`
+  width: 100%;
+  border: 2px solid var(--color-primary);
+  margin: auto;
+  padding: 0.5rem;
 `
 
 const TestbedCard = ({ testbed }) => {
@@ -74,7 +112,7 @@ const TestbedCard = ({ testbed }) => {
         </Paragraph>
       </div>
       <div className="footer">
-        <a href={ testbed.url } rel="noopener noreferrer" className="testbed-link" aria-label={ `Visit the ${ testbed.name } website` }>
+        <a href={ testbed.url } target="_blank" rel="noopener noreferrer" className="testbed-link" aria-label={ `Visit the ${ testbed.name } website` }>
           <LinkIcon fill="var(--color-white)" />
         </a>
       </div>
@@ -84,6 +122,17 @@ const TestbedCard = ({ testbed }) => {
 
 const TestbedsView = () => {
   const testbeds = useTestbeds()
+  const [query, setQuery] = useState('')
+
+  const filteredTestbeds = useMemo(() => {
+    const reducedQuery = query.toLowerCase().trim()
+    return testbeds.filter(testbed => (
+      testbed.name.toLowerCase().includes(reducedQuery) || testbed.description.toLowerCase().includes(reducedQuery))
+    )
+  }, [query])
+
+  const handleChangeQuery = event => setQuery(event.target.value)
+
   return (
     <AnimateOnMount>
       <SEO title="Testbeds" />
@@ -101,7 +150,7 @@ const TestbedsView = () => {
       </Paragraph>
 
       <Paragraph>
-        Don't see your testbed? Add it <ExternalLink to="https://share.hsforms.com/13ryeyx2VRjyaY9Q8kB9Wgg3ry9k">here</ExternalLink>.
+        Want your testbed or facility listed? Add it <ExternalLink to="https://share.hsforms.com/13ryeyx2VRjyaY9Q8kB9Wgg3ry9k">here</ExternalLink>.
         Need to update the information for your testbed? Update it <ExternalLink to="https://share.hsforms.com/1ITfbhOzyQqysDzXoEiodUg3ry9k">here</ExternalLink>.
       </Paragraph>
 
@@ -109,15 +158,36 @@ const TestbedsView = () => {
         The page is community sourced. FABRIC is not responsible for its user-generated content.
       </Paragraph>
 
+
       <Grid fluid>
+        <Row justify="around">
+          <Col xs={ 12 } sm={ 10 }>
+            <Subsubheading>Filter Testbeds</Subsubheading>
+            <SearchForm>
+              <QueryField value={ query } onChange={ handleChangeQuery } />
+              <button className="clear-button" onClick={ () => setQuery('') }>
+                <BackspaceIcon fill="white" />
+              </button>
+            </SearchForm>
+          </Col>
+        </Row>
         <Row>
-            {
-              testbeds.map(testbed => (
+          {
+            filteredTestbeds.length ? (
+              filteredTestbeds.map(testbed => (
                 <Col key={ testbed.id } xs={ 12 } md={ 6 } lg={ 4 }>
-                  <TestbedCard testbed={ testbed } />
+                  <AnimateOnMount>
+                    <TestbedCard testbed={ testbed } />
+                  </AnimateOnMount>
                 </Col>
               ))
-            }
+            ) : (
+              <Col key="no-results" xs={ 12 }>
+                <br />
+                <Heading center>"{ query }" doesn't match any testbeds.</Heading>
+              </Col>
+            )
+          }
         </Row>
       </Grid>
 
