@@ -1,3 +1,4 @@
+export * from './backspace-icon'
 export * from './chevron-icons'
 export * from './clock-icon'
 export * from './close-icon'

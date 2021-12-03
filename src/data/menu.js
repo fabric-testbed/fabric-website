@@ -44,6 +44,11 @@ module.exports = [
               path: '/resources/brochures',
               isExternalLink: false,
             },
+            {
+              text: 'Testbeds',
+              path: '/resources/testbeds',
+              isExternalLink: false,
+            },
         ],
     },
     {
