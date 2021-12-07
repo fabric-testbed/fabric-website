@@ -9,7 +9,7 @@ export const DefaultLayout = styled.div`
         var(--color-white),
         var(--color-white) 50vmax,
         var(--color-light) 50vmax,
-        var(--color-light) 150vmax
+        var(--color-white) 150vmax
     );
     background-attachment: fixed;
 `

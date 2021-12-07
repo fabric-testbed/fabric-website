@@ -83,6 +83,33 @@ export const MobileMenuLink = styled(Link)`
     }
 `
 
+export const ExternalMobileMenuLink = styled.a`
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--color-white);
+    border: 0;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    background-color: transparent;
+    letter-spacing: 2px;
+    position: relative;
+    font-weight: 400;
+    transition: color 500ms, background-color 250ms;
+    // background-color: var(--color-primary);
+    &:hover {
+        background-color: var(--color-primary-dark);
+    }
+    &.active {
+        background-color: var(--color-primary-dark);
+        &:hover {
+            background-color: var(--color-primary-dark);
+        }
+    }
+`
+
 // Submenu items
 
 export const MobileSubmenuHeader = styled.div`
