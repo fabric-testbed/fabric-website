@@ -76,8 +76,8 @@ const FundingOpportunitiesPage = () => {
       <Table>
         <thead>
           <tr>
-            <th width="25%">Solicitation</th>
-            <th colspan="2">Deadline</th>
+            <th width="25%" colspan="2">Solicitation</th>
+            <th colspan="1">Deadline</th>
           </tr>
         </thead>
         <tbody>

@@ -193,6 +193,9 @@ export const MobileMenu = ({ children, showBrand, items }) => {
         setExpanded(false)
     }
 
+    const externalUrlPattern = new RegExp(/^https?:\/\//)
+    const isExternalLink = (path) => externalUrlPattern.exec(path);
+
     return (
         <MobileMenuContainer>
             <MenuToggler onClick={ handleToggleMenu } active={ expanded }>
@@ -215,18 +218,18 @@ export const MobileMenu = ({ children, showBrand, items }) => {
                                         </MobileSubmenuHeader>
                                         <Collapse opened={ activeSubmenus.includes(currentIndex) }>
                                             <MobileSubmenu active={ activeSubmenus.includes(currentIndex) } onClick={ handleCloseMenu }>
-                                                { item.submenu.map(subitem => subitem.isExternalLink ? 
-                                                  <ExternalMobileMenuLink  key={ subitem.path } href={ subitem.path } target="_blank" rel="noreferrer" activeClassName="active" partiallyActive={ true }>- { subitem.text }</ExternalMobileMenuLink> : 
+                                                { item.submenu.map(subitem => isExternalLink(subitem.path) ? 
+                                                  <MobileMenuLink as="a" key={ subitem.path } href={ subitem.path } target="_blank" rel="noreferrer" activeClassName="active" partiallyActive={ true }>- { subitem.text }</MobileMenuLink> : 
                                                   <MobileMenuLink key={ subitem.path } to={ subitem.path } activeClassName="active" partiallyActive={ true }>- { subitem.text }</MobileMenuLink>
                                                 )}
                                             </MobileSubmenu>
                                         </Collapse>
                                     </Fragment>
                                 ) : (
-                                  item.isExternalLink ? 
-                                    <ExternalMobileMenuLink onClick={ handleCloseMenu } key={ item.path }  href={ item.path } target="_blank" rel="noreferrer" activeClassName="active" partiallyActive={ true }>
+                                  isExternalLink(item.path) ? 
+                                    <MobileMenuLink as="a" onClick={ handleCloseMenu } key={ item.path }  href={ item.path } target="_blank" rel="noreferrer" activeClassName="active" partiallyActive={ true }>
                                         { item.text }
-                                    </ExternalMobileMenuLink> : 
+                                    </MobileMenuLink> : 
                                     <MobileMenuLink onClick={ handleCloseMenu } key={ item.path } to={ item.path } activeClassName="active" partiallyActive={ true }>
                                         { item.text }
                                     </MobileMenuLink>
