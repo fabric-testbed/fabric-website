@@ -11,8 +11,8 @@ presenter: Tom Lehman
 presentation_link: ""
 seo:
   title: NITRD Joint Engineering Team (JET) Meeting
-  description: "On March 15, FABRIC leadership team member Tom Lehman will give a FABRIC Update Presentation at the NITRD Joint Engineering Team (JET) Meeting. Those involved in the NITRD Large Scale Networking (LSN) effort will also be in attendance"
+  description: "On March 15, FABRIC leadership team member Tom Lehman will give a FABRIC Update Presentation at the NITRD Joint Engineering Team (JET) Meeting."
   keywords: ["Tom Lehman", "NITRD", "JET"]
 ---
 
-On March 15, FABRIC leadership team member Tom Lehman will give a FABRIC Update Presentation at the NITRD Joint Engineering Team (JET) Meeting. Those involved in the NITRD Large Scale Networking (LSN) effort will also be in attendance.
+On March 15, FABRIC leadership team member Tom Lehman will give a FABRIC Update Presentation at the NITRD Joint Engineering Team (JET) Meeting.
