@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image'
+import { Link } from 'gatsby'
 import { AnimateOnMount } from '../../components/anim'
 import { SEO } from '../../components/seo'
 import { Title, Subheading, Paragraph } from '../../components/typography'
@@ -69,76 +70,75 @@ const AboutPage = () => {
     const capabilities = useCapabilities()
 
     return (
-        <AnimateOnMount>
-            <SEO
-                title="About FABRIC Testbed"
-                description="View details about the FABRIC Testbed. Read about the cutting-edge technologies that are utilized by FABRIC. Additionally, view FABRIC branding and graphics resources."
-            />
-            
-            <Title>About FABRIC</Title>
+      <AnimateOnMount>
+        <SEO
+            title="About FABRIC Testbed"
+            description="View details about the FABRIC Testbed. Read about the cutting-edge technologies that are utilized by FABRIC. Additionally, view FABRIC branding and graphics resources."
+        />
+        <Title>About FABRIC</Title>
+        <Module>
+          <Paragraph>
+            FABRIC (FABRIC is Adaptive ProgrammaBle Research Infrastructure for Computer Science
+            and Science Applications) is an International infrastructure that enables cutting-edge
+            experimentation and research at-scale in the areas of networking, cybersecurity, 
+            distributed computing, storage, virtual reality, 5G, machine learning, and science 
+            applications.
+          </Paragraph>
+          <Paragraph>
+            The FABRIC infrastructure is a distributed set of equipment at commercial collocation 
+            spaces, national labs and campuses. Each of the 29 FABRIC sites has large amounts of 
+            compute and storage, interconnected by high speed, dedicated optical links. It also 
+            connects to specialized testbeds (5G/IoT PAWR, NSF Clouds), the Internet and 
+            high-performance computing facilities to create a rich environment for a wide 
+            variety of experimental activities.
+          </Paragraph>
+          <Paragraph>
+            <Link to="/about/fab" secondary>FABRIC Across Borders (FAB)</Link> extends 
+            the network to 4 additional nodes in Asia and Europe.
+          </Paragraph>
+        </Module> 
+        <Module title="FABRIC Capabilities">
+          {
+              capabilities.map(capability => {
+                  return (
+                      <CapabilityContainer key={ capability.title }>
+                          <CapabilityHead>
+                              <CapabilityIcon fluid={ capability.icon.childImageSharp.fluid } />
+                              <CapabilityTitle>FABRIC { capability.title }</CapabilityTitle>
+                          </CapabilityHead>
+                          <CapabilityBody dangerouslySetInnerHTML={{ __html: capability.html }} />
+                      </CapabilityContainer>
+                  )
+              })
+          }
+        </Module>
+        <Module title="What is FABRIC?">
+          <Paragraph>
+              Below are two resources&mdash;a presentation and a webinar&mdash;that
+              may provide further information to assist with answering your FABRIC questions.
+          </Paragraph>
 
-            <Module>
-                <Paragraph>
-                    FABRIC is a unique national research infrastructure to enable
-                    cutting-edge and exploratory research at-scale in networking, cybersecurity,
-                    distributed computing and storage systems, machine learning, and science applications. 
-                </Paragraph>
-                <Paragraph>
-                    It is an <em>everywhere programmable</em> nationwide instrument comprised of novel extensible network elements
-                    equipped with large amounts of compute and storage, interconnected by high speed, dedicated optical links.
-                    It will connect a number of specialized testbeds (5G/IoT PAWR, NSF Clouds) and high-performance computing facilities
-                    to create a rich fabric for a wide variety of experimental activities.
-                </Paragraph>
-            </Module>
-            
-            <Module title="FABRIC Capabilities">
-                {
-                    capabilities.map(capability => {
-                        return (
-                            <CapabilityContainer key={ capability.title }>
-                                <CapabilityHead>
-                                    <CapabilityIcon fluid={ capability.icon.childImageSharp.fluid } />
-                                    <CapabilityTitle>FABRIC { capability.title }</CapabilityTitle>
-                                </CapabilityHead>
-                                <CapabilityBody dangerouslySetInnerHTML={{ __html: capability.html }} />
-                            </CapabilityContainer>
-                        )
-                    })
-                }
-            </Module>
- 
-            <Module title="What is FABRIC?">
-                <Paragraph>
-                    Below are two resources&mdash;a presentation and a webinar&mdash;that
-                    may provide further information to assist with answering your FABRIC questions.
-                </Paragraph>
-
-                <Grid fluid>
-
-                    <Row>
-                        <Col xs={ 12 } md={ 6 }>
-                            <Subheading>Presentation</Subheading>
-                            <ResponsiveVideoContainer>
-                                <iframe title="Presentation: What is FABRIC?" src="https://drive.google.com/file/d/1Wa8kkuyycSBRNjUZIVYXFbSRHt2n4Vhy/preview" width="100%" height="600"></iframe>
-                            </ResponsiveVideoContainer>
-                        </Col>
-                        <Col xs={ 12 } md={ 6 }>
-                            <Subheading>Webinar</Subheading>
-                            <ResponsiveVideoContainer>
-                               <iframe title="Webinar: What is FABRIC?" width="948" height="518" src="https://www.youtube.com/embed/ofLz_7rWTDg" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-                            </ResponsiveVideoContainer>
-                        </Col>
-                    </Row>
-                </Grid>
-            </Module>
-
-            
-            <Paragraph center style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <ButtonLink to="/resources/brochures" secondary>Download FABRIC Brochures</ButtonLink>
-            </Paragraph>
-
-        </AnimateOnMount>
-
+          <Grid fluid>
+            <Row>
+              <Col xs={ 12 } md={ 6 }>
+                <Subheading>Presentation</Subheading>
+                <ResponsiveVideoContainer>
+                  <iframe title="Presentation: What is FABRIC?" src="https://drive.google.com/file/d/1Wa8kkuyycSBRNjUZIVYXFbSRHt2n4Vhy/preview" width="100%" height="600"></iframe>
+                </ResponsiveVideoContainer>
+              </Col>
+              <Col xs={ 12 } md={ 6 }>
+                <Subheading>Webinar</Subheading>
+                <ResponsiveVideoContainer>
+                  <iframe title="Webinar: What is FABRIC?" width="948" height="518" src="https://www.youtube.com/embed/ofLz_7rWTDg" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                </ResponsiveVideoContainer>
+              </Col>
+            </Row>
+          </Grid>
+        </Module>
+        <Paragraph center style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <ButtonLink to="/resources/brochures" secondary>Download FABRIC Brochures</ButtonLink>
+        </Paragraph>
+      </AnimateOnMount>
     )
 }
 
