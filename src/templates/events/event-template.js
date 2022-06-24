@@ -57,9 +57,12 @@ export default ({ data, pageContext }) => {
             {fabricHosted ? (
               <Meta>
                 <b>{urlLabel ? urlLabel : "Registration"}</b>:{" "}
-                <a href={url} target="_blank" rel="noreferrer noopener">
-                  {url}
-                </a>
+                {
+                  !url ? "Registration link coming soon!" : 
+                  <a href={url} target="_blank" rel="noreferrer noopener">
+                    {url}
+                  </a>
+                }
               </Meta>
             ) : (
               <Meta>

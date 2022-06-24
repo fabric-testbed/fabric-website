@@ -22,7 +22,8 @@ export const topomap = {
     "CLOUDLAB": [-82.5369, 34.3738],
     "Dallas": [-96.7970, 30.7767],
     "FIU&AMPATH": [-81.1918, 27.2617],
-    "San Diego": [-116.1611, 34.7157],
+    // "San Diego": [-116.1611, 34.7157],
+    "Los Angeles": [-118.24, 34.05],
     "LBNL": [-122.2730, 37.8715],
     "SRI": [-121.1697, 36.4275],
     "UCSD": [-117.1611, 32.7157],
@@ -57,7 +58,7 @@ export const topomap = {
       { markerOffset: 15, name: "New York" },
       { markerOffset: 20, name: "Atlanta" },
       { markerOffset: -10, name: "Seattle" },
-      { markerOffset: -10, name: "San Diego" },
+      { markerOffset: -10, name: "Los Angeles" },
       { markerOffset: 20, name: "Dallas" },
       { markerOffset: 20, name: "StarLight" },
       { markerOffset: 18, name: "Washington" },
@@ -144,9 +145,9 @@ export const topomap = {
     "phase2": [
       // core - core
       { from: "Seattle", to: "Salt Lake City" },
-      { from: "Seattle", to: "San Diego" },
-      { from: "San Diego", to: "Salt Lake City" },
-      { from: "San Diego", to: "Dallas" },
+      { from: "Seattle", to: "Los Angeles" },
+      { from: "Los Angeles", to: "Salt Lake City" },
+      { from: "Los Angeles", to: "Dallas" },
       { from: "Salt Lake City" , to: "Kansas City" },
       { from: "Dallas", to: "Atlanta" },
       { from: "Kansas City", to: "StarLight" },
@@ -158,9 +159,9 @@ export const topomap = {
       { from: "Washington", to: "Atlanta"},
       { from: "FIU&AMPATH",to: "Atlanta"},
       // core - edge
-      { from: "LBNL",to: "San Diego"},
-      { from: "SRI",to: "San Diego"},
-      { from: "UCSD",to: "San Diego"},
+      { from: "LBNL",to: "Los Angeles"},
+      { from: "SRI",to: "Los Angeles"},
+      { from: "UCSD",to: "Los Angeles"},
       { from: "Utah", to: "Salt Lake City" },
       { from: "Kansas City", to: "GPN" },
       { from: "TACC", to: "Dallas" },
@@ -195,9 +196,9 @@ export const topomap = {
   lines_super:{
     "phase1": [],
     "phase2": [
-      { from: "StarLight", to:  "Washington" },
-      { from: "Dallas", to: "StarLight" },
-      { from: "San Diego", to: "Dallas" },
+      { from: "StarLight", to:  "New York" },
+      { from: "Salt Lake City", to: "StarLight" },
+      { from: "Los Angeles", to: "Salt Lake City" },
     ],
   },
   international_nodes: [
@@ -205,7 +206,7 @@ export const topomap = {
     { markerOffset: 12, name: "University of Bristol" },
     { markerOffset: -8, name: "University of Amsterdam" },
     { markerOffset: 12, name: "CERN" },
-    {  markerOffset: 12, name: "RNP&ANSP&RedCLARA"},
+    { markerOffset: 12, name: "RNP&ANSP&RedCLARA"},
   ],
   usa_core_nodes: [
     { markerOffset: -8, name: "New York" },
@@ -213,7 +214,7 @@ export const topomap = {
     { markerOffset: -8, name: "Salt Lake City" },
     { markerOffset: -8, name: "Kansas City" },
     { markerOffset: 12, name: "Atlanta" },
-    { markerOffset: 12, name: "San Diego" },
+    { markerOffset: 12, name: "Los Angeles" },
     { markerOffset: 12, name: "Dallas" },
     { markerOffset: -8, name: "StarLight" },
     { markerOffset: 12, name: "Washington" },
@@ -228,9 +229,9 @@ export const topomap = {
   ],
   usa_lines: [
     { from: "Seattle", to: "Salt Lake City" },
-    { from: "Seattle", to: "San Diego" },
-    { from: "San Diego", to: "Salt Lake City" },
-    { from: "San Diego", to: "Dallas" },
+    { from: "Seattle", to: "Los Angeles" },
+    { from: "Los Angeles", to: "Salt Lake City" },
+    { from: "Los Angeles", to: "Dallas" },
     { from: "Salt Lake City" , to: "Kansas City" },
     { from: "Dallas", to: "Atlanta" },
     { from: "Kansas City", to: "StarLight" },
@@ -243,8 +244,8 @@ export const topomap = {
     { from: "FIU", to: "Atlanta"},
   ],
   usa_lines_super: [
-    { from: "StarLight", to:  "Washington" },
-    { from: "Dallas", to: "StarLight" },
-    { from: "San Diego", to: "Dallas" },
+    { from: "StarLight", to:  "New York" },
+    { from: "Salt Lake City", to: "StarLight" },
+    { from: "Los Angeles", to: "Salt Lake City" },
   ]
 }
