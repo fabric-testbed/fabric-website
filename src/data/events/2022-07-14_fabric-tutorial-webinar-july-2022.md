@@ -1,5 +1,5 @@
 ---
-title: "FABRIC Tutorial Webinar: July '22"
+title: "FABRIC Tutorial Webinar: July 14, 2022"
 path: /events/fabric-tutorial-webinar-july-2022
 date: 2022-07-14
 display_date: July 14, 2022
@@ -10,7 +10,7 @@ fabricHosted: true
 presenter: Paul Ruth
 presentation_link: ""
 seo:
-  title: " FABRIC Tutorial Webinar: July '22"
+  title: "FABRIC Tutorial Webinar: July 14, 2022"
   description: The FABRIC team is proud to share its newest testbed release.
   keywords: ["Webinar", "FABRIC"]
 ---
