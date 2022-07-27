@@ -166,7 +166,7 @@ const HomePage = (props) => {
           FABRIC is supported in part by a Mid-Scale RI-1 NSF award under Grant
           No. 1935966.
         </Paragraph>
-        <img style={{ margin: '0 0 0 1.5rem' }} width={ isCompact ? '350' : '200' } src={ trustedciLogo } alt="Trusted CI Badge"/>
+        <img style={{ margin: '0 0 0 1.5rem' }} width="150" src={ trustedciLogo } alt="Trusted CI Badge"/>
       </div>
     </AnimateOnMount>
   )

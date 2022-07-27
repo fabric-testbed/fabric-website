@@ -6,7 +6,7 @@ const nsfLogoQuery = graphql`
             logos: edges {
                 node {
                     childImageSharp {
-                        fixed(fit: CONTAIN, height: 125) {
+                        fixed(fit: CONTAIN, height: 150) {
                             ...GatsbyImageSharpFixed
                         }
                     }

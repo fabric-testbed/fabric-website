@@ -133,7 +133,7 @@ const AboutFABPage = () => {
         <Paragraph noMargin>
           FAB is supported by NSF IRNC grants 2029200, 2020260, 2029176, 2029235, and 2029261.
         </Paragraph>
-        <img  width={ isCompact ? '250' : '200' } src={ trustedciLogo } alt="Trusted CI Badge"/>
+        <img width="150" src={ trustedciLogo } alt="Trusted CI Badge"/>
       </div>
     </AnimateOnMount>
 

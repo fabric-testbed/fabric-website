@@ -71,11 +71,6 @@ module.exports = [
               isExternalLink: false,
           },
           {
-              text: 'Beta Testers Request',
-              path: '/get-involved/beta-testers-request',
-              isExternalLink: false,
-          },
-          {
               text: 'Funding Opportunities',
               path: '/get-involved/funding-opportunities',
               isExternalLink: false,
@@ -83,7 +78,7 @@ module.exports = [
       ],
   },
   {
-      text: 'Portal',
+      text: 'Login',
       path: 'https://portal.fabric-testbed.net/',
   },
 ]
