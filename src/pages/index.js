@@ -8,6 +8,7 @@ import { Paragraph } from "../components/typography"
 import { Card, CardHeader, CardBody } from "../components/card"
 import { Module } from "../components/layout"
 import { useNSFLogo, useWindowWidth } from "../hooks"
+import trustedciLogo from '../images/supporters/trustedci.png'
 import {
   CapabilitiesModule,
   ContributorsModule,
@@ -165,6 +166,7 @@ const HomePage = (props) => {
           FABRIC is supported in part by a Mid-Scale RI-1 NSF award under Grant
           No. 1935966.
         </Paragraph>
+        <img style={{ margin: '0 0 0 1.5rem' }} width="150" src={ trustedciLogo } alt="Trusted CI Badge"/>
       </div>
     </AnimateOnMount>
   )
