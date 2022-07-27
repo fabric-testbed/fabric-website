@@ -7,8 +7,7 @@ import { SEO } from "../components/seo"
 import { Paragraph } from "../components/typography"
 import { Card, CardHeader, CardBody } from "../components/card"
 import { Module } from "../components/layout"
-import { useNSFLogo, useWindowWidth } from "../hooks"
-import trustedciLogo from '../images/supporters/trustedci.png'
+import { useSupportersLogos, useWindowWidth } from "../hooks"
 import {
   CapabilitiesModule,
   ContributorsModule,
@@ -32,7 +31,7 @@ const Blurb = styled(Paragraph)`
 
 const HomePage = (props) => {
   const { isCompact } = useWindowWidth()
-  const nsfLogo = useNSFLogo()
+  const { nsfLogo, trustedCILogo } = useSupportersLogos()
 
   return (
     <AnimateOnMount>
@@ -166,7 +165,17 @@ const HomePage = (props) => {
           FABRIC is supported in part by a Mid-Scale RI-1 NSF award under Grant
           No. 1935966.
         </Paragraph>
-        <img style={{ margin: '0 0 0 1.5rem' }} width="150" src={ trustedciLogo } alt="Trusted CI Badge"/>
+        <div
+          style={{
+            padding: "1rem",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Img fixed={trustedCILogo.childImageSharp.fixed} />
+        </div>
       </div>
     </AnimateOnMount>
   )
