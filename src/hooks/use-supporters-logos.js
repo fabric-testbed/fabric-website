@@ -5,6 +5,7 @@ const supportersLogosQuery = graphql`
         allFile(filter: {relativeDirectory: {eq: "supporters"}}) {
             logos: edges {
                 node {
+                    name
                     childImageSharp {
                         fixed(fit: CONTAIN, height: 150) {
                             ...GatsbyImageSharpFixed
@@ -19,7 +20,7 @@ const supportersLogosQuery = graphql`
 export const useSupportersLogos = () => {
     const { allFile } = useStaticQuery(supportersLogosQuery)
     return {
-        nsfLogo: allFile.logos[0].node,
-        trustedCILogo: allFile.logos[1].node,
+      nsfLogo: allFile.logos.filter(logo => logo.node.name === "nsf")[0].node,
+      trustedCILogo: allFile.logos.filter(logo => logo.node.name === "trustedci")[0].node,
     }
 }
