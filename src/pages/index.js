@@ -1,12 +1,13 @@
 import React from "react"
 import Img from "gatsby-image"
+import { Link } from 'gatsby'
 import { AnimateOnMount } from "../components/anim"
 import styled from "styled-components"
 import { SEO } from "../components/seo"
 import { Paragraph } from "../components/typography"
 import { Card, CardHeader, CardBody } from "../components/card"
 import { Module } from "../components/layout"
-import { useNSFLogo, useWindowWidth } from "../hooks"
+import { useSupportersLogos, useWindowWidth } from "../hooks"
 import {
   CapabilitiesModule,
   ContributorsModule,
@@ -30,7 +31,7 @@ const Blurb = styled(Paragraph)`
 
 const HomePage = (props) => {
   const { isCompact } = useWindowWidth()
-  const nsfLogo = useNSFLogo()
+  const { nsfLogo, trustedCILogo } = useSupportersLogos()
 
   return (
     <AnimateOnMount>
@@ -73,22 +74,25 @@ const HomePage = (props) => {
             >
               <AnimateOnMount slide="left">
                 <Paragraph style={{ fontSize: "90%" }}>
-                  FABRIC is a unique national research infrastructure to enable
-                  cutting-edge and exploratory research at-scale in networking,
-                  cybersecurity, distributed computing and storage systems,
-                  machine learning, and science applications.
+                  FABRIC (FABRIC is Adaptive ProgrammaBle Research Infrastructure
+                  for Computer Science and Science Applications) is an International
+                  infrastructure that enables cutting-edge experimentation and research
+                  at-scale in the areas of networking, cybersecurity, distributed
+                  computing, storage, virtual reality, 5G, machine learning, and science
+                  applications.
                 </Paragraph>
                 <Paragraph style={{ fontSize: "90%" }}>
-                  It is an <em>everywhere programmable</em> nationwide
-                  instrument comprised of novel extensible network elements
-                  equipped with large amounts of compute and storage,
-                  interconnected by high speed, dedicated optical links. It will
-                  connect a number of specialized testbeds (5G/IoT PAWR, NSF
-                  Clouds) and high-performance computing facilities to create a
-                  rich fabric for a wide variety of experimental activities.
+                  The FABRIC infrastructure is a distributed set of equipment at commercial 
+                  collocation spaces, national labs and campuses. Each of the 29 FABRIC 
+                  sites has large amounts of compute and storage, interconnected by high 
+                  speed, dedicated optical links. It also connects to specialized testbeds 
+                  (5G/IoT PAWR, NSF Clouds), the Internet and high-performance computing 
+                  facilities to create a rich environment for a wide variety of experimental 
+                  activities.
                 </Paragraph>
                 <Paragraph style={{ fontSize: '90%' }}>
-                  FABRIC Across Borders (FAB) extends the network to nodes in Asia and Europe for expanded scientific impact.
+                  <Link to="/about/fab" secondary>FABRIC Across Borders (FAB)</Link> extends the
+                  network to 4 additional nodes in Asia and Europe.
                 </Paragraph>
               </AnimateOnMount>
             </Col>
@@ -161,6 +165,17 @@ const HomePage = (props) => {
           FABRIC is supported in part by a Mid-Scale RI-1 NSF award under Grant
           No. 1935966.
         </Paragraph>
+        <div
+          style={{
+            padding: "1rem",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Img fixed={trustedCILogo.childImageSharp.fixed} />
+        </div>
       </div>
     </AnimateOnMount>
   )

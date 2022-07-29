@@ -37,8 +37,16 @@
 - name: "NSF 22-509"
   url: https://www.nsf.gov/pubs/2022/nsf22509/nsf22509.htm
   sortDate: 2022-06-23
-  displayDate: January 11. 2022; June 23, 2022
+  displayDate: June 23, 2022
 - name: "NSF 22-518"
   url: https://www.nsf.gov/pubs/2022/nsf22518/nsf22518.htm
   sortDate: 2022-02-11
   displayDate: February 11. 2022; Annually Thereafter
+- name: "NSF 22-517"
+  url: https://www.nsf.gov/pubs/2022/nsf22517/nsf22517.htm
+  sortDate: 2023-12-31
+  displayDate: Proposals Accepted Anytime
+- name: "NSF 22-582"
+  url: https://www.nsf.gov/pubs/2022/nsf22582/nsf22582.htm
+  sortDate: 2022-06-27
+  displayDate: June 27, 2022

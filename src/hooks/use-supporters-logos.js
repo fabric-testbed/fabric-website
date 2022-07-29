@@ -1,12 +1,12 @@
 import { graphql, useStaticQuery } from 'gatsby'
 
-const nsfLogoQuery = graphql`
+const supportersLogosQuery = graphql`
     query {
         allFile(filter: {relativeDirectory: {eq: "supporters"}}) {
             logos: edges {
                 node {
                     childImageSharp {
-                        fixed(fit: CONTAIN, height: 100) {
+                        fixed(fit: CONTAIN, height: 150) {
                             ...GatsbyImageSharpFixed
                         }
                     }
@@ -16,7 +16,10 @@ const nsfLogoQuery = graphql`
     }
 `
 
-export const useNSFLogo = () => {
-    const { allFile } = useStaticQuery(nsfLogoQuery)
-    return allFile.logos[0].node
+export const useSupportersLogos = () => {
+    const { allFile } = useStaticQuery(supportersLogosQuery)
+    return {
+        nsfLogo: allFile.logos[0].node,
+        trustedCILogo: allFile.logos[1].node,
+    }
 }

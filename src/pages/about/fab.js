@@ -6,12 +6,12 @@ import { Title, Heading, Subheading, Paragraph } from '../../components/typograp
 import { ExternalLink } from '../../components/link'
 import { List, ListItem } from '../../components/list'
 import { contributors } from '../../data'
-import { useNSFLogo, useWindowWidth } from "../../hooks"
+import { useSupportersLogos, useWindowWidth } from "../../hooks"
 import { MapPhase3 } from '../../components/modules/map-phase-3'
 
 const AboutFABPage = () => {
   const { isCompact } = useWindowWidth()
-  const nsfLogo = useNSFLogo()
+  const { nsfLogo, trustedCILogo } = useSupportersLogos()
   const fabCoreTeam = contributors.find(team => team.id === 'fab-core-team')
   return (
     <AnimateOnMount>
@@ -132,6 +132,17 @@ const AboutFABPage = () => {
         <Paragraph noMargin>
           FAB is supported by NSF IRNC grants 2029200, 2020260, 2029176, 2029235, and 2029261.
         </Paragraph>
+        <div
+          style={{
+            padding: "1rem",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Img fixed={trustedCILogo.childImageSharp.fixed} />
+        </div>
       </div>
     </AnimateOnMount>
 

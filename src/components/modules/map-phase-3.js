@@ -11,7 +11,7 @@ import fabricMapLegend3 from "../../images/fabric-map/map-legend-phase3.png"
 
 import { topomap } from "../../data/topomap.js"
 
-const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
+const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
 
 export const MapPhase3 = props => {
   return (
