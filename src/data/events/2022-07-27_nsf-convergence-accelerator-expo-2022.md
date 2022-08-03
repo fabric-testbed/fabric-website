@@ -1,7 +1,7 @@
 ---
 title: NSF Convergence Accelerator Expo 2022
 path: /events/nsf-convergence-accelerator-expo-2022.md
-date: 2022–07-27
+date: 2022-07-27
 display_date: July 27, 2022
 location: Virtual
 url: https://nsf-ca-expo2022.vfairs.com/
