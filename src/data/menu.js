@@ -78,7 +78,7 @@ module.exports = [
       ],
   },
   {
-      text: 'Portal Login/Signup',
+      text: 'Login/Signup',
       path: 'https://portal.fabric-testbed.net/',
   },
 ]
