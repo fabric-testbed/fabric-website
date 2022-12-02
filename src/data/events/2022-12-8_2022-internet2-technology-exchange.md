@@ -1,7 +1,7 @@
 ---
 title: 2022 Internet2 Technology Exchange
 path: /events/2022-internet2-technology-exchange
-date: 2022-12-8
+date: 2022-12-08
 display_date: December 5 - 8, 2022
 location: Denver, CO
 url: https://internet2.edu/2022-technology-exchange/
