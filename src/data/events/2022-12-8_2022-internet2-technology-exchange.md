@@ -5,14 +5,15 @@ date: 2022-12-08
 display_date: December 5 - 8, 2022
 location: Denver, CO
 url: https://internet2.edu/2022-technology-exchange/
-tags: ["Anita Nikolich", "Ilya Baldin", "Paul Ruth", "FABRIC"]
+tags: ["Anita Nikolich", "Ilya Baldin", "Paul Ruth", "FABRIC", "Internet2"]
 fabricHosted: false
 presenter: Ilya Baldin, Anita Nikolich, Paul Ruth
 presentation_link: ""
 seo:
   title: 2022 Internet2 Technology Exchange
   description: "Internet2 invites innovating minds in multiple fields to share their expertise in a venue designed for the cross-pollination of ideas."
-  keywords: ["Anita Nikolich", "Ilya Baldin", "Paul Ruth", "FABRIC"]
+  keywords:
+    ["Anita Nikolich", "Ilya Baldin", "Paul Ruth", "FABRIC", "Internet2"]
 ---
 
 Internet2 invites innovating minds in the field of trust and federated identity, virtual organizations, cloud services, security, high-performance computing, storage, and networking—especially research and implementation—to share their expertise in a venue designed for the cross-pollination of ideas.
