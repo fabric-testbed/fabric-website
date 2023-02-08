@@ -43,6 +43,7 @@ export const topomap = {
     "UMass": [-72.6162, 42.2043],
     "CHAMELEON": [-88.3173, 41.8962],
     "COSMOS": [-75.9162, 42.2043],
+    "HAWI": [-157.8581, 21.3099],
   },
   core_nodes: {
     "phase1": [
@@ -196,6 +197,10 @@ export const topomap = {
       { from: "StarLight", to:  "New York" },
       { from: "Salt Lake City", to: "StarLight" },
       { from: "Los Angeles", to: "Salt Lake City" },
+      { from: "Los Angeles", to: "Dallas" },
+      { from: "Atlanta", to: "Dallas" },
+      { from: "Atlanta", to: "Washington" },
+      { from: "New York", to: "Washington" },
     ],
   },
   international_nodes: [
@@ -244,5 +249,9 @@ export const topomap = {
     { from: "StarLight", to:  "New York" },
     { from: "Salt Lake City", to: "StarLight" },
     { from: "Los Angeles", to: "Salt Lake City" },
+    { from: "Los Angeles", to: "Dallas" },
+    { from: "Atlanta", to: "Dallas" },
+    { from: "Atlanta", to: "Washington" },
+    { from: "New York", to: "Washington" },
   ]
 }
