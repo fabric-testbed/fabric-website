@@ -18,11 +18,11 @@ export const MapPhase3 = props => {
     <div style={{marginTop: "1rem"}} className="fabric-map">
     <ComposableMap
       projection="geoEqualEarth"
-      width={800}
+      width={830}
       height={500}
       projectionConfig={{
         scale: 300,
-        center: [ -55, 15],
+        center: [ -66, 13],
       }}
     >
     <Geographies

@@ -8,6 +8,7 @@ import {
   Geography,
   Marker,
   Line,
+  ZoomableGroup
 } from "react-simple-maps";
 
 import { MapPhase3 } from './map-phase-3'
@@ -18,7 +19,7 @@ import { topomap } from "../../data/topomap.js"
 
 const geoUrl = {
   "phase1": "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json",
-  "phase2": "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json",
+  "phase2": "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json",
 };
 
 const Tabs = styled.article`
@@ -27,6 +28,7 @@ const Tabs = styled.article`
     display: flex;
     justify-content: center;
     width: 100%;
+    padding-bottom: 1.5rem;
 `
 const Tab = styled(Button)`
     display: flex;
@@ -67,11 +69,21 @@ export const MapModule = props => {
             { tabIndex === 2 && <MapPhase3 />}
             { tabIndex !== 2 && 
             <ComposableMap
-              projection="geoAlbersUsa"
-              width={800}
+              projection={tabIndex === 0 ? "geoAlbersUsa" : "geoEqualEarth"} 
+              width={tabIndex === 0 ? 800 : 850}
               height={500}
+              projectionConfig={tabIndex === 0 ? {} : {scale: 900}}
             >
-              <Geographies geography={geoUrl[dataset[tabIndex]]}>
+              <ZoomableGroup
+                center={tabIndex === 0 ? [-100, 37] : [-100, 35]}
+                zoom={tabIndex === 0 ? 0.9 : 1}
+              >
+              <Geographies
+                geography={geoUrl[dataset[tabIndex]]}
+                fill="#cde4ef"
+                stroke="#FFFFFF"
+                strokeWidth={0.8}  
+              >
                 {({ geographies }) => (
                   <>
                     {geographies.map(geo => (
@@ -174,6 +186,7 @@ export const MapModule = props => {
                   </Marker>
                 ))
               }
+          </ZoomableGroup>
         </ComposableMap>
         }
         </div>
