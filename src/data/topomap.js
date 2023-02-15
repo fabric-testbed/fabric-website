@@ -44,7 +44,6 @@ export const topomap = {
     "CHAMELEON": [-88.3173, 41.8962],
     "COSMOS": [-75.9162, 42.2043],
     "HAWI": [-157.8581, 21.3099],
-    // "HAWI": [-130.3321, 45.6062],
   },
   core_nodes: {
     "phase1": [
@@ -212,7 +211,7 @@ export const topomap = {
     { markerOffset: 12, name: "University of Bristol" },
     { markerOffset: -8, name: "University of Amsterdam" },
     { markerOffset: 12, name: "CERN" },
-    { markerOffset: 12, name: "RNP&ANSP&RedCLARA"},
+    // { markerOffset: 12, name: "RNP&ANSP&RedCLARA"},
   ],
   usa_core_nodes: [
     { markerOffset: -8, name: "New York" },
@@ -230,10 +229,12 @@ export const topomap = {
   international_lines: [
     { from: "Seattle", to: "University of Tokyo" },
     { from: "Los Angeles", to: "University of Tokyo" },
-    { from: "New York", to: "University of Bristol" },
+    { from: "Washington", to: "University of Bristol" },
+    { from: "University of Amsterdam", to: "University of Bristol" },
     { from: "New York", to: "University of Amsterdam" },
-    { from: "New York", to: "CERN" },
-    { from: "RNP&ANSP&RedCLARA", to: "FIU" },
+    { from: "Washington", to: "CERN" },
+    { from: "University of Amsterdam", to: "CERN" },
+    // { from: "RNP&ANSP&RedCLARA", to: "FIU" },
   ],
   usa_lines: [
     { from: "Seattle", to: "Salt Lake City" },
