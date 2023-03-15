@@ -9,10 +9,8 @@ import {
 } from "react-simple-maps";
 
 import fabricMapLegend3 from "../../images/fabric-map/map-legend-phase3.png"
-
-import { topomap } from "../../data/topomap.js"
-
-const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json";
+import { topomap } from "../../data/map/topomap.js"
+import { default as worldsData } from "../../data/map/world-countries.json";
 
 export const MapPhase3 = props => {
   return (
@@ -30,7 +28,7 @@ export const MapPhase3 = props => {
         zoom={1}
       >
         <Geographies
-          geography={geoUrl}
+          geography={worldsData}
           fill="#cde4ef"
           stroke="#FFFFFF"
           strokeWidth={0.5}

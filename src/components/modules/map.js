@@ -15,11 +15,13 @@ import { MapPhase3 } from './map-phase-3'
 import fabricMapLegend1 from "../../images/fabric-map/map-legend-phase1.png"
 import fabricMapLegend2 from "../../images/fabric-map/map-legend-phase2.png"
 
-import { topomap } from "../../data/topomap.js"
+import { topomap } from "../../data/map/topomap.js"
+import { default as statesData } from "../../data/map/state-10m.json";
+import { default as worldsData } from "../../data/map/world-countries.json";
 
-const geoUrl = {
-  "phase1": "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json",
-  "phase2": "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json",
+const geoData = {
+  "phase1": statesData,
+  "phase2": worldsData,
 };
 
 const Tabs = styled.article`
@@ -79,7 +81,7 @@ export const MapModule = props => {
                 zoom={tabIndex === 0 ? 0.9 : 1}
               >
               <Geographies
-                geography={geoUrl[dataset[tabIndex]]}
+                geography={geoData[dataset[tabIndex]]}
                 fill="#cde4ef"
                 stroke="#FFFFFF"
                 strokeWidth={0.8}  
