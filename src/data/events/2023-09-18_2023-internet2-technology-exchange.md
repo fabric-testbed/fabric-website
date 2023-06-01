@@ -1,6 +1,6 @@
 ---
 title: 2023 Internet2 Technology Exchange
-path: /events/ieee-infocom-2023
+path: /events/2023-internet2-technology-exchange
 date: 2023-09-18
 display_date: September 18, 2023
 location: Minneapolis, MN
