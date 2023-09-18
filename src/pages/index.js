@@ -15,7 +15,7 @@ import {
   NewsFeedModule,
   PartnersModule,
   TimelineModule,
-  TwitterFeedModule,
+  // TwitterFeedModule,
 } from "../components/modules"
 import { Container, Row, Col, Visible } from "react-grid-system"
 
@@ -107,7 +107,7 @@ const HomePage = (props) => {
       <Module>
         <Container>
           <Row>
-            <Col xs={12} lg={8} style={{ marginBottom: "2rem" }}>
+            <Col xs={12} lg={12} style={{ marginBottom: "2rem" }}>
               <Card style={{ height: "calc(100% - 2rem)" }}>
                 <CardHeader center>Recent News</CardHeader>
                 <CardBody>
@@ -115,7 +115,7 @@ const HomePage = (props) => {
                 </CardBody>
               </Card>
             </Col>
-            <Col xs={12} lg={4} style={{ marginBottom: "2rem" }}>
+            {/* <Col xs={12} lg={4} style={{ marginBottom: "2rem" }}>
               <Card style={{ height: "calc(100% - 2rem)" }}>
                 <CardHeader center>Twitter Feed</CardHeader>
                 <CardBody
@@ -128,7 +128,7 @@ const HomePage = (props) => {
                   <TwitterFeedModule count={5} />
                 </CardBody>
               </Card>
-            </Col>
+            </Col> */}
           </Row>
         </Container>
       </Module>
