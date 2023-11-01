@@ -15,6 +15,4 @@ seo:
   keywords: ["Bryttany Todd"]
 ---
 
-The Research Infrastructure Workshop (RIW) is a collaborative forum for all the National Science Foundation’s Research Infrastructure Projects.
-
-Bryttany Todd from the FABRIC team will sit on the Mid-scale RI Panel: Lessons Learned from the Awardee Perspective at 4:05 PM ET on June 27.
+The Research Infrastructure Workshop (RIW) is a collaborative forum for all the National Science Foundation’s Research Infrastructure Projects. Bryttany Todd from the FABRIC team will sit on the Mid-scale RI Panel: Lessons Learned from the Awardee Perspective at 4:05 PM ET on June 27.
