@@ -20,8 +20,8 @@ module.exports = [
       },
       {
         text: 'Leadership',
-        path: '/about/leadership',
-        isExternalLink: false,
+        path: 'https://portal.fabric-testbed.net/about/leadership',
+        isExternalLink: true,
       },
     ],
   },
@@ -67,8 +67,8 @@ module.exports = [
       },
       {
         text: 'Funding Opportunities',
-        path: '/get-involved/funding-opportunities',
-        isExternalLink: false,
+        path: 'https://portal.fabric-testbed.net/community/funding-opportunities',
+        isExternalLink: true,
       },
     ],
   },
