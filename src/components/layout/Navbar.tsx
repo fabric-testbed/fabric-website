@@ -82,10 +82,10 @@ export function Navbar() {
                   {item.children && isOpen && (
                     <div
                       onMouseLeave={() => setDropdown(null)}
-                      className="absolute top-full left-0 mt-1 min-w-[220px] bg-white rounded-xl py-1.5 z-50 animate-fade-in"
+                      className="absolute top-full left-0 mt-1 min-w-[220px] bg-white rounded-xl overflow-hidden z-50 animate-fade-in"
                       style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.12)" }}
                     >
-                      {item.children.map((child) => {
+                      {item.children.map((child, ci) => {
                         const isExternal = child.href.startsWith("http");
                         return (
                           <Link
@@ -94,26 +94,17 @@ export function Navbar() {
                             target={isExternal ? "_blank" : undefined}
                             rel={isExternal ? "noopener noreferrer" : undefined}
                             onClick={() => setDropdown(null)}
-                            className="flex items-start gap-2 px-4 py-2.5 hover:bg-fabric-light transition-colors group"
+                            className={`flex items-center justify-between px-4 py-3 hover:bg-fabric-light transition-colors group${ci > 0 ? " border-t border-fabric-gray-200" : ""}`}
                           >
-                            <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-1.5">
-                                <span
-                                  className="text-sm font-medium group-hover:text-fabric-blue transition-colors"
-                                  style={{ color: "#404041" }}
-                                >
-                                  {child.label}
-                                </span>
-                                {isExternal && (
-                                  <ExternalLink className="h-3 w-3 text-fabric-gray-400 shrink-0" />
-                                )}
-                              </div>
-                              {child.desc && (
-                                <p className="text-xs text-fabric-gray-400 mt-0.5 leading-snug">
-                                  {child.desc}
-                                </p>
-                              )}
-                            </div>
+                            <span
+                              className="text-sm group-hover:text-fabric-blue transition-colors leading-snug"
+                              style={{ color: "#404041" }}
+                            >
+                              {child.label}
+                            </span>
+                            {isExternal && (
+                              <ExternalLink className="h-3.5 w-3.5 text-fabric-gray-400 shrink-0 ml-2" />
+                            )}
                           </Link>
                         );
                       })}
