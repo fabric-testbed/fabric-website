@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X, ChevronDown, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -32,38 +33,15 @@ export function Navbar() {
         <nav className="flex items-center justify-between h-16" ref={dropdownRef}>
 
           {/* ── Logo ── */}
-          <Link href="/" className="flex items-center gap-2.5 shrink-0">
-            {/* FABRIC logo icon — two overlapping diamond/hexagon shapes */}
-            <svg
-              width="36" height="32"
-              viewBox="0 0 36 32"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              {/* Back diamond (teal/blue) */}
-              <path
-                d="M22 1L35 9.5V19.5L22 28L9 19.5V9.5L22 1Z"
-                fill="#2196C9"
-              />
-              {/* Front diamond (dark) */}
-              <path
-                d="M14 4L27 12V22L14 30L1 22V12L14 4Z"
-                fill="#404041"
-              />
-              {/* Overlap highlight */}
-              <path
-                d="M18 7L28 13.5V20.5L18 27L8 20.5V13.5L18 7Z"
-                fill="#2196C9"
-                opacity="0.5"
-              />
-            </svg>
-            <span
-              className="font-bold text-lg tracking-tight"
-              style={{ color: "#404041" }}
-            >
-              FABRIC
-            </span>
+          <Link href="/" className="shrink-0">
+            <Image
+              src="/imgs/fabric-brand.png"
+              alt="FABRIC"
+              width={140}
+              height={30}
+              className="h-8 w-auto"
+              priority
+            />
           </Link>
 
           {/* ── Desktop nav ── */}

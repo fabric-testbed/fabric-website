@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Linkedin, Github, Youtube, Mail } from "lucide-react";
 
 const footerLinks = {
@@ -29,13 +30,14 @@ export function Footer() {
 
           {/* Logo + copyright */}
           <div>
-            <Link href="/" className="flex items-center gap-2 mb-4">
-              <svg width="28" height="24" viewBox="0 0 28 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14 0L28 8V16L14 24L0 16V8L14 0Z" fill="white" opacity="0.15"/>
-                <path d="M14 3L25 9.5V16.5L14 21L3 16.5V9.5L14 3Z" fill="white" opacity="0.35"/>
-                <path d="M14 6L22 11V16L14 19L6 16V11L14 6Z" fill="white"/>
-              </svg>
-              <span className="font-bold text-white text-lg tracking-tight">FABRIC</span>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/imgs/fabric-brand.png"
+                alt="FABRIC"
+                width={140}
+                height={30}
+                className="h-8 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="text-white/50 text-xs leading-relaxed">
               &copy; FABRIC {currentYear}
@@ -83,10 +85,13 @@ export function Footer() {
 
             {/* NSF funding notice */}
             <div className="flex items-start gap-2">
-              {/* NSF logo placeholder */}
-              <div className="h-8 w-8 rounded-full bg-fabric-blue/40 flex items-center justify-center shrink-0 mt-0.5">
-                <span className="text-white text-[9px] font-bold">NSF</span>
-              </div>
+              <Image
+                src="/imgs/nsf.png"
+                alt="NSF"
+                width={32}
+                height={32}
+                className="h-8 w-8 shrink-0 mt-0.5"
+              />
               <p className="text-white/40 text-[10px] leading-relaxed">{nsfGrants}</p>
             </div>
           </div>
