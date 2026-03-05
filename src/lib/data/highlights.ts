@@ -20,13 +20,12 @@ export const projectHighlights: ProjectHighlight[] = [
     href:             "/community/project-highlights/high-speed-secure-streaming",
   },
   {
-    slug:             "intelligent-networking",
+    slug:             "2-intelligent-networking",
     title:            "Making Intelligent Networking More Accessible",
-    researcher:       "Fatou Secka",
-    institution:      "RENCI",
+    institution:      "University of South Carolina",
     domain:           "AI / Machine Learning",
     imagePlaceholder: "bg-gradient-to-br from-blue-500 to-cyan-400",
-    href:             "/community/project-highlights/intelligent-networking",
+    href:             "/community/project-highlights/2-intelligent-networking",
   },
   {
     slug:             "l4s-deployment",
