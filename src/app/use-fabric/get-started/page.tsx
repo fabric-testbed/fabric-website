@@ -104,38 +104,54 @@ function TestimonialCarousel() {
   return (
     <div className="py-16 bg-fabric-off-white">
       <div className="page-container max-w-4xl">
-        <div className="flex flex-col sm:flex-row items-start gap-10">
-          {/* Photo */}
-          <div className="shrink-0 relative w-[160px] h-[180px]">
-            <div className="absolute bottom-0 right-0 w-[140px] h-[160px] rounded-2xl" style={{ background: "#2196C9" }} />
-            <div className="absolute top-0 left-0 w-[140px] h-[160px] rounded-2xl overflow-hidden bg-fabric-gray-200 flex items-center justify-center">
-              <span className="text-3xl font-bold text-fabric-blue">{t.photoPlaceholder}</span>
+
+        {/* Slide */}
+        <div key={idx} className="flex flex-col sm:flex-row items-start gap-10 animate-fade-in">
+          {/* Photo stack */}
+          <div className="shrink-0 relative w-[200px] h-[220px] self-start">
+            <div
+              className="absolute bottom-0 right-0 w-[180px] h-[200px] rounded-2xl"
+              style={{ background: "#2196C9" }}
+            />
+            <div className="absolute top-0 left-0 w-[180px] h-[200px] rounded-2xl overflow-hidden bg-fabric-gray-100 flex items-center justify-center">
+              {t.photo ? (
+                <Image src={t.photo} alt={t.name} fill className="object-cover object-top" />
+              ) : (
+                <span className="text-4xl font-bold text-fabric-blue">{t.photoPlaceholder}</span>
+              )}
             </div>
           </div>
 
           {/* Text */}
           <div className="flex-1 min-w-0">
-            <h3 className="text-lg font-bold text-fabric-navy">{t.name}</h3>
-            <p className="text-sm font-semibold text-fabric-teal uppercase tracking-wide mb-3">{t.institution}</p>
-            <p className="text-sm text-fabric-gray-600 leading-relaxed mb-6">"{t.quote}"</p>
-
-            <div className="flex items-center justify-between">
-              {/* Nav dots */}
-              <div className="flex items-center gap-2">
-                {testimonials.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setIdx(i)}
-                    className={`h-2.5 w-2.5 rounded-full transition-colors ${i === idx ? "bg-fabric-gray-500" : "bg-fabric-gray-300"}`}
-                  />
-                ))}
-              </div>
-              <Link href={t.href} className="btn-yellow text-sm px-5 py-2">Learn More</Link>
+            <h3 className="text-xl font-bold text-fabric-navy mb-0.5">{t.name}</h3>
+            <p className="text-base font-semibold text-fabric-teal uppercase tracking-wide mb-4">
+              {t.institution}
+            </p>
+            <p className="text-sm text-fabric-gray-600 leading-relaxed mb-8">"{t.quote}"</p>
+            <div className="flex justify-end">
+              <Link href={t.href} className="btn-yellow">Learn More</Link>
             </div>
-
-            <p className="text-sm italic text-fabric-teal mt-4 font-medium">{t.topic}</p>
           </div>
         </div>
+
+        {/* Topic + dots — centered below */}
+        <div className="mt-8 flex flex-col items-center gap-3">
+          <p className="text-xl italic font-semibold text-fabric-blue">{t.topic}</p>
+          <div className="flex items-center gap-2.5">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIdx(i)}
+                aria-label={`Slide ${i + 1}`}
+                className={`h-3 w-3 rounded-full transition-colors ${
+                  i === idx ? "bg-fabric-gray-500" : "bg-fabric-gray-300"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   );

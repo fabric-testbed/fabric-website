@@ -4,7 +4,8 @@ export interface Testimonial {
   institution: string;
   quote:       string;
   topic:       string; // e.g. "FABRIC Does 5G Networking"
-  photoPlaceholder: string; // initials or color
+  photo?:      string; // path to photo, falls back to photoPlaceholder
+  photoPlaceholder: string; // initials shown when no photo
   href:        string;
 }
 
@@ -25,6 +26,15 @@ export const testimonials: Testimonial[] = [
     quote:       "FABRIC stands out because of its end-to-end programmability. This allows users to program all the elements of the network, from network interface cards (NICs) to P4 switches, offering a unique platform for research and innovation in network design.",
     topic:       "FABRIC Does Intelligent Networking",
     photoPlaceholder: "EK",
-    href:        "/community/highlights/intelligent-networking-elie",
+    href:        "/community/project-highlights/2-intelligent-networking",
+  },
+  {
+    id:          "fengping-hu",
+    name:        "Fengping Hu",
+    institution: "University of Chicago",
+    quote:       "We make extensive use of FABRIC's flexible networking configuration. The scalable infrastructure allows us to deploy and manage cloud-native services to address the growing challenges of real-time data processing for high-energy physics applications.",
+    topic:       "FABRIC Does Particle Physics",
+    photoPlaceholder: "FH",
+    href:        "/community/project-highlights/big-data-particle-physics",
   },
 ];
