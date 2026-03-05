@@ -247,7 +247,7 @@ export default function AboutPage() {
             {/* Download brochure CTA */}
             <div className="flex justify-end mt-8">
               <a
-                href="https://fabric-testbed.net/brochure"
+                href="https://drive.google.com/file/d/1TSTNYTxcmQrFhj5riToWUxLDrY5YC7H-/preview"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-yellow"

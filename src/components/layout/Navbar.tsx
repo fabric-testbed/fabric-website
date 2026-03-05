@@ -37,8 +37,8 @@ export function Navbar() {
             <Image
               src="/imgs/fabric-brand.png"
               alt="FABRIC"
-              width={140}
-              height={30}
+              width={85}
+              height={25}
               className="h-8 w-auto"
               priority
             />
