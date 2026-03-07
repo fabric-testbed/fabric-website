@@ -64,9 +64,9 @@ export default function PartnersPage() {
             </p>
 
             {/* Core partners */}
-            <div className="flex flex-wrap items-center justify-center gap-10 mb-16 pb-12 border-b border-fabric-gray-200">
+            <div className="flex flex-wrap items-center justify-center gap-5 mb-1 pb-12 border-fabric-gray-200">
               {corePartners.map(({ file, alt, height }) => (
-                <div key={file} className="relative" style={{ height: `${height}px`, width: "160px" }}>
+                <div key={file} className="relative" style={{ height: `${height}px`, width: "150px" }}>
                   <Image
                     src={`/imgs/partners/${file}`}
                     alt={alt}
@@ -78,7 +78,7 @@ export default function PartnersPage() {
             </div>
 
             {/* All other partners */}
-            <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8">
+            <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-8">
               {partners.map(({ file, alt }) => (
                 <div key={file} className="relative" style={{ height: "36px", width: "120px" }}>
                   <Image

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -99,14 +99,26 @@ function NetworkDiagram() {
 // ── Testimonial carousel ──────────────────────────────────────────────────────
 function TestimonialCarousel() {
   const [idx, setIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
   const t = testimonials[idx];
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => setIdx((i) => (i + 1) % testimonials.length), 3000);
+    return () => clearInterval(id);
+  }, [paused]);
 
   return (
     <div className="py-16 bg-fabric-off-white">
       <div className="page-container max-w-4xl">
 
         {/* Slide */}
-        <div key={idx} className="flex flex-col sm:flex-row items-start gap-10 animate-fade-in">
+        <div
+          key={idx}
+          className="flex flex-col sm:flex-row items-start gap-10 animate-fade-in"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
           {/* Photo stack */}
           <div className="shrink-0 relative w-[200px] h-[220px] self-start">
             <div
@@ -145,7 +157,7 @@ function TestimonialCarousel() {
                 onClick={() => setIdx(i)}
                 aria-label={`Slide ${i + 1}`}
                 className={`h-3 w-3 rounded-full transition-colors ${
-                  i === idx ? "bg-fabric-gray-500" : "bg-fabric-gray-300"
+                  i === idx ? "bg-fabric-gray-600" : "bg-fabric-gray-400"
                 }`}
               />
             ))}
@@ -216,7 +228,7 @@ export default function GetStartedPage() {
         </section>
 
         {/* ── Section 4: How do I Sign Up? ─────────────────────────── */}
-        <section className="py-16 bg-fabric-off-white">
+        <section className="py-16 bg-fabric-gray-100">
           <div className="page-container max-w-4xl">
             <h2 className="text-2xl font-bold text-fabric-blue mb-3">How do I Sign Up?</h2>
             <p className="text-sm text-fabric-gray-600 leading-relaxed mb-10">
@@ -250,7 +262,7 @@ export default function GetStartedPage() {
         </section>
 
         {/* ── Section 5: Available Support ─────────────────────────── */}
-        <section className="py-16 bg-fabric-off-white">
+        <section className="py-16 bg-white">
           <div className="page-container max-w-5xl">
             <h2 className="text-2xl font-bold text-fabric-navy mb-10 text-center">Available Support</h2>
 

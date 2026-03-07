@@ -1,23 +1,34 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { testimonials } from "@/lib/data/testimonials";
 
 export function TestimonialCarousel() {
   const [idx, setIdx] = useState(0);
+  const [paused, setPaused] = useState(false);
   const current = testimonials[idx];
 
   const prev = () => setIdx((i) => (i - 1 + testimonials.length) % testimonials.length);
   const next = () => setIdx((i) => (i + 1) % testimonials.length);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => setIdx((i) => (i + 1) % testimonials.length), 3000);
+    return () => clearInterval(id);
+  }, [paused]);
 
   return (
     <section className="section bg-white">
       <div className="page-container">
         <div className="max-w-3xl mx-auto">
 
-          <div className="flex flex-col sm:flex-row gap-7 items-start">
+          <div
+            className="flex flex-col sm:flex-row gap-7 items-start"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          >
             {/* Photo */}
             <div className="shrink-0">
               <div className="h-[100px] w-[100px] rounded-2xl bg-gradient-to-br from-fabric-light to-fabric-sky/30 border border-fabric-gray-200 flex items-center justify-center text-fabric-blue font-bold text-2xl shadow-sm">

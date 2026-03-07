@@ -26,6 +26,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
+  main {
+    flex: 1;
+  }
+
   body {
     @apply bg-white text-fabric-gray-800;
   }

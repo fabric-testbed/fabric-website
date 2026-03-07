@@ -45,7 +45,7 @@ const solicitations: Opportunity[] = [
     name: "NSF 24-504",
     url: "https://new.nsf.gov/funding/opportunities/secure-trustworthy-cyberspace-satc/nsf24-504/solicitation",
     sortDate: "2025-01-01",
-    displayDate: "No deadline",
+    displayDate: "Archived",
   },
   {
     name: "NSF 23-576",

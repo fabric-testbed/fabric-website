@@ -30,7 +30,7 @@ export const navItems: NavItem[] = [
       { label: "Project Highlights",              href: "/community/project-highlights" },
       { label: "KNIT",                            href: "https://knit.fabric-testbed.net" },
       { label: "Events & Workshops",              href: "/community/events" },
-      { label: "News & Blogs",                    href: "/community/news" },
+      { label: "News & Blogs",                    href: "/news-and-blogs" },
     ],
   },
   {
@@ -39,7 +39,7 @@ export const navItems: NavItem[] = [
     children: [
       { label: "User Publications",               href: "/research/publications" },
       { label: "Cite FABRIC",                     href: "/research/cite" },
-      { label: "Collaboration & Grant Opportunities", href: "/research/partnerships" },
+      { label: "Collaboration & Grant Opportunities", href: "/research/opportunities" },
     ],
   },
   {
