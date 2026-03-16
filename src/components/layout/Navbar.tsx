@@ -45,7 +45,7 @@ export function Navbar() {
           </Link>
 
           {/* ── Desktop nav ── */}
-          <div className="hidden lg:flex items-center">
+          <div className="hidden xl:flex items-center">
             {navItems.map((item) => {
               const isActive = pathname.startsWith(item.href);
               const isOpen   = activeDropdown === item.label;
@@ -122,7 +122,7 @@ export function Navbar() {
               href="https://portal.fabric-testbed.net"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden lg:inline-flex items-center justify-center px-5 py-2 text-sm font-semibold transition-colors hover:bg-gray-50"
+              className="hidden xl:inline-flex items-center justify-center px-5 py-2 text-sm font-semibold transition-colors hover:bg-gray-50"
               style={{
                 color: "#404041",
                 border: "1px solid #707070",
@@ -135,7 +135,7 @@ export function Navbar() {
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden flex items-center justify-center h-9 w-9 rounded-lg hover:bg-fabric-gray-100 transition-colors"
+              className="xl:hidden flex items-center justify-center h-9 w-9 rounded-lg hover:bg-fabric-gray-100 transition-colors"
               aria-label="Toggle navigation"
             >
               {mobileOpen
@@ -150,7 +150,7 @@ export function Navbar() {
       {/* ── Mobile drawer ── */}
       {mobileOpen && (
         <div
-          className="lg:hidden bg-white max-h-[80vh] overflow-y-auto"
+          className="xl:hidden bg-white max-h-[80vh] overflow-y-auto"
           style={{ borderTop: "1px solid #e2e6ea" }}
         >
           <div className="page-container py-4 space-y-1">
