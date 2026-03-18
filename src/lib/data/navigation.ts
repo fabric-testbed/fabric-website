@@ -12,6 +12,7 @@ export const navItems: NavItem[] = [
       { label: "Overview",                        href: "/about" },
       { label: "Leadership",                      href: "/about/leadership" },
       { label: "Partners",                        href: "/about/partners" },
+      { label: "Branding",                        href: "/about/branding" },
     ],
   },
   {
@@ -47,7 +48,7 @@ export const navItems: NavItem[] = [
     href:  "/documentation",
     children: [
       { label: "Knowledge Base",                  href: "https://learn.fabric-testbed.net" },
-      { label: "Community Forum",                 href: "https://ask.fabric-testbed.net" },
+      { label: "Community Forum",                 href: "https://learn.fabric-testbed.net/forums" },
       { label: "Support",                         href: "/documentation/support" },
     ],
   },
