@@ -47,7 +47,7 @@ export default async function ArticlePage({ params }: { params: { slug: string }
 
             {/* Body */}
             <div
-              className="prose prose-sm max-w-none text-fabric-gray-600 leading-relaxed
+              className="article-body prose prose-sm max-w-none text-fabric-gray-600 leading-relaxed
                 prose-headings:text-fabric-navy prose-headings:font-semibold
                 prose-h2:text-lg prose-h2:mt-8 prose-h2:mb-3
                 prose-h3:text-base prose-h3:mt-6 prose-h3:mb-2

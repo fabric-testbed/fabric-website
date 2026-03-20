@@ -150,6 +150,34 @@
            text-center gap-2 font-semibold text-sm min-h-[90px];
   }
 
+  /* Article body — heading spacing */
+  .article-body h2 {
+    @apply text-lg font-semibold text-fabric-navy mt-10 mb-3;
+  }
+  .article-body h3 {
+    @apply text-base font-semibold text-fabric-navy mt-8 mb-2;
+  }
+  .article-body h4 {
+    @apply text-sm font-semibold text-fabric-navy mt-6 mb-1;
+  }
+  .article-body p {
+    @apply mb-4;
+  }
+  .article-body ul, .article-body ol {
+    @apply mb-4 pl-5 space-y-1;
+  }
+  .article-body ul { @apply list-disc; }
+  .article-body ol { @apply list-decimal; }
+  .article-body a {
+    @apply text-fabric-blue hover:underline;
+  }
+  .article-body strong {
+    @apply font-semibold text-fabric-navy;
+  }
+  .article-body hr {
+    @apply my-8 border-fabric-gray-200;
+  }
+
   /* Delay utilities */
   .delay-100 { animation-delay: 100ms; }
   .delay-200 { animation-delay: 200ms; }

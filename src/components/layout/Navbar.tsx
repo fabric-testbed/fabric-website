@@ -29,7 +29,7 @@ export function Navbar() {
       className="fixed inset-x-0 top-0 z-50 bg-white"
       style={{ boxShadow: "0 3px 3px rgba(0,0,0,0.16)" }}
     >
-      <div className="page-container">
+      <div className="w-full px-4 xl:px-6">
         <nav className="flex items-center justify-between h-16" ref={dropdownRef}>
 
           {/* ── Logo ── */}
@@ -57,7 +57,7 @@ export function Navbar() {
                     onFocus={() => setDropdown(item.label)}
                     onClick={() => setDropdown(isOpen ? null : item.label)}
                     className={cn(
-                      "flex items-center gap-0.5 whitespace-nowrap px-3 py-2 text-sm font-medium transition-colors",
+                      "flex items-center gap-0.5 whitespace-nowrap px-2 py-2 text-sm font-medium transition-colors",
                       isActive ? "text-fabric-blue" : "hover:text-fabric-blue"
                     )}
                     style={{ color: isActive ? undefined : "#404041" }}
