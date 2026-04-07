@@ -1,10 +1,9 @@
 ---
 title: "GPU Nodes on Federated Testbeds Workflow -- Mastering FABRIC: Tips and Tricks Webinar"
 date: "2025-10-21"
-type: "event"
-category: "webinar"
-fabric_hosted: true
-excerpt: "This session, led by Ben Formby, focused on the GPU Nodes on Federated Testbeds Workflow, a powerful approach for leveraging GPUs across research testbeds integrated with FABRIC."
+type: "webinar"
+category: "webinars"
+excerpt: "Time: 3:00 PM - 4:30 PM ET"
 tags:
   - events
   - mastering fabric: tips and tricks

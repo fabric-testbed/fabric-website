@@ -1,10 +1,9 @@
 ---
 title: "Bluefield NICs | Stitching Together Innovation with FABRIC Users"
 date: "2025-11-11"
-type: "event"
-category: "webinar"
-fabric_hosted: true
-excerpt: "This session featured Elie Kfoury, who led a technical deep dive into Bluefield NICs Experimentation on FABRIC."
+type: "webinar"
+category: "webinars"
+excerpt: "Time: 3:00 PM - 4:00 PM ET"
 tags:
   - events
 ---

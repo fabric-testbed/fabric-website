@@ -1,7 +1,7 @@
 ---
 title: "Mastering FABRIC: Tips and Tricks | Using Distributed Storage to Preserve and Reuse Your Experiment Data"
 fabric_hosted: true
-event_date: 2026-03-17
+date: "2026-03-17"
 location: "Online (Zoom Webinar)"
 registration_url: "https://renci.zoom.us/webinar/register/WN_YP_noxSrTpGu-8QpCYNvVA"
 time: "3:00 – 4:30 PM ET"

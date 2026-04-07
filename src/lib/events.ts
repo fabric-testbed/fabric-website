@@ -14,6 +14,7 @@ export interface EventMeta {
   location:         string;
   time:             string;
   description:      string;
+  category?:        string;
   registration_url?: string;
   tags?:            string[];
 }
@@ -44,6 +45,7 @@ export function getAllEventsMeta(): EventMeta[] {
         location:         String(data.location || ""),
         time:             String(data.time || ""),
         description:      String(data.description || data.excerpt || ""),
+        category:         data.category,
         registration_url: data.registration_url,
         tags:             data.tags,
       };
