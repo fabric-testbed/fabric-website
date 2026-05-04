@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { FabricTopomap, type TopoSite } from "@/components/ui/FabricTopomap";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 interface Site {
@@ -282,6 +283,13 @@ export default function ResourceMapPage() {
       .finally(() => setLoading(false));
   }, []);
 
+  // ── Topomap siteMap (keyed by displayName for FabricTopomap) ───────────────
+  const topoSiteMap = useMemo(() => {
+    const map: Record<string, TopoSite> = {};
+    for (const s of sites) map[s.displayName] = s as unknown as TopoSite;
+    return map;
+  }, [sites]);
+
   // ── Totals for summary row ──────────────────────────────────────────────────
   const totals = useMemo(() => {
     const t: Record<string, number> = {};
@@ -394,6 +402,9 @@ export default function ResourceMapPage() {
         {!loading && !error && (
           <div className="py-10 space-y-10 bg-fabric-off-white">
             <div className="page-container max-w-6xl space-y-10">
+
+              {/* ── Interactive Topomap ───────────────────────────── */}
+              <FabricTopomap siteMap={topoSiteMap} hideFooterLink />
 
               {/* ── Testbed Resource Summary ──────────────────────── */}
               <div>
