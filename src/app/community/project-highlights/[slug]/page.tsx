@@ -14,9 +14,10 @@ export async function generateStaticParams() {
 export default async function HighlightPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const highlight = await getHighlightBySlug(params.slug);
+  const { slug } = await params;
+  const highlight = await getHighlightBySlug(slug);
   if (!highlight) notFound();
 
   const { title, subtitle, image, imagePlaceholder, contentHtml, learnMore, researchers } = highlight;

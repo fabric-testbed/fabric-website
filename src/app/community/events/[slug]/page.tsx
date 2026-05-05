@@ -10,8 +10,9 @@ export async function generateStaticParams() {
   return getAllEventSlugs().map((slug) => ({ slug }));
 }
 
-export default async function EventPage({ params }: { params: { slug: string } }) {
-  const event = await getEventBySlug(params.slug);
+export default async function EventPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const event = await getEventBySlug(slug);
   if (!event) notFound();
 
   const date = new Date(event.event_date + "T12:00:00");

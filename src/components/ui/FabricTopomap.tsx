@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { Plus, Minus } from "lucide-react";
 import {
   ComposableMap,
@@ -263,10 +263,10 @@ export function FabricTopomap({ siteMap, defaultNode = "StarLight", hideFooterLi
                     const free  = selectedSite[`free${key}`  as keyof TopoSite] as number;
                     const total = selectedSite[`total${key}` as keyof TopoSite] as number;
                     return (
-                      <>
-                        <div key={`l-${key}`} className="text-xs text-fabric-gray-600 py-1.5 self-center">{label}</div>
-                        <div key={`b-${key}`} className="py-1.5 self-center"><ResourceBar free={free} total={total} /></div>
-                      </>
+                      <React.Fragment key={key}>
+                        <div className="text-xs text-fabric-gray-600 py-1.5 self-center">{label}</div>
+                        <div className="py-1.5 self-center"><ResourceBar free={free} total={total} /></div>
+                      </React.Fragment>
                     );
                   })}
                 </div>
