@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { stats } from "@/lib/data/stats";
 
@@ -38,6 +39,16 @@ export function ByTheNumbersSection() {
 
             {/* Desktop: scattered floating layout */}
             <div className="hidden lg:block relative" style={{ height: "340px" }}>
+              {/* Wave background graphic */}
+              <Image
+                src="/imgs/fabric-wave.png"
+                alt=""
+                aria-hidden="true"
+                fill
+                className="object-contain object-center pointer-events-none"
+                style={{ opacity: 0.12 }}
+              />
+
               {/* Faint connecting lines */}
               <svg
                 className="absolute inset-0 w-full h-full pointer-events-none"
