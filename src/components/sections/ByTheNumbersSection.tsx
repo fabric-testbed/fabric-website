@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { stats } from "@/lib/data/stats";
+import { fetchLiveMetrics } from "@/lib/data/metrics";
 
 // Positions for the scattered floating-stat layout (percent of container)
 const positions = [
@@ -11,7 +12,9 @@ const positions = [
   { top: "62%", left: "48%" },   // Total Projects — bottom-right
 ];
 
-export function ByTheNumbersSection() {
+export async function ByTheNumbersSection() {
+  const liveStats = await fetchLiveMetrics();
+  const displayStats = liveStats ?? stats;
   return (
     <section className="section bg-fabric-off-white">
       <div className="page-container">
@@ -23,7 +26,7 @@ export function ByTheNumbersSection() {
           <div className="flex-1 min-w-0">
             {/* Mobile: simple grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 lg:hidden">
-              {stats.map(({ value, label, detail }) => (
+              {displayStats.map(({ value, label, detail }) => (
                 <div
                   key={label}
                   className="group bg-white rounded-xl p-4 border border-fabric-gray-200 shadow-sm hover:border-fabric-sky hover:shadow-card transition-all cursor-default"
@@ -74,7 +77,7 @@ export function ByTheNumbersSection() {
               </svg>
 
               {/* Stat items */}
-              {stats.map(({ value, label, detail }, i) => {
+              {displayStats.map(({ value, label, detail }, i) => {
                 const pos = positions[i] ?? { top: `${i * 18}%`, left: "10%" };
                 return (
                   <div
@@ -108,7 +111,7 @@ export function ByTheNumbersSection() {
               <p className="text-xs font-semibold text-fabric-gray-400 uppercase tracking-wider mb-1">
                 Total Users
               </p>
-              <p className="stat-number text-4xl mb-1">{stats.find(s => s.label === "Total Users")?.value ?? "2,267"}</p>
+              <p className="stat-number text-4xl mb-1">{displayStats.find(s => s.label === "Total Users")?.value ?? "—"}</p>
               <p className="text-xs text-fabric-gray-400 mb-5 leading-snug">
                 The total number of individuals signed up as FABRIC users.
               </p>

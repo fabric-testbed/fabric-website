@@ -28,6 +28,9 @@ dist/
 *.tsbuildinfo
 next-env.d.ts
 
+# config (contains sensitive API URLs — copy config.json.template → config.json)
+config.json
+
 # misc
 .DS_Store
 *.pem

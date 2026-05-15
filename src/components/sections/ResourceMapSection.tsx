@@ -2,7 +2,12 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { FabricTopomap, type TopoSite } from "@/components/ui/FabricTopomap";
+import dynamic from "next/dynamic";
+import type { TopoSite } from "@/components/ui/FabricTopomap";
+const FabricTopomap = dynamic(
+  () => import("@/components/ui/FabricTopomap").then((m) => m.FabricTopomap),
+  { ssr: false }
+);
 
 const ACRONYM_TO_SHORT: Record<string, string> = {
   RENC:"RENCI", UKY:"UKY", LBNL:"LBNL", STAR:"StarLight", MAX:"MAX",

@@ -7,7 +7,12 @@ import {
 } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { FabricTopomap, type TopoSite } from "@/components/ui/FabricTopomap";
+import dynamic from "next/dynamic";
+import type { TopoSite } from "@/components/ui/FabricTopomap";
+const FabricTopomap = dynamic(
+  () => import("@/components/ui/FabricTopomap").then((m) => m.FabricTopomap),
+  { ssr: false }
+);
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 interface Site {
