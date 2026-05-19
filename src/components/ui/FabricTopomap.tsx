@@ -30,6 +30,44 @@ export interface TopoSite {
   freeSwitch:   number; totalSwitch:   number;
 }
 
+const ACRONYM_TO_LONG: Record<string, string> = {
+  RENC:   "Renaissance Computing Institute",
+  UKY:    "University of Kentucky",
+  LBNL:   "Lawrence Berkeley National Laboratory",
+  STAR:   "StarLight",
+  MAX:    "Mid-Atlantic Crossroads",
+  TACC:   "Texas Advanced Computing Center",
+  MICH:   "University of Michigan",
+  MASS:   "UMass (MGHPCC)",
+  UTAH:   "University of Utah",
+  NCSA:   "National Center for Supercomputing Applications",
+  WASH:   "University of Washington",
+  DALL:   "Dallas",
+  SALT:   "Salt Lake City",
+  UCSD:   "UC San Diego",
+  GPN:    "Great Plains Network",
+  FIU:    "Florida International University",
+  CLEM:   "Clemson University",
+  GATECH: "Georgia Institute of Technology",
+  LOSA:   "Los Angeles",
+  NEWY:   "New York",
+  KANS:   "Kansas City",
+  ATLA:   "Atlanta",
+  SEAT:   "Seattle",
+  PRIN:   "Princeton University",
+  INDI:   "Indiana University",
+  PSC:    "Pittsburgh Supercomputing Center",
+  RUTG:   "Rutgers University",
+  SRI:    "SRI International",
+  CERN:   "CERN",
+  BRIST:  "University of Bristol",
+  AMST:   "University of Amsterdam",
+  TOKY:   "University of Tokyo",
+  HAWI:   "Hawaii",
+  EDC:    "EDC",
+  EDUKY:  "EDUKY",
+};
+
 const RESOURCE_ROWS = [
   { key: "Core",      label: "Cores"     },
   { key: "Disk",      label: "Disk (GB)" },
@@ -43,7 +81,7 @@ const RESOURCE_ROWS = [
 ];
 
 function nodeColor(type: string, selected: boolean, down: boolean) {
-  if (selected)                 return "#F97316";
+  if (selected)                 return "#059669";
   if (down)                     return "#838385";
   if (type === "international") return "#F5C518";
   if (type === "us_core")       return "#2196C9";
@@ -76,16 +114,14 @@ function StatusBadge({ state }: { state?: string }) {
 }
 
 function ResourceBar({ free, total }: { free: number; total: number }) {
-  const pct = total > 0 ? Math.round(((total - free) / total) * 100) : 0;
+  const pct = total > 0 ? Math.round((free / total) * 100) : 0;
   return (
-    <div className="flex items-center gap-2">
-      <div className="flex-1 h-4 rounded bg-fabric-gray-100 overflow-hidden">
-        {total > 0 && (
-          <div className="h-full rounded bg-fabric-teal transition-all" style={{ width: `${Math.min(pct, 100)}%` }} />
-        )}
-      </div>
-      <span className="text-xs font-mono text-fabric-navy whitespace-nowrap w-20 text-right">
-        {total > 0 ? `${free}/${total}` : "0/0"}
+    <div className="relative h-5 rounded bg-fabric-gray-100 overflow-hidden">
+      {total > 0 && (
+        <div className="absolute inset-y-0 left-0 rounded bg-fabric-teal transition-all" style={{ width: `${Math.min(pct, 100)}%` }} />
+      )}
+      <span className="absolute inset-0 flex items-center justify-center text-[11px] font-normal font-mono text-fabric-navy whitespace-nowrap">
+        {free}/{total}
       </span>
     </div>
   );
@@ -220,6 +256,10 @@ export function FabricTopomap({ siteMap, defaultNode = "StarLight", hideFooterLi
             <span className="inline-block w-2 h-2 rounded-full bg-fabric-blue" />
             <span>Edge site</span>
           </div>
+          <div className="flex items-center gap-2">
+            <span className="inline-block w-2 h-2 rounded-full bg-fabric-yellow" />
+            <span>International site</span>
+          </div>
         </div>
       </div>
 
@@ -229,17 +269,17 @@ export function FabricTopomap({ siteMap, defaultNode = "StarLight", hideFooterLi
           <>
             {/* Header */}
             <div className="px-4 pt-4 pb-3 border-b border-fabric-gray-200">
-              <p className="text-sm font-bold text-fabric-teal uppercase tracking-wide leading-snug">
-                {selectedSite ? selectedSite.name : selectedNode.toUpperCase()}
+              <div className="flex items-center gap-2 flex-wrap">
+                <p className="text-sm font-bold text-fabric-teal uppercase tracking-wide leading-snug">
+                  {selectedSite ? selectedSite.name : selectedNode.toUpperCase()}
+                </p>
+                {selectedSite && <StatusBadge state={selectedSite.status?.state} />}
+              </div>
+              <p className="text-xs text-fabric-gray-400 mt-0.5 leading-snug">
+                {selectedSite
+                  ? (ACRONYM_TO_LONG[selectedSite.name] ?? selectedSite.displayName)
+                  : selectedNode}
               </p>
-              <p className="text-xs text-fabric-gray-400 mt-0.5">
-                {selectedSite ? selectedSite.displayName : selectedNode}
-              </p>
-              {selectedSite && (
-                <div className="mt-2">
-                  <StatusBadge state={selectedSite.status?.state} />
-                </div>
-              )}
             </div>
 
             {/* Body */}
