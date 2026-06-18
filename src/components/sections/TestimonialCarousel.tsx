@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { testimonials } from "@/lib/data/testimonials";
 
 export function TestimonialCarousel() {
@@ -10,86 +10,95 @@ export function TestimonialCarousel() {
   const [paused, setPaused] = useState(false);
   const current = testimonials[idx];
 
-  const prev = () => setIdx((i) => (i - 1 + testimonials.length) % testimonials.length);
-  const next = () => setIdx((i) => (i + 1) % testimonials.length);
-
   useEffect(() => {
     if (paused) return;
-    const id = setInterval(() => setIdx((i) => (i + 1) % testimonials.length), 3000);
+    const id = setInterval(() => setIdx((i) => (i + 1) % testimonials.length), 5000);
     return () => clearInterval(id);
   }, [paused]);
 
-  return (
-    <section className="section bg-white">
-      <div className="page-container">
-        <div className="max-w-3xl mx-auto">
+  function goTo(i: number) {
+    setIdx(i);
+    setPaused(true);
+    setTimeout(() => setPaused(false), 5000);
+  }
 
-          <div
-            className="flex flex-col sm:flex-row gap-7 items-start"
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-          >
-            {/* Photo */}
-            <div className="shrink-0">
-              <div className="h-[100px] w-[100px] rounded-2xl bg-gradient-to-br from-fabric-light to-fabric-sky/30 border border-fabric-gray-200 flex items-center justify-center text-fabric-blue font-bold text-2xl shadow-sm">
-                {current.photoPlaceholder}
-              </div>
+  return (
+    <section className="relative section bg-white overflow-hidden">
+      {/* Fabric wave watermark */}
+      <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-start opacity-[0.06]">
+        <Image src="/imgs/fabric-wave.png" alt="" aria-hidden="true" width={520} height={520} className="object-contain" />
+      </div>
+
+      <div
+        className="page-container relative"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        {/* Main row — items-end so text aligns to blue card top */}
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col sm:flex-row gap-10 items-end">
+
+            {/* Photo — blue card with photo overflowing above */}
+            <div className="shrink-0 relative w-[370px] h-[270px] self-end">
+              {/* Blue card — fills the container */}
+              <div className="absolute inset-0 bg-[#2196C9] rounded-2xl border-2 border-[#7AD4EE]" />
+              {/* Photo — anchored to bottom, overflows above */}
+              {current.photo ? (
+                <Image
+                  src={current.photo}
+                  alt={current.name}
+                  width={500}
+                  height={500}
+                  className="testimonial-photo"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center text-white font-bold text-6xl">
+                  {current.photoPlaceholder}
+                </div>
+              )}
             </div>
 
-            {/* Content */}
-            <div className="flex-1 min-w-0">
-              <p className="font-bold text-fabric-navy text-base leading-tight mb-0.5">
+            {/* Text content — aligned to top of blue card */}
+            <div className="flex-1 min-w-0 pb-2">
+              <p className="font-bold text-fabric-navy text-2xl leading-tight mb-1">
                 {current.name}
               </p>
-              <p className="text-fabric-teal text-xs font-bold uppercase tracking-widest mb-4">
+              <p className="text-fabric-teal text-base font-bold uppercase tracking-widest mb-4">
                 {current.institution}
               </p>
-              <blockquote className="text-fabric-gray-600 text-sm leading-relaxed mb-5">
+              <blockquote className="text-fabric-gray-600 text-[15px] leading-relaxed">
                 &ldquo;{current.quote}&rdquo;
               </blockquote>
-              <Link href={current.href} className="btn-yellow text-sm">
-                Learn More
-              </Link>
             </div>
           </div>
 
-          {/* Topic label + navigation */}
-          <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-fabric-gray-200 pt-6">
-            <p className="text-fabric-teal font-semibold text-base italic">{current.topic}</p>
-
-            <div className="flex items-center gap-3">
-              {/* Dot indicators */}
-              <div className="flex gap-1.5">
-                {testimonials.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setIdx(i)}
-                    className={`h-2 rounded-full transition-all duration-200 ${
-                      i === idx ? "w-5 bg-fabric-teal" : "w-2 bg-fabric-gray-200 hover:bg-fabric-sky"
-                    }`}
-                    aria-label={`Go to testimonial ${i + 1}`}
-                  />
-                ))}
-              </div>
-
-              {/* Prev / Next */}
-              <button
-                onClick={prev}
-                className="h-7 w-7 rounded-full border border-fabric-gray-200 flex items-center justify-center hover:bg-fabric-light transition-colors"
-                aria-label="Previous testimonial"
-              >
-                <ChevronLeft className="h-4 w-4 text-fabric-gray-600" />
-              </button>
-              <button
-                onClick={next}
-                className="h-7 w-7 rounded-full border border-fabric-gray-200 flex items-center justify-center hover:bg-fabric-light transition-colors"
-                aria-label="Next testimonial"
-              >
-                <ChevronRight className="h-4 w-4 text-fabric-gray-600" />
-              </button>
-            </div>
+          {/* Learn More — right-aligned across full width */}
+          <div className="flex justify-end mt-6">
+            <Link href={current.href} className="btn-yellow">
+              Learn More
+            </Link>
           </div>
+        </div>
 
+        {/* Topic + dots — centered */}
+        <div className="max-w-5xl mx-auto mt-6 text-center">
+          <p className="text-fabric-teal font-semibold text-2xl italic mb-4">
+            {current.topic}
+          </p>
+          <div className="flex items-center justify-center gap-2.5">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                aria-label={`Go to testimonial ${i + 1}`}
+                className={`w-3.5 h-3.5 rounded-full border-2 transition-all duration-200 ${
+                  i === idx
+                    ? "bg-fabric-gray-500 border-fabric-gray-500"
+                    : "bg-white border-fabric-gray-300 hover:border-fabric-gray-400"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -36,7 +36,7 @@ function HighlightCard({ title, image, imagePlaceholder, href }: {
       </div>
       {/* Caption bar */}
       <div
-        className="px-5 py-4"
+        className="px-5 py-4 h-[80px] flex items-center justify-center"
         style={{ background: "#2196C9" }}
       >
         <p className="text-white text-sm font-semibold leading-snug text-center">

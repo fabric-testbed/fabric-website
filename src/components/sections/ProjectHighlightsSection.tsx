@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { projectHighlights } from "@/lib/data/highlights";
 
@@ -33,13 +34,16 @@ export function ProjectHighlightsSection({ showFilters = false }: ProjectHighlig
         )}
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {projectHighlights.map(({ slug, title, imagePlaceholder, href }) => (
+          {projectHighlights.map(({ slug, title, image, imagePlaceholder, href }) => (
             <Link
               key={slug}
               href={href}
               className="group block rounded-2xl overflow-hidden border border-fabric-gray-200 hover:border-fabric-sky hover:shadow-card-hover transition-all"
             >
-              <div className={`${imagePlaceholder} h-44 relative`}>
+              <div className={`${image ? "" : imagePlaceholder} h-44 relative`}>
+                {image && (
+                  <Image src={image} alt={title} fill className="object-cover" />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-4">
                   <p className="text-white font-semibold text-sm leading-snug group-hover:underline">
                     {title}

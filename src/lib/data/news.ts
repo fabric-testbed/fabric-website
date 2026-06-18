@@ -40,6 +40,17 @@ export const newsItems: NewsItem[] = [
 
 export const eventItems: EventItem[] = [
   {
+    slug:      "2026-09-28-knit13-a-fabric-community-workshop",
+    date:      "2026-09-28",
+    month:     "Sep",
+    day:       "28",
+    year:      "2026",
+    timeRange: "Washington, DC",
+    title:     "KNIT13: Networking for the Future",
+    excerpt:   "KNIT13 brings together the FABRIC community for a day of advanced training, plenary sessions, and hands-on exploration of cutting-edge research networking. Co-located with the PAWR PI Meeting in Washington, DC.",
+    href:      "/community/events/2026-09-28-knit13-a-fabric-community-workshop",
+  },
+  {
     slug:      "advancing-ai-driven-user-support",
     date:      "2026-01-20",
     month:     "Jan",

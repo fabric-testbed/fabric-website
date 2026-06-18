@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const capabilities = [
@@ -64,63 +65,22 @@ export function WhatCanIDoSection() {
             </Link>
           </div>
 
-          {/* Right: "Still have questions" card — dark city aerial photo look */}
-          <div>
-            <div
-              className="relative rounded-2xl overflow-hidden"
-              style={{ minHeight: "260px" }}
-            >
-              {/* City-at-night gradient simulation */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: "linear-gradient(160deg, #0d1b2e 0%, #1a2e4a 30%, #0f2544 60%, #071522 100%)",
-                }}
+          {/* Right: "Still have questions" card */}
+          <div className="flex flex-col items-center gap-6">
+            <div className="relative rounded-2xl overflow-hidden w-full" style={{ aspectRatio: "16/9" }}>
+              <Image
+                src="/imgs/city-network.png"
+                alt="City skyline with network overlay"
+                fill
+                className="object-cover"
               />
-              {/* Ambient light dots to mimic aerial city lights */}
-              <div className="absolute inset-0 overflow-hidden">
-                {[
-                  { x:"12%", y:"18%", s:"180px", o:"0.07" },
-                  { x:"55%", y:"10%", s:"220px", o:"0.06" },
-                  { x:"80%", y:"35%", s:"200px", o:"0.09" },
-                  { x:"35%", y:"55%", s:"260px", o:"0.06" },
-                  { x:"70%", y:"70%", s:"180px", o:"0.08" },
-                  { x:"10%", y:"75%", s:"150px", o:"0.05" },
-                ].map((blob, i) => (
-                  <div
-                    key={i}
-                    className="absolute rounded-full"
-                    style={{
-                      left: blob.x, top: blob.y,
-                      width: blob.s, height: blob.s,
-                      background: "radial-gradient(circle, rgba(245,197,24,1) 0%, transparent 70%)",
-                      opacity: blob.o,
-                      transform: "translate(-50%,-50%)",
-                    }}
-                  />
-                ))}
-                {/* Blue ambient glow */}
-                <div
-                  className="absolute"
-                  style={{
-                    left:"50%", top:"40%",
-                    width:"350px", height:"350px",
-                    background: "radial-gradient(circle, rgba(33,150,201,0.25) 0%, transparent 70%)",
-                    transform: "translate(-50%,-50%)",
-                  }}
-                />
-              </div>
-
-              {/* Overlay text */}
-              <div className="relative z-10 flex flex-col items-center justify-center h-full p-8" style={{ minHeight: "260px" }}>
-                <p className="text-white font-semibold text-lg text-center mb-5 drop-shadow">
-                  Still have questions about FABRIC?
-                </p>
-                <Link href="/documentation/support" className="btn-yellow">
-                  Click Here
-                </Link>
-              </div>
             </div>
+            <p className="text-fabric-teal font-semibold text-lg text-center">
+              Still have questions<br />about FABRIC?
+            </p>
+            <Link href="/documentation/support" className="btn-yellow">
+              Click Here
+            </Link>
           </div>
 
         </div>

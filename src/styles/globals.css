@@ -5,6 +5,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Testimonial photo ────────────────────────────── */
+/* Fill card width, anchor to bottom so the transparent
+   top of the cutout photo reveals the blue background */
+.testimonial-photo {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 82%;
+  height: auto;
+  /* photo is taller than the blue card, so it overflows above */
+}
+
 /* ── CSS Variables ────────────────────────────────── */
 :root {
   --font-inter: "Inter", system-ui, sans-serif;
