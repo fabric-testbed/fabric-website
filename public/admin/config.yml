@@ -1,0 +1,53 @@
+local_backend: true
+
+backend:
+  name: github
+  repo: fabric-testbed/fabric-website
+  branch: main
+
+media_folder: "public/imgs/uploads"
+public_folder: "/imgs/uploads"
+
+collections:
+  - name: "news"
+    label: "News & Blogs"
+    folder: "content/news-and-blogs"
+    create: true
+    slug: "{{fields.date}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Type", name: "type", widget: "select", options: ["news", "blog"], default: "news" }
+      - { label: "Category", name: "category", widget: "select", options: ["announcements", "research", "community", "technical", "maintenance", "webinar-recap"], default: "announcements" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["news"] }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "events"
+    label: "Events"
+    folder: "content/events"
+    create: true
+    slug: "{{fields.date}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Type", name: "type", widget: "hidden", default: "event" }
+      - { label: "Category", name: "category", widget: "select", options: ["workshop", "webinar", "conference", "meeting"], default: "webinar" }
+      - { label: "FABRIC Hosted", name: "fabric_hosted", widget: "boolean", default: true }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["events"] }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "highlights"
+    label: "Project Highlights"
+    folder: "content/highlights"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "text" }
+      - { label: "Card Image", name: "image", widget: "image", required: false }
+      - { label: "Institution", name: "institution", widget: "string" }
+      - { label: "Domain", name: "domain", widget: "select", options: ["Networking", "AI / Machine Learning", "Physics", "Climate Science", "Security", "5G / Wireless", "Data & Storage", "Other"] }
+      - { label: "Body", name: "body", widget: "markdown" }

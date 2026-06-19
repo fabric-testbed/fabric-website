@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>FABRIC CMS</title>
+  <style>
+    /* Hide Decap logo */
+    [class*="Logo"], [class*="logo"] {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
+  <script>
+    // Replace Decap logo with FABRIC logo after CMS renders
+    var observer = new MutationObserver(function() {
+      var root = document.getElementById('nc-root');
+      if (!root) return;
+
+      // Hide any SVG/logo elements
+      root.querySelectorAll('[class*="Logo"], [class*="logo"]').forEach(function(el) {
+        el.style.display = 'none';
+      });
+
+      // Add FABRIC logo if not already added
+      if (!document.getElementById('fabric-logo')) {
+        var loginPage = root.querySelector('[class*="LoginPage"]') || root.querySelector('section');
+        if (loginPage) {
+          var logo = document.createElement('img');
+          logo.id = 'fabric-logo';
+          logo.src = '/imgs/fabric-brand.png';
+          logo.alt = 'FABRIC';
+          logo.style.cssText = 'display:block;width:250px;margin:0 auto 30px;';
+          var firstChild = loginPage.firstChild;
+          if (firstChild) {
+            loginPage.insertBefore(logo, firstChild);
+          }
+        }
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  </script>
+</body>
+</html>
