@@ -1,12 +1,13 @@
 # FABRIC Website
 
-Next.js 14 marketing and documentation site for the [FABRIC Testbed](https://fabric-testbed.net) — a large-scale, programmable research infrastructure for networking, cybersecurity, distributed computing, and AI/ML research.
+Next.js 16 marketing and documentation site for the [FABRIC Testbed](https://fabric-testbed.net) — a large-scale, programmable research infrastructure for networking, cybersecurity, distributed computing, and AI/ML research.
 
 ## Tech Stack
 
 | Tool | Version | Purpose |
 |---|---|---|
-| Next.js | 14 (App Router) | Framework, routing, SSG |
+| Next.js | 16 (App Router) | Framework, routing, SSG |
+| Decap CMS | 3 | Content management for non-technical editors |
 | TypeScript | 5 | Type safety |
 | Tailwind CSS | 3 | Styling + design tokens |
 | react-simple-maps | 3 | Interactive topology map |
@@ -67,7 +68,7 @@ src/
 │   │   ├── Navbar.tsx                     # Fixed responsive nav, xl: breakpoint, dropdown menus
 │   │   └── Footer.tsx                     # Dark navy footer with NSF notice
 │   ├── sections/                          # Homepage section components
-│   │   ├── HeroSection.tsx               # Dark gradient hero with animated SVG network globe
+│   │   ├── HeroSection.tsx               # Dark hero with network globe background image
 │   │   ├── TestimonialCarousel.tsx        # User quote carousel with topic dots
 │   │   ├── WhatCanIDoSection.tsx          # 3 capability cards
 │   │   ├── ResourceMapSection.tsx         # Fetches live data → renders FabricTopomap + CTA
@@ -99,8 +100,14 @@ src/
 content/
 ├── news-and-blogs/                        # 40+ Markdown articles (news + blog posts)
 │   └── *.md                              # Frontmatter: title, date, type, category, excerpt
-└── events/                               # 30+ Markdown event files
-    └── *.md                              # Frontmatter: title, date, fabric_hosted, excerpt, tags
+├── events/                               # 30+ Markdown event files
+│   └── *.md                              # Frontmatter: title, date, fabric_hosted, excerpt, tags
+└── highlights/                           # Project highlight detail pages
+    └── *.md                              # Frontmatter: title, slug, image, institution, domain
+
+public/admin/                              # Decap CMS (content management UI)
+├── index.html                            # CMS entry point
+└── config.yml                            # Collections: news, events, highlights
 ```
 
 ## Pages & Routes
@@ -127,9 +134,23 @@ content/
 | `/documentation/support` | Static | Support cards (forum, tickets, office hours) |
 | `/use-fabric/get-started` | Static | New-user onboarding page |
 
-## Content System (Markdown CMS)
+## Content System (Markdown + Decap CMS)
 
-Articles and events are file-based, parsed with `gray-matter` + `remark`.
+Articles, events, and project highlights are file-based, parsed with `gray-matter` + `remark`.
+
+Non-technical editors can manage content via **Decap CMS** at `/admin/` — no coding required. The CMS commits `.md` files directly to the repo.
+
+### Local CMS Development
+
+```bash
+# In a separate terminal:
+npx decap-server          # starts local proxy on port 8081
+# Then visit http://localhost:3000/admin/index.html
+```
+
+> **Note:** `local_backend: true` must be set in `public/admin/config.yml` for local dev. Remove it for production.
+
+### Frontmatter Formats
 
 **News & Blogs** (`content/news-and-blogs/*.md`):
 ```yaml
@@ -137,8 +158,10 @@ Articles and events are file-based, parsed with `gray-matter` + `remark`.
 title: "Article Title"
 date: "2025-12-10"
 type: "news"          # news | blog
-category: "community" # any string
+category: "community" # announcements | research | community | technical | maintenance | webinar-recap
 excerpt: "Short summary shown on listing page."
+tags:
+  - news
 ---
 Markdown body...
 ```
@@ -148,11 +171,25 @@ Markdown body...
 ---
 title: "Event Title"
 date: "2026-04-21"
+type: "event"
 fabric_hosted: true
-category: "webinar"   # webinar | workshop | …
+category: "webinar"   # webinar | workshop | conference | meeting
 excerpt: "Short description shown on listing page."
 tags:
   - events
+---
+Markdown body...
+```
+
+**Project Highlights** (`content/highlights/*.md`):
+```yaml
+---
+title: "Highlight Title"
+slug: "highlight-slug"
+subtitle: "Short description"
+image: "/imgs/highlights/image.jpg"
+institution: "University Name"
+domain: "Networking"
 ---
 Markdown body...
 ```
@@ -181,3 +218,12 @@ Markdown body...
 | `fabric-off-white` | `#F5F7FA` | Alternating section backgrounds |
 
 Global component classes are defined in `src/styles/globals.css`: `btn-yellow`, `btn-blue`, `btn-outline`, `btn-white`, `card`, `card-blue`, `badge`, `section-label`, `stat-number`, `article-body`.
+
+## CMS Production Setup
+
+To enable Decap CMS in production:
+
+1. Remove `local_backend: true` from `public/admin/config.yml`
+2. Update `backend.repo` to your actual GitHub repo (e.g., `your-org/your-repo`)
+3. Set up authentication (GitHub OAuth or Netlify Identity)
+4. Marketing staff access the CMS at `https://yoursite.com/admin/`
