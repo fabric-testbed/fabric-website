@@ -34,13 +34,10 @@ export function Navbar() {
 
           {/* ── Logo ── */}
           <Link href="/" className="shrink-0">
-            <Image
+            <img
               src="/imgs/fabric-brand.png"
               alt="FABRIC"
-              width={85}
-              height={25}
               className="h-8 w-auto"
-              priority
             />
           </Link>
 
