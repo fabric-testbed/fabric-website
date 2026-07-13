@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { getAllEventsMeta } from "@/lib/events";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -20,7 +21,9 @@ export default function EventsPage() {
             <p className="text-sm text-fabric-gray-600 leading-relaxed mb-10">
               The following is a list of upcoming events hosted by the FABRIC team or our community members.
             </p>
-            <EventsClient upcoming={upcoming} past={past} />
+            <Suspense>
+              <EventsClient upcoming={upcoming} past={past} />
+            </Suspense>
           </div>
         </section>
       </main>

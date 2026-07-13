@@ -11,7 +11,7 @@ wp_id: 7046
 views: 731
 tags:
   - events
-  - mastering fabric: tips and tricks
+  - "mastering fabric: tips and tricks"
   - webinar
 ---
 

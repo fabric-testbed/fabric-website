@@ -5,7 +5,7 @@ type: "webinar"
 category: "webinars"
 excerpt: "Time: 3:00 PM - 4:00 PM ET"
 tags:
-  - mastering fabric: tips and tricks
+  - "mastering fabric: tips and tricks"
   - webinar
 ---
 

@@ -6,6 +6,16 @@ import html from "remark-html";
 
 const ARTICLES_DIR = path.join(process.cwd(), "content/news-and-blogs");
 
+function embedYouTube(html: string): string {
+  const iframe = (id: string) =>
+    `<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0;border-radius:0.75rem"><iframe src="https://www.youtube.com/embed/${id}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe></div>`;
+  html = html.replace(/<a[^>]*href="https?:\/\/(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)[^"]*"[^>]*>[^<]*<\/a>/g, (_, id) => iframe(id));
+  html = html.replace(/<p>\s*https?:\/\/(?:www\.)?youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)[^\s<]*\s*<\/p>/g, (_, id) => iframe(id));
+  html = html.replace(/<a[^>]*href="https?:\/\/youtu\.be\/([a-zA-Z0-9_-]+)[^"]*"[^>]*>[^<]*<\/a>/g, (_, id) => iframe(id));
+  html = html.replace(/<p>\s*https?:\/\/youtu\.be\/([a-zA-Z0-9_-]+)[^\s<]*\s*<\/p>/g, (_, id) => iframe(id));
+  return html;
+}
+
 export interface ArticleMeta {
   slug:     string;
   title:    string;
@@ -52,6 +62,6 @@ export async function getArticleBySlug(slug: string): Promise<ArticleDetail | nu
     slug,
     ...(data as Omit<ArticleMeta, "slug">),
     date: String(data.date).slice(0, 10),
-    contentHtml: processed.toString(),
+    contentHtml: embedYouTube(processed.toString()),
   };
 }

@@ -20,7 +20,7 @@ const dryRun = process.argv.includes("--dry-run");
 // Categories/tags that indicate an event (webinar, workshop, conference, etc.)
 const EVENT_CATEGORIES = new Set([
   "events", "past events", "webinars", "webinar",
-  "fabric hosted events", "fabric in-depth",
+  "fabric hosted events",
   "stitching together innovation",
   "mastering fabric: tips and tricks",
   "knit",

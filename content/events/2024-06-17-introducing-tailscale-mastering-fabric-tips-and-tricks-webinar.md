@@ -6,7 +6,7 @@ category: "webinars"
 excerpt: "Dr. Ruth will introduce and demonstrate the practical benefits of Tailscale, a program that can significantly enhance your FABRIC experience. Tailscale simplifies secure network connectivity, making it easier for you to access your experiments dir..."
 tags:
   - events
-  - mastering fabric: tips and tricks
+  - "mastering fabric: tips and tricks"
   - webinar
 ---
 

@@ -6,7 +6,7 @@ category: "webinars"
 excerpt: "Time: 2:00 PM - 3:00 PM ET"
 tags:
   - events
-  - mastering fabric: tips and tricks
+  - "mastering fabric: tips and tricks"
   - webinar
 ---
 
