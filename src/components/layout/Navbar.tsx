@@ -79,7 +79,7 @@ export function Navbar() {
                   {item.children && isOpen && (
                     <div
                       onMouseLeave={() => setDropdown(null)}
-                      className="absolute top-full left-0 mt-1 min-w-[220px] bg-white rounded-xl overflow-hidden z-50 animate-fade-in"
+                      className={`absolute top-full right-0 mt-1 bg-white rounded-xl overflow-hidden z-50 animate-fade-in ${item.label === "Use FABRIC" ? "min-w-[300px]" : "min-w-[220px]"}`}
                       style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.12)" }}
                     >
                       {item.children.map((child, ci) => {
@@ -93,11 +93,18 @@ export function Navbar() {
                             onClick={() => setDropdown(null)}
                             className={`flex items-center justify-between px-4 py-3 hover:bg-fabric-light transition-colors group${ci > 0 ? " border-t border-fabric-gray-200" : ""}`}
                           >
-                            <span
-                              className="text-sm group-hover:text-fabric-blue transition-colors leading-snug"
-                              style={{ color: "#404041" }}
-                            >
-                              {child.label}
+                            <span className="flex items-center gap-2">
+                              <span
+                                className="text-sm group-hover:text-fabric-blue transition-colors leading-snug"
+                                style={{ color: "#404041" }}
+                              >
+                                {child.label}
+                              </span>
+                              {child.badge && (
+                                <span className="px-1.5 py-0.5 text-[10px] font-bold uppercase rounded bg-fabric-yellow text-fabric-navy leading-none">
+                                  {child.badge}
+                                </span>
+                              )}
                             </span>
                             {isExternal && (
                               <ExternalLink className="h-3.5 w-3.5 text-fabric-gray-400 shrink-0 ml-2" />
@@ -177,6 +184,11 @@ export function Navbar() {
                         style={{ color: "#5A6370" }}
                       >
                         {child.label}
+                        {child.badge && (
+                          <span className="ml-2 px-1.5 py-0.5 text-[10px] font-bold uppercase rounded bg-fabric-yellow text-fabric-navy leading-none">
+                            {child.badge}
+                          </span>
+                        )}
                       </Link>
                     ))}
                   </div>

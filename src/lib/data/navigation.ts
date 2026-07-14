@@ -1,7 +1,13 @@
+export interface NavChild {
+  label:    string;
+  href:     string;
+  badge?:   string;
+}
+
 export interface NavItem {
   label:    string;
   href:     string;
-  children?: { label: string; href: string }[];
+  children?: NavChild[];
 }
 
 export const navItems: NavItem[] = [
@@ -49,7 +55,7 @@ export const navItems: NavItem[] = [
     children: [
       { label: "Knowledge Base",                  href: "https://learn.fabric-testbed.net" },
       { label: "Community Forum",                 href: "https://learn.fabric-testbed.net/forums" },
-      { label: "Support",                         href: "/documentation/support" },
+      { label: "Support",                         href: "https://portal.fabric-testbed.net/help" },
     ],
   },
   {
@@ -57,7 +63,8 @@ export const navItems: NavItem[] = [
     href:  "/use-fabric",
     children: [
       { label: "New to FABRIC? Start Here",       href: "/use-fabric/get-started" },
-      { label: "Start an Experiment",             href: "https://portal.fabric-testbed.net" },
+      { label: "Start an Experiment in LoomAI",    href: "https://loomai.fabric-testbed.net/hub/login", badge: "Recommended" },
+      { label: "Start an Experiment in JupyterHub", href: "https://jupyter.fabric-testbed.net/hub" },
     ],
   },
 ];

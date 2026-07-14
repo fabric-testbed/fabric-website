@@ -15,20 +15,20 @@ export default function HomePage() {
         {/* 1. Hero: "Explore impactful ideas beyond the scope of the current Internet" */}
         <HeroSection />
 
-        {/* 2. Testimonial carousel (Fatou Secka, Elie Kfoury...) */}
+        {/* 2. News + Events */}
+        <NewsEventsSection />
+
+        {/* 3. Testimonial carousel */}
         <TestimonialCarousel />
 
-        {/* 3. What can I do with FABRIC? */}
+        {/* 4. What can I do with FABRIC? */}
         <WhatCanIDoSection />
 
-        {/* 4. Resource Map */}
+        {/* 5. Resource Map */}
         <ResourceMapSection />
 
-        {/* 5. By the Numbers */}
+        {/* 6. By the Numbers */}
         <ByTheNumbersSection />
-
-        {/* 6. News + Events */}
-        <NewsEventsSection />
       </main>
       <Footer />
     </>
