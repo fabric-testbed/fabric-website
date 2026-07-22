@@ -41,7 +41,7 @@ export function SignUpStepsSection() {
 
           <div className="text-right">
             <Link
-              href="https://portal.fabric-testbed.net"
+              href="https://portal.fabric-testbed.net/signup/1"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-yellow"

@@ -1,20 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin, Github, Youtube, Mail } from "lucide-react";
+import { TwitterIcon, GithubIcon, YoutubeIcon, Mail } from "lucide-react";
 
 const footerLinks = {
   "Branding Resources": "/about/branding",
-  "Support":            "/documentation/support",
+  "Support":            "https://portal.fabric-testbed.net/help",
   "Portal":             "https://portal.fabric-testbed.net",
   "Knowledge Base":     "https://learn.fabric-testbed.net",
-  "Newsletter":         "/community/newsletter",
+  "Newsletter":         "/news-and-blogs?filter=newsletters",
 };
 
 const socials = [
-  { href: "https://www.linkedin.com/company/fabric-testbed", icon: Linkedin, label: "LinkedIn" },
-  { href: "https://github.com/fabric-testbed",               icon: Github,   label: "GitHub" },
-  { href: "https://www.youtube.com/@FABRICtestbed",           icon: Youtube,  label: "YouTube" },
-  { href: "mailto:info@fabric-testbed.net",                  icon: Mail,     label: "Email" },
+  { href: "https://twitter.com/FABRICtestbed",  icon: TwitterIcon, label: "Twitter" },
+  { href: "https://github.com/fabric-testbed",  icon: GithubIcon,  label: "GitHub" },
+  { href: "http://bit.ly/FABRICYouTube",        icon: YoutubeIcon, label: "YouTube" },
+  { href: "mailto:info@fabric-testbed.net",     icon: Mail,        label: "Email" },
 ];
 
 const nsfGrants =
@@ -32,11 +32,11 @@ export function Footer() {
           <div>
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/imgs/fabric-brand.png"
+                src="/imgs/fabric-logo-light-horizontal.png"
                 alt="FABRIC"
-                width={140}
-                height={30}
-                className="h-8 w-auto brightness-0 invert"
+                width={200}
+                height={29}
+                className="h-8 w-auto"
               />
             </Link>
             <p className="text-white/50 text-xs leading-relaxed">

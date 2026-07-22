@@ -43,77 +43,175 @@ const accordionItems = [
   {
     title: "Flexible Range of Network Services",
     content: (
-      <ul className="space-y-1 text-sm text-fabric-gray-600">
-        {[
-          "Layer 2 and Layer 3 networking",
-          "Wide-area Ethernet (FABnetv4/v6)",
-          "Port mirroring and monitoring",
-          "QoS and traffic shaping",
-        ].map((item) => (
-          <li key={item} className="font-medium">{item}</li>
-        ))}
-      </ul>
+      <div className="space-y-5 text-sm text-fabric-gray-600">
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">Standard Services</h4>
+          <ul className="space-y-1 ml-4">
+            {["Layer 2", "Layer 3", "Facility Port"].map((item) => (
+              <li key={item} className="font-medium">{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">Wide-Area Circuit Paths</h4>
+          <p className="ml-4 font-medium">Explicit Route Options: Specify exact network paths for your experiment</p>
+        </div>
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">Port Mirroring</h4>
+          <ul className="space-y-1 ml-4">
+            {["Support mirroring in a slice", "Out-of-band monitoring!"].map((item) => (
+              <li key={item} className="font-medium">{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">Public Cloud Connections</h4>
+          <ul className="space-y-1 ml-4">
+            {["Direct Internet2 Cloud Connect", "Google Cloud, AWS, or Azure."].map((item) => (
+              <li key={item} className="font-medium">{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
     ),
   },
   {
     title: "Connections to External Facilities",
     content: (
-      <ul className="space-y-1 text-sm text-fabric-gray-600">
-        {[
-          "NSF Clouds (CloudLab, Chameleon)",
-          "ACCESS HPC facilities",
-          "5G/IoT testbeds (PAWR)",
-          "International sites (Japan, Europe)",
-          "Internet Exchange Points",
-        ].map((item) => (
-          <li key={item} className="font-medium">{item}</li>
-        ))}
-      </ul>
+      <div className="space-y-5 text-sm text-fabric-gray-600">
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">Facility Ports</h4>
+          <ul className="space-y-1 ml-4">
+            {[
+              "L2 Connections to external facilities",
+              "Enables slice peering to instruments, labs, public clouds, other testbeds",
+              "38 facility ports and counting",
+            ].map((item) => (
+              <li key={item} className="font-medium">{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">Research Infrastructure</h4>
+          <ul className="space-y-1 ml-4">
+            {["Chameleon", "Cloudlab", "Powder", "SPHERE", "COSMOS", "NRP", "Smart Internet Lab (BRIST)", "SCION"].map((item) => (
+              <li key={item} className="font-medium">{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">HPC</h4>
+          <ul className="space-y-1 ml-4">
+            {["MGHPCC", "SDSC", "TACC"].map((item) => (
+              <li key={item} className="font-medium">{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">Additional Connections</h4>
+          <ul className="space-y-1 ml-4">
+            {["ASU", "Clemson", "UCSC", "NIST", "Kent State", "CESNET", "SLU", "…and more!"].map((item) => (
+              <li key={item} className="font-medium">{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">International Connectivity</h4>
+          <p className="ml-4 font-medium">PaTH/AmLight (L2/L3) via FIU</p>
+        </div>
+      </div>
     ),
   },
   {
     title: "Measurement Data for All",
     content: (
-      <ul className="space-y-1 text-sm text-fabric-gray-600">
-        {[
-          "Per-slice network telemetry",
-          "Open measurement data repository",
-          "Active and passive monitoring",
-          "Flow-level and packet-level visibility",
-        ].map((item) => (
-          <li key={item} className="font-medium">{item}</li>
-        ))}
-      </ul>
+      <div className="space-y-5 text-sm text-fabric-gray-600">
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">Infrastructure Measurements</h4>
+          <ul className="space-y-1 ml-4">
+            {[
+              "Optical Data",
+              "CPU, bandwidth, and more!",
+            ].map((item) => (
+              <li key={item} className="font-medium">{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">Latency Measurements</h4>
+          <ul className="space-y-1 ml-4">
+            {[
+              "One-way Latency",
+              "High precision latency measurements",
+              "Graphical interface",
+            ].map((item) => (
+              <li key={item} className="font-medium">{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">Access Methods</h4>
+          <ul className="space-y-1 ml-4">
+            {[
+              "REST API",
+              "FABlib integration",
+              "Sourced from ESnet",
+            ].map((item) => (
+              <li key={item} className="font-medium">{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">Monitoring</h4>
+          <ul className="space-y-1 ml-4">
+            {[
+              "Out-of-band monitoring",
+              "Support mirroring in a slice",
+            ].map((item) => (
+              <li key={item} className="font-medium">{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
     ),
   },
   {
     title: "Prioritizing Risk & Security",
     content: (
-      <ul className="space-y-1 text-sm text-fabric-gray-600">
-        {[
-          "Isolated slices per user/project",
-          "Federated identity and access management",
-          "Security monitoring and incident response",
-          "Compliance with institutional policies",
-        ].map((item) => (
-          <li key={item} className="font-medium">{item}</li>
-        ))}
-      </ul>
+      <div className="space-y-5 text-sm text-fabric-gray-600">
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">Security Considerations</h4>
+          <ul className="space-y-1 ml-4">
+            {[
+              "FABRIC racks monitored by Zeek",
+              "Event monitoring and alerting by OMNISOC",
+              "Weekly vulnerability scanning",
+              "Strict access control protocols",
+              "Bastion hosts for testbed access",
+              "Dedicated FABRIC security team at NCSA",
+              "Strictly enforced AUP",
+              "Screening of Project Leads",
+            ].map((item) => (
+              <li key={item} className="font-medium">{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
     ),
   },
   {
     title: "Partnership with Industry",
     content: (
-      <ul className="space-y-1 text-sm text-fabric-gray-600">
-        {[
-          "Collaboration with AMD, Intel, NVIDIA",
-          "Co-design with network equipment vendors",
-          "Engagement with cloud providers",
-          "Open-source toolchain contributions",
-        ].map((item) => (
-          <li key={item} className="font-medium">{item}</li>
-        ))}
-      </ul>
+      <div className="space-y-5 text-sm text-fabric-gray-600">
+        <div>
+          <h4 className="text-fabric-blue font-semibold mb-2">Traveling Ciena Node Enables Live Testing at Events</h4>
+          <ul className="space-y-1 ml-4">
+            {["OFC50", "SC24", "SC25"].map((item) => (
+              <li key={item} className="font-medium">{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
     ),
   },
 ];
@@ -126,7 +224,6 @@ const connectsItems = [
   "Dedicated links at speeds up to 1.2Tbps",
   "Controllable peering with Internet",
   "Programmable computational resources, such as CPUs, GPUs, FPGAs, memory, and storage",
-  "Programmable network resources, such as 100Gbps dedicated optical links, P4 switches, and SmartNICs",
 ];
 
 function BlueBullet({ text }: { text: string }) {

@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+import Link from "next/link";
 import { getAllArticlesMeta } from "@/lib/articles";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -10,7 +12,9 @@ export default function NewsAndBlogsPage() {
     <>
       <Navbar />
       <main className="pt-16">
-        <NewsAndBlogsClient articles={articles} />
+        <Suspense>
+          <NewsAndBlogsClient articles={articles} />
+        </Suspense>
 
         {/* ── Newsletter CTA ────────────────────────────────────── */}
         <section className="py-16" style={{ background: "linear-gradient(135deg,#2196C9 0%,#1B3A5C 100%)" }}>
@@ -19,14 +23,9 @@ export default function NewsAndBlogsPage() {
             <p className="text-sm text-white/80 mb-8">
               Subscribe to the FABRIC newsletter for monthly updates and announcements.
             </p>
-            <div className="flex gap-2 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2.5 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-white/50"
-              />
-              <button className="btn-yellow whitespace-nowrap">Subscribe</button>
-            </div>
+            <Link href="/community/newsletter" className="btn-yellow inline-block">
+              Subscribe Now
+            </Link>
           </div>
         </section>
       </main>

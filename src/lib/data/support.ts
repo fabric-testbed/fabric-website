@@ -21,7 +21,7 @@ export const supportResources: SupportResource[] = [
   {
     label: "Orientation Video",
     desc:  "This orientation session reviews FABRIC's features and includes a live demo on creating an account and starting your first experiment.",
-    href:  "",
+    href:  "https://www.youtube.com/watch?v=GzGndNhn5gE",
   },
   {
     label: "Office Hours",

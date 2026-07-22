@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { testimonials } from "@/lib/data/testimonials";
 
-export function TestimonialCarousel() {
+export function TestimonialCarousel({ bgClass = "bg-white" }: { bgClass?: string } = {}) {
   const [idx, setIdx] = useState(0);
   const [paused, setPaused] = useState(false);
   const current = testimonials[idx];
@@ -23,10 +23,10 @@ export function TestimonialCarousel() {
   }
 
   return (
-    <section className="relative section bg-white overflow-hidden">
-      {/* Fabric wave watermark */}
-      <div className="absolute inset-0 pointer-events-none select-none flex items-center justify-start opacity-[0.06]">
-        <Image src="/imgs/fabric-wave.png" alt="" aria-hidden="true" width={520} height={520} className="object-contain" />
+    <section className={`relative section ${bgClass} overflow-hidden`}>
+      {/* Fabric wave watermark — top-left behind photo */}
+      <div className="absolute top-0 pointer-events-none select-none" style={{ left: "-25%", width: "75%", height: "120%" }}>
+        <Image src="/imgs/fabric-wave-grey.png" alt="" aria-hidden="true" fill sizes="75vw" className="object-contain object-left-top" style={{ opacity: 0.1 }} />
       </div>
 
       <div
@@ -39,7 +39,7 @@ export function TestimonialCarousel() {
           <div className="flex flex-col sm:flex-row gap-10 items-end">
 
             {/* Photo — blue card with photo overflowing above */}
-            <div className="shrink-0 relative w-[370px] h-[270px] self-end">
+            <div className="shrink-0 relative w-[350px] h-[160px] self-end">
               {/* Blue card — fills the container */}
               <div className="absolute inset-0 bg-[#2196C9] rounded-2xl border-2 border-[#7AD4EE]" />
               {/* Photo — anchored to bottom, overflows above */}

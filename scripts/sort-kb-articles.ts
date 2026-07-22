@@ -30,7 +30,7 @@ const EVENT_CATEGORIES = new Set([
 const NEWS_CATEGORIES = new Set([
   "news", "news archive", "blogs", "blog",
   "announcement", "announcements",
-  "thread the needle",
+  "thread the needle", "newsletters", "newsletter"
 ]);
 
 // Categories that indicate newsletters

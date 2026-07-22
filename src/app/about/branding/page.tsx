@@ -1,10 +1,60 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { Check, Copy, ExternalLink, Download } from "lucide-react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+
+// ── Logo assets ──────────────────────────────────────────────────────────────
+const lightBgLogos = [
+  { url: "https://www.dropbox.com/s/26lsgihw277bfgm/2019_NRIG_FABRIC%20logo%20Dark.png?raw=1", alt: "FABRIC logo with text below surface" },
+  { url: "https://www.dropbox.com/s/p02zqsutv991iel/2019_NRIG_Fabric%20dark%20text%20right.png?raw=1", alt: "FABRIC logo with text beside surface" },
+  { url: "https://www.dropbox.com/s/8rnpjckb4auct03/2019_NRIG_Fabric%20dark%20wave.png?raw=1", alt: "FABRIC surface logo without text" },
+];
+const darkBgLogos = [
+  { url: "https://www.dropbox.com/s/1gz57gt3tn7nxkh/2019_NRIG_FABRIC%20logo%20light.png?raw=1", alt: "FABRIC logo with text below surface" },
+  { url: "https://www.dropbox.com/s/mbuk7mgkrni17fe/2019_NRIG_Fabric%20light%20text%20right.png?raw=1", alt: "FABRIC logo with text beside surface" },
+  { url: "https://www.dropbox.com/s/a43hdnx08evxp3i/2019_NRIG_Fabric%20white%20wave.png?raw=1", alt: "FABRIC surface logo without text" },
+];
+const fabLightBgLogos = [
+  { url: "https://www.dropbox.com/s/4cw1nuxsavva1u2/New%20FAB%20Official%20Logo_Color.png?raw=1", alt: "FAB Globe with text - Color" },
+  { url: "https://www.dropbox.com/s/v8k3spmrhpwknff/New%20FAB%20Official%20Logo_Dark.png?raw=1", alt: "FAB Globe with text - Black only" },
+  { url: "https://www.dropbox.com/s/lns4mkwnd8oc71b/202101_FAB_globe%20icon%20color%40300x.png?raw=1", alt: "FAB Globe - Color" },
+  { url: "https://www.dropbox.com/s/iigjdmo4e81eink/202101_FAB_%20globe%20icon_DARK%40300x.png?raw=1", alt: "FAB Globe - Dark" },
+];
+const fabDarkBgLogos = [
+  { url: "https://www.dropbox.com/s/7nydw2bxffkubji/New%20FAB%20Official%20Logo_light.png?raw=1", alt: "FAB Globe with text - Light" },
+  { url: "https://www.dropbox.com/s/fa16l6knrgdhp9s/202101_FAB_Globe%20icon_light%40300x.png?raw=1", alt: "FAB Globe - Light" },
+  { url: "https://www.dropbox.com/s/0vq767ba2ksd0b9/202101_FAB_Globe%20Icon_Color%20light%40300x.png?raw=1", alt: "FAB Globe - Color on dark" },
+];
+
+// ── Logo grid helper ─────────────────────────────────────────────────────────
+function LogoGrid({ logos, dark }: { logos: { url: string; alt: string }[]; dark?: boolean }) {
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      {logos.map((logo) => (
+        <div key={logo.url} className="rounded-xl border border-fabric-gray-200 overflow-hidden">
+          <div className={`flex items-center justify-center h-40 p-6 ${dark ? "bg-[#5A6370]" : "bg-white"}`}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={logo.url} alt={logo.alt} className="max-h-full max-w-full object-contain" />
+          </div>
+          <div className="bg-fabric-off-white px-4 py-2.5 border-t border-fabric-gray-200 flex items-center justify-between">
+            <p className="text-xs text-fabric-gray-600">{logo.alt}</p>
+            <a
+              href={logo.url}
+              download
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 text-xs font-semibold text-fabric-blue hover:text-fabric-navy transition-colors"
+            >
+              <Download className="h-3 w-3" /> Download
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 // ── Color palette ─────────────────────────────────────────────────────────────
 const colors = [
@@ -85,53 +135,32 @@ export default function BrandingPage() {
               Official FABRIC brand guidelines — colors, typography, logos, and UI elements.
               Use these assets consistently across all FABRIC-related materials.
             </p>
-            <a
-              href="https://drive.google.com/file/d/1TSTNYTxcmQrFhj5riToWUxLDrY5YC7H-/preview"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-yellow mt-5 inline-flex"
-            >
-              <Download className="h-4 w-4" />
-              Download Brand Kit
-            </a>
           </div>
         </section>
 
         <section className="py-12 bg-fabric-off-white">
           <div className="page-container max-w-5xl space-y-16">
 
-            {/* ── Logo ────────────────────────────────────────────── */}
-            <Section title="Logo">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {/* Light */}
-                <div className="rounded-xl border border-fabric-gray-200 overflow-hidden">
-                  <div className="bg-white flex items-center justify-center h-36 p-8">
-                    <Image src="/imgs/fabric-brand.png" alt="FABRIC logo" width={160} height={48} className="h-10 w-auto" />
-                  </div>
-                  <div className="bg-fabric-off-white px-4 py-2.5 border-t border-fabric-gray-200">
-                    <p className="text-xs font-medium text-fabric-gray-600">Light background</p>
-                  </div>
-                </div>
-                {/* Dark */}
-                <div className="rounded-xl border border-fabric-gray-200 overflow-hidden">
-                  <div className="bg-[#1B3A5C] flex items-center justify-center h-36 p-8">
-                    <Image src="/imgs/fabric-brand.png" alt="FABRIC logo on dark" width={160} height={48} className="h-10 w-auto brightness-0 invert" />
-                  </div>
-                  <div className="bg-fabric-off-white px-4 py-2.5 border-t border-fabric-gray-200">
-                    <p className="text-xs font-medium text-fabric-gray-600">Dark background (inverted)</p>
-                  </div>
-                </div>
-              </div>
+            {/* ── FABRIC Logos ─────────────────────────────────────── */}
+            <Section title="FABRIC Logos">
+              <h3 className="text-sm font-semibold text-fabric-navy mb-2">For Light Backgrounds</h3>
+              <p className="text-xs text-fabric-gray-600 mb-4">Each of these logos has a transparent background and are optimized for use on light background colors.</p>
+              <LogoGrid logos={lightBgLogos} />
 
-              <div className="mt-4 p-4 rounded-xl border border-fabric-gray-200 bg-white">
-                <p className="text-xs font-semibold text-fabric-navy mb-2">Usage guidelines</p>
-                <ul className="text-xs text-fabric-gray-600 space-y-1 list-disc list-inside">
-                  <li>Always maintain clear space equal to the height of the "F" around the logo.</li>
-                  <li>Do not recolor, distort, rotate, or add effects to the logo.</li>
-                  <li>Use the inverted (white) version on dark or colored backgrounds.</li>
-                  <li>Minimum size: 80px wide in digital, 1 inch in print.</li>
-                </ul>
-              </div>
+              <h3 className="text-sm font-semibold text-fabric-navy mb-2 mt-10">For Dark Backgrounds</h3>
+              <p className="text-xs text-fabric-gray-600 mb-4">Each of these logos has a transparent background and are optimized for use on dark background colors.</p>
+              <LogoGrid logos={darkBgLogos} dark />
+            </Section>
+
+            {/* ── FAB Logos ──────────────────────────────────────── */}
+            <Section title="FAB Logos">
+              <h3 className="text-sm font-semibold text-fabric-navy mb-2">For Light Backgrounds</h3>
+              <p className="text-xs text-fabric-gray-600 mb-4">Each of these logos has a transparent background and are optimized for use on light background colors.</p>
+              <LogoGrid logos={fabLightBgLogos} />
+
+              <h3 className="text-sm font-semibold text-fabric-navy mb-2 mt-10">For Dark Backgrounds</h3>
+              <p className="text-xs text-fabric-gray-600 mb-4">Each of these logos has a transparent background and are optimized for use on dark background colors.</p>
+              <LogoGrid logos={fabDarkBgLogos} dark />
             </Section>
 
             {/* ── Colors ──────────────────────────────────────────── */}

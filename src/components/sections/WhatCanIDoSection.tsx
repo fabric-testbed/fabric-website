@@ -61,7 +61,7 @@ export function WhatCanIDoSection() {
             </ul>
 
             <Link href="/use-fabric/get-started" className="btn-blue">
-              Sign Up
+              Get Started
             </Link>
           </div>
 
@@ -78,8 +78,8 @@ export function WhatCanIDoSection() {
             <p className="text-fabric-teal font-semibold text-lg text-center">
               Still have questions<br />about FABRIC?
             </p>
-            <Link href="/documentation/support" className="btn-yellow">
-              Click Here
+            <Link href="https://portal.fabric-testbed.net/help" className="btn-yellow">
+              Contact Us
             </Link>
           </div>
 

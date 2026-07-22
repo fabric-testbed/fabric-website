@@ -2,28 +2,27 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Stat } from "@/lib/data/stats";
 
 const positions = [
-  { top: "12%", left: "4%" },   // Total Slices
-  { top: "18%", left: "30%" },  // Total Users
-  { top: "14%", left: "56%" },  // Publications
-  { top: "52%", left: "16%" },  // Active Slices
-  { top: "58%", left: "40%" },  // Total Projects
+  { top: "15%",  left: "8%" },   // Total Slices
+  { top: "8%",  left: "38%" },  // Total Users
+  { top: "4%",  left: "66%" },  // Publications
+  { top: "46%", left: "22%" },  // Active Slices
+  { top: "48%", left: "50%" },  // Total Projects
 ];
 
 const svgNodes: [number, number][] = [
-  [70, 70],    // Total Slices
-  [230, 90],   // Total Users
-  [400, 70],   // Publications
-  [150, 230],  // Active Slices
-  [320, 250],  // Total Projects
+  [70, 150],    // Total Slices
+  [230, 100],   // Total Users
+  [400, 130],   // Publications
+  [150, 200],  // Active Slices
+  [320, 220],  // Total Projects
 ];
 
 export function ByTheNumbersClient({ stats }: { stats: Stat[] }) {
   const [hovered, setHovered] = useState<number | null>(null);
-  const activeIdx = hovered ?? 1; // default to "Total Users" (index 1)
+  const activeIdx = hovered ?? 1;
   const activeStat = stats[activeIdx];
 
   return (
@@ -53,40 +52,31 @@ export function ByTheNumbersClient({ stats }: { stats: Stat[] }) {
             {/* Desktop: scattered floating layout */}
             <div className="hidden lg:block relative" style={{ height: "380px" }}>
               {/* Wave background graphic */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ transform: "scale(0.85)" }}>
+              <div className="absolute inset-0 flex items-center justify-start pointer-events-none" style={{ left: "-5%", top: "-15%" }}>
                 <Image
                   src="/imgs/fabric-wave-grey.png"
                   alt=""
                   aria-hidden="true"
                   fill
-                  className="object-contain object-center"
-                  style={{ opacity: 0.3 }}
+                  sizes="(min-width: 1024px) 70vw, 100vw"
+                  className="object-contain object-left"
+                  style={{ opacity: 0.5 }}
                 />
               </div>
 
-              {/* Dot indicators for each stat */}
-              {stats.map((_, i) => {
-                const pos = positions[i] ?? { top: `${i * 18}%`, left: "10%" };
-                return (
-                  <div
-                    key={`dot-${i}`}
-                    className="absolute cursor-pointer"
-                    style={{ top: `calc(${pos.top} + 3.5em)`, left: `calc(${pos.left} + 0.5em)` }}
-                    onMouseEnter={() => setHovered(i)}
-                    onMouseLeave={() => setHovered(null)}
-                  >
-                    <svg width="12" height="12" viewBox="0 0 12 12">
-                      <circle cx="6" cy="6" r="5" fill="#2196C9" opacity={i === activeIdx ? 0.6 : 0.25} />
-                      <circle cx="6" cy="6" r="2.5" fill="#2196C9" opacity={i === activeIdx ? 0.9 : 0.5} />
-                    </svg>
-                  </div>
-                );
-              })}
-
-              {/* Stat items */}
+              {/* Stat items with dots */}
               {stats.map(({ value, label }, i) => {
                 const pos = positions[i] ?? { top: `${i * 18}%`, left: "10%" };
                 const isActive = i === activeIdx;
+                const isBottom = i >= 3;
+
+                const dot = (
+                  <svg width="12" height="12" viewBox="0 0 12 12" className="ml-1">
+                    <circle cx="6" cy="6" r="5" fill="#2196C9" opacity={i === activeIdx ? 0.6 : 0.25} />
+                    <circle cx="6" cy="6" r="2.5" fill="#2196C9" opacity={i === activeIdx ? 0.9 : 0.5} />
+                  </svg>
+                );
+
                 return (
                   <div
                     key={label}
@@ -99,10 +89,12 @@ export function ByTheNumbersClient({ stats }: { stats: Stat[] }) {
                     onMouseEnter={() => setHovered(i)}
                     onMouseLeave={() => setHovered(null)}
                   >
+                    {isBottom && <div className="mb-2">{dot}</div>}
                     <p className="stat-number leading-none mb-0.5">{value}</p>
                     <p className="text-xs font-bold text-fabric-navy uppercase tracking-wide leading-tight max-w-[120px]">
                       {label}
                     </p>
+                    {!isBottom && <div className="mt-2">{dot}</div>}
                   </div>
                 );
               })}

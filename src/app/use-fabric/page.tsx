@@ -47,7 +47,7 @@ export default function UseFabricPage() {
       <main>
         <PageHero
           variant="dark"
-          title="Prototype and deploy experiments rapidly, securely, and at scale."
+          title=""
           illustration={<HeroIllustration />}
         />
         <TestimonialCarousel />

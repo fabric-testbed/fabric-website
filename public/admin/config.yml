@@ -2,8 +2,10 @@ local_backend: true
 
 backend:
   name: github
-  repo: fabric-testbed/fabric-website
+  repo: fabric-testbed/fabric-website  # UPDATE: your GitHub org/repo
   branch: main
+  base_url: https://whatisfabric.net   # OAuth callback URL (update if using vercel.app for now)
+  auth_endpoint: /api/auth
 
 media_folder: "public/imgs/uploads"
 public_folder: "/imgs/uploads"
@@ -34,7 +36,10 @@ collections:
       - { label: "Type", name: "type", widget: "hidden", default: "event" }
       - { label: "Category", name: "category", widget: "select", options: ["workshop", "webinar", "conference", "meeting"], default: "webinar" }
       - { label: "FABRIC Hosted", name: "fabric_hosted", widget: "boolean", default: true }
-      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Location", name: "location", widget: "string", required: false, hint: "e.g. Virtual, Washington DC" }
+      - { label: "Time", name: "time", widget: "string", required: false, hint: "e.g. 3:00 - 4:00 PM ET" }
+      - { label: "Registration URL", name: "registration_url", widget: "string", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "Auto-generated from body if left blank." }
       - { label: "Tags", name: "tags", widget: "list", default: ["events"] }
       - { label: "Body", name: "body", widget: "markdown" }
 

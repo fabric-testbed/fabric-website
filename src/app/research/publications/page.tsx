@@ -110,9 +110,6 @@ export default function PublicationsPage() {
         <section className="py-12 bg-white border-b border-fabric-gray-200">
           <div className="page-container max-w-6xl">
             <h1 className="text-3xl font-bold text-fabric-blue mb-2">FABRIC User Publications</h1>
-            <p className="text-sm text-fabric-gray-600 leading-relaxed max-w-2xl">
-              Research publications by FABRIC users. Search by title, author, venue, year, or project name.
-            </p>
           </div>
         </section>
 

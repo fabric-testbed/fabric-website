@@ -38,6 +38,7 @@ export const navItems: NavItem[] = [
       { label: "KNIT",                            href: "https://knit.fabric-testbed.net" },
       { label: "Events & Workshops",              href: "/community/events" },
       { label: "News & Blogs",                    href: "/news-and-blogs" },
+      { label: "Newsletter Signup",              href: "/community/newsletter" },
     ],
   },
   {

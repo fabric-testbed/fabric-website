@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import { useSearchParams, useRouter } from "next/navigation";
 import { ChevronRight, Search, Calendar } from "lucide-react";
 import { type ArticleMeta } from "@/lib/articles";
 
@@ -58,8 +59,17 @@ function ContentCard({ item }: { item: ArticleMeta }) {
 }
 
 export function NewsAndBlogsClient({ articles }: { articles: ArticleMeta[] }) {
-  const [activeFilter, setActiveFilter] = useState("all");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [activeFilter, setActiveFilter] = useState(searchParams.get("filter") || "all");
   const [searchQuery, setSearchQuery]   = useState("");
+
+  // Sync filter to URL (only when user changes filter)
+  function handleFilterChange(id: string) {
+    setActiveFilter(id);
+    const url = id === "all" ? "/news-and-blogs" : `/news-and-blogs?filter=${id}`;
+    router.replace(url, { scroll: false });
+  }
 
   const filtered = useMemo(() => {
     let items = articles;
@@ -71,7 +81,7 @@ export function NewsAndBlogsClient({ articles }: { articles: ArticleMeta[] }) {
     } else if (activeFilter === "news-archive") {
       items = items.filter((i) => i.type === "news" && i.category === "archive");
     } else if (activeFilter === "newsletters") {
-      items = items.filter((i) => i.category === "newsletter");
+      items = items.filter((i) => i.category === "newsletter" || i.tags?.includes("newsletter"));
     }
 
     if (searchQuery.trim()) {
@@ -115,7 +125,7 @@ export function NewsAndBlogsClient({ articles }: { articles: ArticleMeta[] }) {
             {filters.map((f) => (
               <button
                 key={f.id}
-                onClick={() => setActiveFilter(f.id)}
+                onClick={() => handleFilterChange(f.id)}
                 className={`px-4 py-1.5 rounded-full whitespace-nowrap text-sm font-semibold transition-colors ${
                   activeFilter === f.id
                     ? "bg-fabric-blue text-white"

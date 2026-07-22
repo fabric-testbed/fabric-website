@@ -2,7 +2,7 @@
 title: "November '19 Newsletter"
 date: "2019-11-01"
 type: "news"
-category: "announcements"
+category: "Newsletter"
 excerpt: "Through your involvement in similar communities, you may be interested in the new $20M networking testbed called FABRIC."
 author: "Allison Cales"
 date_modified: "2022-07-18"

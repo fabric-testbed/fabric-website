@@ -64,8 +64,23 @@ export function getAllArticlesMeta(): ArticleMeta[] {
     .map((slug) => {
       const raw = fs.readFileSync(path.join(ARTICLES_DIR, `${slug}.md`), "utf8");
       const { data, content } = matter(raw);
-      const excerpt = String(data.excerpt || "").trim();
-      const goodExcerpt = excerpt && !/^Published\s*[:：]?/i.test(excerpt) ? excerpt : extractExcerpt(content);
+      const rawExcerpt = String(data.excerpt || "").trim();
+      // Strip markdown formatting from excerpt
+      const cleanedExcerpt = rawExcerpt
+        .replace(/!\[[^\]]*\]\([^)]*\)/g, "")    // images
+        .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")  // links
+        .replace(/\*\*([^*]+)\*\*/g, "$1")         // bold
+        .replace(/\*([^*]+)\*/g, "$1")             // italic *
+        .replace(/_([^_]+)_/g, "$1")               // italic _
+        .replace(/\\+/g, "")                       // escaped chars
+        .replace(/\s+/g, " ")
+        .trim();
+      const isBadExcerpt = !cleanedExcerpt
+        || cleanedExcerpt.length < 40
+        || /^Published\s*[:：]?/i.test(cleanedExcerpt)
+        || /^An update from/i.test(cleanedExcerpt)
+        || /^https?:\/\//.test(cleanedExcerpt);
+      const goodExcerpt = isBadExcerpt ? extractExcerpt(content) : cleanedExcerpt;
       return {
         slug,
         ...(data as Omit<ArticleMeta, "slug">),
