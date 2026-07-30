@@ -25,27 +25,27 @@ export async function fetchLiveMetrics(): Promise<Stat[] | null> {
       {
         value: fmt(orch.slices.active_cumulative + orch.slices.non_active_cumulative),
         label: "Total Slices",
-        detail: "Network slices created since launch",
+        detail: "A slice is a collection of logically-related resources—or slivers—used in one or more experiments. This number represents the total amount of slices created to date on FABRIC.",
       },
       {
         value: fmt(core.users.active_cumulative),
         label: "Total Users",
-        detail: "The number of individuals signed up as FABRIC users",
+        detail: "The total number of individuals signed up as FABRIC Users.",
       },
       {
         value: String(pubData.count),
         label: "FABRIC User Publications",
-        detail: "Peer-reviewed papers and reports using FABRIC",
+        detail: "The total number of papers and publications that reference the use of FABRIC.",
       },
       {
         value: fmt(orch.slices.active_cumulative),
         label: "Active Slices",
-        detail: "Slices currently running on the testbed",
+        detail: "A slice is a collection of logically-related resources—or slivers—used in one or more experiments. This number represents the current amount of slices that are actively being used in a project.",
       },
       {
         value: fmt(core.projects.active_cumulative + core.projects.non_active_cumulative),
         label: "Total Projects",
-        detail: "Research projects that have used FABRIC",
+        detail: "A project is the term used to represent a logical grouping of users working on one or more related experiments over a period of time. Rights to resources are set at the project level.",
       },
     ];
   } catch {

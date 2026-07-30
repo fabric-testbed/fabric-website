@@ -373,10 +373,6 @@ export default function ResourceMapPage() {
         <section className="py-12 bg-white border-b border-fabric-gray-200">
           <div className="page-container max-w-6xl">
             <h1 className="text-3xl font-bold text-fabric-blue mb-2">Resources</h1>
-            <p className="text-sm text-fabric-gray-600 max-w-2xl leading-relaxed">
-              Live availability of compute, storage, and networking resources across the FABRIC testbed.
-              Data is refreshed every minute from the FABRIC orchestrator.
-            </p>
           </div>
         </section>
 

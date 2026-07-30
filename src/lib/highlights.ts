@@ -10,7 +10,7 @@ export interface Researcher {
   name: string;
   title: string;
   institution: string;
-  interests: string;
+  interests?: string;
   contact: string;
   photo?: string;
 }
@@ -26,6 +26,7 @@ export interface HighlightMeta {
   title: string;
   subtitle: string;
   image?: string;
+  imageFit?: "cover" | "contain";
   imagePlaceholder: string;
   institution?: string;
   domain?: string;

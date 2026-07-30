@@ -1,4 +1,3 @@
-import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { getAllHighlightSlugs, getHighlightBySlug } from "@/lib/highlights";
@@ -18,9 +17,33 @@ export default async function HighlightPage({
 }) {
   const { slug } = await params;
   const highlight = await getHighlightBySlug(slug);
-  if (!highlight) notFound();
 
-  const { title, subtitle, image, imagePlaceholder, contentHtml, learnMore, researchers } = highlight;
+  if (!highlight) {
+    return (
+      <>
+        <Navbar />
+        <main className="pt-16">
+          <section className="py-24 bg-white">
+            <div className="page-container max-w-3xl text-center">
+              <Link
+                href="/community/project-highlights"
+                className="text-sm text-fabric-blue hover:underline mb-8 inline-block"
+              >
+                ← Project Highlights
+              </Link>
+              <h1 className="text-3xl font-bold text-fabric-blue mb-4">Content Coming Soon</h1>
+              <p className="text-sm text-fabric-gray-600 leading-relaxed">
+                This project highlight is currently being prepared. Please check back later.
+              </p>
+            </div>
+          </section>
+        </main>
+        <Footer />
+      </>
+    );
+  }
+
+  const { title, subtitle, image, imageFit, imagePlaceholder, contentHtml, learnMore, researchers } = highlight;
 
   return (
     <>
@@ -44,7 +67,7 @@ export default async function HighlightPage({
             {/* Cover image */}
             <div className="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden mb-10">
               {image ? (
-                <Image src={image} alt={title} fill className="object-cover" />
+                <Image src={image} alt={title} fill className={imageFit === "contain" ? "object-contain" : "object-cover"} />
               ) : (
                 <div className={`absolute inset-0 ${imagePlaceholder}`} />
               )}
@@ -54,14 +77,15 @@ export default async function HighlightPage({
             <div
               className="prose prose-sm max-w-none text-fabric-gray-600 leading-relaxed
                 prose-headings:text-fabric-blue prose-headings:font-semibold prose-headings:text-base
-                prose-p:mb-4 prose-h2:mt-8 prose-h2:mb-2"
+                prose-p:mb-5 prose-h2:mt-10 prose-h2:mb-3
+                [&>p]:mb-5 [&>h2]:mt-10 [&>h2]:mb-3"
               dangerouslySetInnerHTML={{ __html: contentHtml }}
             />
           </div>
         </section>
 
         {/* ── Learn More ───────────────────────────────────────────── */}
-        {learnMore && (
+        {learnMore && (learnMore.projectUrl || (learnMore.artifacts && learnMore.artifacts.length > 0)) && (
           <section className="py-10 bg-white border-t border-fabric-gray-200">
             <div className="page-container max-w-3xl">
               <h2 className="text-xl font-bold text-fabric-blue mb-5">Learn More</h2>
@@ -142,11 +166,15 @@ export default async function HighlightPage({
                       <p className="font-bold text-fabric-navy mb-0.5">{r.name}</p>
                       <p className="text-sm text-fabric-gray-600">{r.title}</p>
                       <p className="text-sm text-fabric-gray-600 mb-1">{r.institution}</p>
-                      <p className="text-sm text-fabric-gray-600 mb-2">
-                        Research Interests: {r.interests}
-                      </p>
+                      {r.interests && (
+                        <p className="text-sm text-fabric-gray-600 mb-2">
+                          Research Interests: {r.interests}
+                        </p>
+                      )}
                       <a
                         href={r.contact}
+                        target={r.contact.startsWith("mailto:") ? undefined : "_blank"}
+                        rel={r.contact.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                         className="text-sm text-fabric-blue hover:underline"
                       >
                         Contact {r.name.split(" ")[0]}

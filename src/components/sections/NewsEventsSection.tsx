@@ -3,12 +3,12 @@ import { getAllEventsMeta } from "@/lib/events";
 import { getAllArticlesMeta } from "@/lib/articles";
 
 export function NewsEventsSection() {
-  const events = getAllEventsMeta().slice(0, 3);
+  const events = getAllEventsMeta().slice(0, 2);
 
-  const news = getAllArticlesMeta().slice(0, 3);
+  const news = getAllArticlesMeta().slice(0, 2);
 
   return (
-    <section className="section bg-fabric-off-white">
+    <section className="py-10 bg-fabric-off-white">
       <div className="page-container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
@@ -61,12 +61,6 @@ export function NewsEventsSection() {
                 );
               })}
             </div>
-            <Link
-              href="/community/events"
-              className="inline-flex items-center gap-1 text-sm text-fabric-blue font-semibold mt-6 hover:text-fabric-navy transition-colors"
-            >
-              View All Events →
-            </Link>
           </div>
 
           {/* News */}
@@ -101,12 +95,6 @@ export function NewsEventsSection() {
                 );
               })}
             </div>
-            <Link
-              href="/news-and-blogs"
-              className="inline-flex items-center gap-1 text-sm text-fabric-blue font-semibold mt-6 hover:text-fabric-navy transition-colors"
-            >
-              View All News →
-            </Link>
           </div>
 
         </div>

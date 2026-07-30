@@ -7,7 +7,7 @@ import { Stat } from "@/lib/data/stats";
 const positions = [
   { top: "15%",  left: "8%" },   // Total Slices
   { top: "8%",  left: "38%" },  // Total Users
-  { top: "4%",  left: "66%" },  // Publications
+  { top: "25%",  left: "66%" },  // Publications
   { top: "46%", left: "22%" },  // Active Slices
   { top: "48%", left: "50%" },  // Total Projects
 ];

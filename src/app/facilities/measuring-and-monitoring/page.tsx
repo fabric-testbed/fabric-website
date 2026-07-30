@@ -61,11 +61,6 @@ export default function MeasuringAndMonitoringPage() {
             <h1 className="text-3xl font-bold text-fabric-blue mb-2">
               Measuring and Monitoring Tools
             </h1>
-            <p className="text-sm text-fabric-gray-600 leading-relaxed max-w-2xl">
-              Explore the suite of tools FABRIC provides for measuring network
-              performance, monitoring infrastructure health, and analyzing optical
-              and latency data across the testbed.
-            </p>
           </div>
         </section>
 

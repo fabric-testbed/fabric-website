@@ -11,16 +11,6 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    id:          "fatou-secka",
-    name:        "Fatou Secka",
-    institution: "University of Tokyo",
-    quote:       "FABRIC's distributed cloud resources allowed us to realistically assess the performance and scalability of our 5G dynamic core configuration. We were able to rigorously test the dynamic control mechanisms and inside communications in a real-world geographically distributed scenario, which was crucial for validating the effectiveness of our solution.",
-    topic:       "FABRIC Does 5G Networking",
-    photo:       "/imgs/testimonials/fatou-secka.png",
-    photoPlaceholder: "FS",
-    href:        "/community/highlights/5g-networking-fatou",
-  },
-  {
     id:          "elie-kfoury",
     name:        "Elie Kfoury",
     institution: "University of South Carolina",
@@ -39,5 +29,15 @@ export const testimonials: Testimonial[] = [
     photo:       "/imgs/testimonials/fengping-hu.png",
     photoPlaceholder: "FH",
     href:        "/community/project-highlights/big-data-particle-physics",
+  },
+  {
+    id:          "fatou-secka",
+    name:        "Fatou Secka",
+    institution: "University of Tokyo",
+    quote:       "FABRIC's distributed cloud resources allowed us to realistically assess the performance and scalability of our 5G dynamic core configuration. We were able to rigorously test the dynamic control mechanisms and inside communications in a real-world geographically distributed scenario, which was crucial for validating the effectiveness of our solution.",
+    topic:       "FABRIC Does 5G Networking",
+    photo:       "/imgs/testimonials/fatou-secka.png",
+    photoPlaceholder: "FS",
+    href:        "/community/project-highlights/5g-slicing",
   },
 ];

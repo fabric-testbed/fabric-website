@@ -35,7 +35,7 @@ export function TestimonialCarousel({ bgClass = "bg-white" }: { bgClass?: string
         onMouseLeave={() => setPaused(false)}
       >
         {/* Main row — items-end so text aligns to blue card top */}
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto" style={{ minHeight: "250px" }}>
           <div className="flex flex-col sm:flex-row gap-10 items-end">
 
             {/* Photo — blue card with photo overflowing above */}

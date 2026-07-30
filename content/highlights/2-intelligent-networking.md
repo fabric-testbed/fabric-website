@@ -8,25 +8,25 @@ imagePlaceholder: "bg-gradient-to-br from-blue-500 to-cyan-400"
 institution: "University of South Carolina"
 domain: "AI / Machine Learning"
 learnMore:
-  projectUrl: "https://portal.fabric-testbed.net"
+  projectUrl: "https://portal.fabric-testbed.net/experiments/public-projects/8eaa3ec2-65e7-49a3-8c09-e1761141a6ad"
   artifacts:
     - label: "Introduction to P4-DPDK"
-      url: "https://learn.fabric-testbed.net"
+      url: "https://artifacts.fabric-testbed.net/artifacts/e4cc5ecd-66e8-4c36-9139-de22a7b05e8d"
     - label: "P4 Labs (BMv2)"
-      url: "https://learn.fabric-testbed.net"
+      url: "https://artifacts.fabric-testbed.net/artifacts/a576d727-3360-4fa1-8313-a1828433ba9f"
 researchers:
   - name: "Elie Kfoury"
     title: "Assistant Professor"
     institution: "University of South Carolina"
     interests: "P4 programmable data planes, computer networks, cybersecurity, and Blockchain"
-    contact: "mailto:ekfoury@sc.edu"
-    photo: ""
+    contact: "https://sc.edu/study/colleges_schools/engineering_and_computing/faculty-staff/elie_kfoury.php"
+    photo: "/imgs/testimonials/elie-kfoury.png"
   - name: "Jorge Crichigno"
     title: "Professor"
     institution: "University of South Carolina"
     interests: "Practical implementation of Science DMZs, including the design and implementation of high-speed switched networks, TCP optimization, and experimental evaluation of congestion control algorithms such as BBR, HTCP, and Cubic."
-    contact: "mailto:jcrichigno@sc.edu"
-    photo: ""
+    contact: "https://sc.edu/study/colleges_schools/engineering_and_computing/faculty-staff/jorge_crichigno.php"
+    photo: "/imgs/testimonials/jorge-crichigno.png"
 ---
 
 Programmable switches make it possible to customize how data flows through a network, enabling precise control over performance, security, and functionality. These smart switches are crucial for advancing networking and developing technologies that can adapt to the ever-changing demands of modern infrastructure.

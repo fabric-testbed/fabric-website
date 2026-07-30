@@ -5,9 +5,9 @@ export interface Stat {
 }
 
 export const stats: Stat[] = [
-  { value: "43,808", label: "Total Slices",         detail: "Network slices created since launch" },
-  { value: "2,267",  label: "Total Users",           detail: "The number of individuals signed up as FABRIC users" },
-  { value: "52",     label: "FABRIC User Publications", detail: "Peer-reviewed papers and reports using FABRIC" },
-  { value: "147",    label: "Active Slices",         detail: "Slices currently running on the testbed" },
-  { value: "248",    label: "Total Projects",        detail: "Research projects that have used FABRIC" },
+  { value: "—", label: "Total Slices",              detail: "A slice is a collection of logically-related resources—or slivers—used in one or more experiments. This number represents the total amount of slices created to date on FABRIC." },
+  { value: "—", label: "Total Users",               detail: "The total number of individuals signed up as FABRIC Users." },
+  { value: "—", label: "FABRIC User Publications",  detail: "The total number of papers and publications that reference the use of FABRIC." },
+  { value: "—", label: "Active Slices",             detail: "A slice is a collection of logically-related resources—or slivers—used in one or more experiments. This number represents the current amount of slices that are actively being used in a project." },
+  { value: "—", label: "Total Projects",            detail: "A project is the term used to represent a logical grouping of users working on one or more related experiments over a period of time. Rights to resources are set at the project level." },
 ];

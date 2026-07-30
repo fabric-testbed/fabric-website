@@ -47,7 +47,7 @@ const accordionItems = [
         <div>
           <h4 className="text-fabric-blue font-semibold mb-2">Standard Services</h4>
           <ul className="space-y-1 ml-4">
-            {["Layer 2", "Layer 3", "Facility Port"].map((item) => (
+            {["Layer 2", "Layer 3", "Facility Ports"].map((item) => (
               <li key={item} className="font-medium">{item}</li>
             ))}
           </ul>
@@ -108,7 +108,7 @@ const accordionItems = [
           </ul>
         </div>
         <div>
-          <h4 className="text-fabric-blue font-semibold mb-2">Additional Connections</h4>
+          <h4 className="text-fabric-blue font-semibold mb-2">Campuses</h4>
           <ul className="space-y-1 ml-4">
             {["ASU", "Clemson", "UCSC", "NIST", "Kent State", "CESNET", "SLU", "…and more!"].map((item) => (
               <li key={item} className="font-medium">{item}</li>
@@ -116,7 +116,7 @@ const accordionItems = [
           </ul>
         </div>
         <div>
-          <h4 className="text-fabric-blue font-semibold mb-2">International Connectivity</h4>
+          <h4 className="text-fabric-blue font-semibold mb-2">Network Peering</h4>
           <p className="ml-4 font-medium">PaTH/AmLight (L2/L3) via FIU</p>
         </div>
       </div>
@@ -130,8 +130,9 @@ const accordionItems = [
           <h4 className="text-fabric-blue font-semibold mb-2">Infrastructure Measurements</h4>
           <ul className="space-y-1 ml-4">
             {[
-              "Optical Data",
               "CPU, bandwidth, and more!",
+              "REST API",
+              "FABlib integration",
             ].map((item) => (
               <li key={item} className="font-medium">{item}</li>
             ))}
@@ -150,27 +151,8 @@ const accordionItems = [
           </ul>
         </div>
         <div>
-          <h4 className="text-fabric-blue font-semibold mb-2">Access Methods</h4>
-          <ul className="space-y-1 ml-4">
-            {[
-              "REST API",
-              "FABlib integration",
-              "Sourced from ESnet",
-            ].map((item) => (
-              <li key={item} className="font-medium">{item}</li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h4 className="text-fabric-blue font-semibold mb-2">Monitoring</h4>
-          <ul className="space-y-1 ml-4">
-            {[
-              "Out-of-band monitoring",
-              "Support mirroring in a slice",
-            ].map((item) => (
-              <li key={item} className="font-medium">{item}</li>
-            ))}
-          </ul>
+          <h4 className="text-fabric-blue font-semibold mb-2">Optical Data</h4>
+          <p className="ml-4 font-medium">Sourced from ESnet</p>
         </div>
       </div>
     ),

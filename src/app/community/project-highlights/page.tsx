@@ -13,7 +13,7 @@ function unique(arr: (string | undefined)[]): string[] {
   return Array.from(new Set(arr.filter(Boolean) as string[])).sort();
 }
 
-const researchers = unique(projectHighlights.map((h) => h.researcher));
+const researchers = unique(projectHighlights.flatMap((h) => h.researchers));
 const institutions = unique(projectHighlights.map((h) => h.institution));
 const domains      = unique(projectHighlights.map((h) => h.domain));
 
@@ -86,34 +86,32 @@ export default function ProjectHighlightsPage() {
   const [institution, setInstitution] = useState("");
   const [domain, setDomain] = useState("");
   const [query, setQuery] = useState("");
-  const [applied, setApplied] = useState({ researcher: "", institution: "", domain: "", query: "" });
+
+  const handleResearcher = (v: string) => { setResearcher(v); setInstitution(""); setDomain(""); };
+  const handleInstitution = (v: string) => { setInstitution(v); setResearcher(""); setDomain(""); };
+  const handleDomain = (v: string) => { setDomain(v); setResearcher(""); setInstitution(""); };
 
   const filtered = useMemo(() => {
     return projectHighlights.filter((h) => {
-      if (applied.researcher  && h.researcher  !== applied.researcher)  return false;
-      if (applied.institution && h.institution !== applied.institution) return false;
-      if (applied.domain      && h.domain      !== applied.domain)      return false;
-      if (applied.query) {
-        const q = applied.query.toLowerCase();
+      if (researcher  && !h.researchers.includes(researcher))  return false;
+      if (institution && h.institution !== institution) return false;
+      if (domain      && h.domain      !== domain)      return false;
+      if (query.trim()) {
+        const q = query.toLowerCase();
         if (!h.title.toLowerCase().includes(q)) return false;
       }
       return true;
     });
-  }, [applied]);
-
-  const handleSearch = () => {
-    setApplied({ researcher, institution, domain, query });
-  };
+  }, [researcher, institution, domain, query]);
 
   const handleReset = () => {
     setResearcher("");
     setInstitution("");
     setDomain("");
     setQuery("");
-    setApplied({ researcher: "", institution: "", domain: "", query: "" });
   };
 
-  const hasFilters = applied.researcher || applied.institution || applied.domain || applied.query;
+  const hasFilters = researcher || institution || domain || query;
 
   return (
     <>
@@ -138,7 +136,7 @@ export default function ProjectHighlightsPage() {
               information on how to get in touch with the associated research team. If you are
               interested in learning more about projects on FABRIC, please check out the{" "}
               <a
-                href="https://portal.fabric-testbed.net"
+                href="https://portal.fabric-testbed.net/experiments"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-fabric-blue hover:underline"
@@ -150,15 +148,9 @@ export default function ProjectHighlightsPage() {
 
             {/* Filters */}
             <div className="flex flex-wrap items-center gap-3 mb-3">
-              <FilterSelect label="Researcher"        options={researchers}  value={researcher}  onChange={setResearcher} />
-              <FilterSelect label="Institution"       options={institutions} value={institution} onChange={setInstitution} />
-              <FilterSelect label="Scientific Domain" options={domains}      value={domain}      onChange={setDomain} />
-              <button
-                onClick={handleSearch}
-                className="btn-yellow px-6 py-3 shrink-0"
-              >
-                Search
-              </button>
+              <FilterSelect label="Researcher"        options={researchers}  value={researcher}  onChange={handleResearcher} />
+              <FilterSelect label="Institution"       options={institutions} value={institution} onChange={handleInstitution} />
+              <FilterSelect label="Scientific Domain" options={domains}      value={domain}      onChange={handleDomain} />
             </div>
 
             {/* Text search */}
@@ -167,7 +159,6 @@ export default function ProjectHighlightsPage() {
                 type="text"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                 placeholder="Search by keyword…"
                 className="w-full border border-fabric-gray-200 rounded-lg px-4 py-3 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-fabric-blue"
               />
