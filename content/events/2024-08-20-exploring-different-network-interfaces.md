@@ -1,18 +1,25 @@
 ---
-title: "Exploring Different Network Interfaces -- Mastering FABRIC: Tips and Tricks Webinar"
+title: "Exploring Different Network Interfaces — Mastering FABRIC: Tips and Tricks Webinar"
 date: "2024-08-20"
-type: "webinar"
-category: "webinars"
-excerpt: "Time: 3:00 PM - 4:40 PM ET"
+type: "event"
+category: "webinar"
+fabric_hosted: false
+excerpt: "https://youtu.be/9kz13H7Kjho"
+author: "Jayasree Jaganatha"
+date_modified: "2025-02-26"
+wp_id: 7433
+views: 781
 tags:
   - events
   - "mastering fabric: tips and tricks"
   - webinar
 ---
 
-Date: August 20, 2024
+https://youtu.be/9kz13H7Kjho
 
-Time: 3:00 PM - 4:40 PM ET
+**Date**: August 20, 2024 
+
+**Time**: 3:00 PM - 4:40 PM ET 
 
 Join us for an informative webinar titled "Exploring Different Network Interfaces," featuring network expert Paul Ruth, on August 20, 2024, from 3:00 PM to 4:30 PM ET. This session is designed for new and experienced users, offering a detailed exploration of FABRIC's network interfaces.
 

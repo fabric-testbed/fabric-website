@@ -28,7 +28,8 @@ export const testimonials: Testimonial[] = [
     topic:       "FABRIC Does Particle Physics",
     photo:       "/imgs/testimonials/fengping-hu.png",
     photoPlaceholder: "FH",
-    href:        "/community/project-highlights/big-data-particle-physics",
+    href:        "/community/project-highlights/4-big-data-particle-physics",
+
   },
   {
     id:          "fatou-secka",
@@ -38,6 +39,6 @@ export const testimonials: Testimonial[] = [
     topic:       "FABRIC Does 5G Networking",
     photo:       "/imgs/testimonials/fatou-secka.png",
     photoPlaceholder: "FS",
-    href:        "/community/project-highlights/5g-slicing",
+    href:        "/community/project-highlights/7-5g-slicing",
   },
 ];

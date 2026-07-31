@@ -22,12 +22,20 @@ function extractExcerpt(content: string, maxLen = 200): string {
     const t = l.trim();
     if (!t) return false;
     if (/^Published\s*[:：]?/i.test(t)) return false;
-    if (t.startsWith("#") || t.startsWith("![") || t.startsWith("```")) return false;
-    if (t.startsWith("---") || t.startsWith("|")) return false;
+    if (/^_Published/i.test(t)) return false;
+    if (/^Dear FABRIC/i.test(t)) return false;
+    if (/^An update from/i.test(t)) return false;
+    if (t.startsWith("#") || t.startsWith("![") || t.startsWith("[![")) return false;
+    if (t.startsWith("```") || t.startsWith("---") || t.startsWith("|")) return false;
+    if (t === "* * *" || t === "***" || t === "---") return false;
     if (/^https?:\/\//.test(t)) return false;
+    // Skip lines that are only a date (e.g. "_December 15, 2025_")
+    if (/^_[A-Z][a-z]+\s+\d/.test(t) && t.endsWith("_")) return false;
     return true;
   });
   const text = lines.join(" ")
+    .replace(/!\[[^\]]*\]?\([^)]*\)?[^\s]*/g, "")  // images
+    .replace(/\[!\[[^\]]*\]?\([^)]*\)?\]\([^)]*\)?[^\s]*/g, "")  // image links
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
     .replace(/\*\*([^*]+)\*\*/g, "$1")
     .replace(/\*([^*]+)\*/g, "$1")
@@ -67,7 +75,8 @@ export function getAllArticlesMeta(): ArticleMeta[] {
       const rawExcerpt = String(data.excerpt || "").trim();
       // Strip markdown formatting from excerpt
       const cleanedExcerpt = rawExcerpt
-        .replace(/!\[[^\]]*\]\([^)]*\)/g, "")    // images
+        .replace(/!\[[^\]]*\]?\([^)]*\)?[^\s]*/g, "")  // images (including truncated)
+        .replace(/\[!\[[^\]]*\]?\([^)]*\)?\]\([^)]*\)?[^\s]*/g, "")  // image links
         .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")  // links
         .replace(/\*\*([^*]+)\*\*/g, "$1")         // bold
         .replace(/\*([^*]+)\*/g, "$1")             // italic *
@@ -79,7 +88,10 @@ export function getAllArticlesMeta(): ArticleMeta[] {
         || cleanedExcerpt.length < 40
         || /^Published\s*[:：]?/i.test(cleanedExcerpt)
         || /^An update from/i.test(cleanedExcerpt)
-        || /^https?:\/\//.test(cleanedExcerpt);
+        || /^Dear FABRIC/i.test(cleanedExcerpt)
+        || /^https?:\/\//.test(cleanedExcerpt)
+        || /^!\[/.test(cleanedExcerpt)
+        || /^\[!\[/.test(cleanedExcerpt);
       const goodExcerpt = isBadExcerpt ? extractExcerpt(content) : cleanedExcerpt;
       return {
         slug,

@@ -10,6 +10,7 @@ wp_id: 7459
 views: 970
 tags:
   - blog
+  - thread the needle
 ---
 
 _This is a user-contributed blog post by Fraida Fund (_[_ffund@nyu.edu_](mailto:ffund@nyu.edu)_), a Research Assistant Professor in the Department of Electrical and Computer Engineering at NYU Tandon School of Engineering._  

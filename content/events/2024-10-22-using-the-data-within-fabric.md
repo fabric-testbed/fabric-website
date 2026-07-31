@@ -1,18 +1,25 @@
 ---
-title: "Using the Data Within FABRIC -- Mastering FABRIC: Tips and Tricks Webinar"
+title: "Using the Data Within FABRIC — Mastering FABRIC: Tips and Tricks Webinar"
 date: "2024-10-22"
-type: "webinar"
-category: "webinars"
-excerpt: "Time: 2:00 PM - 3:00 PM ET"
+type: "event"
+category: "webinar"
+fabric_hosted: false
+excerpt: "https://youtu.be/\\_JtR07A6LLU"
+author: "Jayasree Jaganatha"
+date_modified: "2025-02-26"
+wp_id: 7612
+views: 1046
 tags:
   - events
   - "mastering fabric: tips and tricks"
   - webinar
 ---
 
-Date: October 22, 2024
+https://youtu.be/\_JtR07A6LLU
 
-Time: 2:00 PM - 3:00 PM ET
+**Date**: October 22, 2024 
+
+**Time**: 2:00 PM – 3:00 PM ET 
 
 Join us on October 22, from 2-3 PM ET, for a deep dive into utilizing a wealth of data measured on the FABRIC platform. In this session, **Jim Griffioen and Charles Carpenter** will guide participants through the essential features that make FABRIC a unique and powerful tool for data-driven research and innovation. The webinar will cover the importance of FABRIC in advancing network experimentation, highlight its exclusive capabilities, and provide a hands-on demo on how to use the data within FABRIC effectively. The session will also offer valuable resources for further exploration.
 
