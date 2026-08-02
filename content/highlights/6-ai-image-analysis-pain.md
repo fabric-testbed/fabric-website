@@ -20,13 +20,13 @@ researchers:
     institution: "Associate Director, Watt Family Innovation Center"
     interests: "Networking, cloud computing, cybersecurity, health care, agriculture, transportation, and STEM education by innovating in technologies such as software defined networking, Internet architecture and protocols, computing system architecture, to artificial intelligence"
     contact: "https://kwang.people.clemson.edu/"
-    photo: "/imgs/testimonials/kuang-ching-wang.jpg"
+    photo: "/imgs/highlights/researchers/kuang-ching-wang.jpg"
   - name: "Benjamin Formby"
     title: "Research Assistant"
     institution: "Clemson University"
     interests: ""
     contact: "https://www.linkedin.com/in/benjamin-formby-781108229/"
-    photo: "/imgs/testimonials/benjamin-formby.png"
+    photo: "/imgs/highlights/researchers/benjamin-formby.png"
 ---
 
 To treat pain, current medical practices rely heavily on pharmaceuticals. However, this approach doesn't address the root causes of the pain and comes with side effects and a risk of dependency. A new collaborative project at Clemson University aims to find better ways to treat pain by combining advanced ultrasound imaging with machine learning to uncover the deeper, often hidden, causes of pain.

@@ -14,13 +14,13 @@ researchers:
     institution: "Argonne National Laboratory"
     interests: "AI and HPC"
     contact: "https://www.anl.gov/profile/ravi-k-madduri"
-    photo: "/imgs/testimonials/ravi-madduri.jpg"
+    photo: "/imgs/highlights/researchers/ravi-madduri.jpg"
   - name: "Zilinghan Li"
     title: "Machine Learning Engineer"
     institution: "Argonne National Laboratory"
     interests: "AI for Science and Biomedicine, Federated Learning and Scalable Learning"
     contact: "https://zilinghan.github.io/"
-    photo: "/imgs/testimonials/zilinghan-li.jpg"
+    photo: "/imgs/highlights/researchers/zilinghan-li.jpg"
 ---
 
 Climate models are vital for understanding how natural variability and human-induced changes affect the Earth's climate system. These models rely on vast amounts of data, including historical climate records and current atmospheric conditions, to ensure accurate simulations and reliable projections of future climate scenarios.

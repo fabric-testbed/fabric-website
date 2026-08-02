@@ -43,7 +43,7 @@ export const projectHighlights: ProjectHighlight[] = [
   {
     slug:             "4-big-data-particle-physics",
     title:            "Accelerating Big Data Processing for Particle Physics Experiments",
-    researchers:      ["Ilija Vukotic"],
+    researchers:      ["Ilija Vukotic", "Fengping Hu"],
     institution:      "University of Chicago",
     domain:           "Particle Physics",
     image:            "/imgs/highlights/big-data-particle-physics.jpg",

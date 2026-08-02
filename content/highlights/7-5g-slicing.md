@@ -16,13 +16,13 @@ researchers:
     institution: "University of Tokyo"
     interests: "Research and development aimed at next-generation communication technologies, Beyond 5G/6G, are rapidly progressing. Recent large-scale communication disruptions have highlighted the urgent need for strengthening the resilience and reliability of communication infrastructures."
     contact: "https://www.t.u-tokyo.ac.jp/en/about/member/akihiro-nakao"
-    photo: "/imgs/testimonials/akihiro-nakao.png"
+    photo: "/imgs/highlights/researchers/akihiro-nakao.png"
   - name: "Fatou Secka"
     title: "Adjunct Lecturer"
     institution: "University of Gambia"
     interests: "5G Network Slicing, Network Security (WireGuard, IPsec, DMVPN), Cisco Routing & Switching (CCIE, CCNP)"
     contact: "https://linkedin.com/in/fatou-s-secka-8033686a"
-    photo: "/imgs/testimonials/fatou-secka.png"
+    photo: "/imgs/highlights/researchers/fatou-secka.png"
 ---
 
 Whether traveling or working from home, remote workers often use Wi-Fi networks and VPNs with separate authentication devices to access critical company resources from locations around the world. Wrestling with slow, insecure connections not only hinders productivity but also leaves sensitive data vulnerable.

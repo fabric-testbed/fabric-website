@@ -18,7 +18,7 @@ researchers:
     institution: "High-Performance Data Facility (HPDF) at DOE Jefferson Lab"
     interests: "High-speed optical network architectures, cross-layer interactions, novel signaling schemes, and network security"
     contact: "https://linkedin.com/in/ilya-baldin-3ab2982"
-    photo: "/imgs/testimonials/ilya-baldin.jpg"
+    photo: "/imgs/highlights/researchers/ilya-baldin.jpg"
 ---
 
 Modern scientific instruments are generating data at unprecedented rates, overwhelming traditional networks and limiting researchers' ability to move experiment data quickly and reliably. To address this challenge, the ESnetJLab FPGA Accelerated Transport project (EJFAT) is developing a new approach, using programmable hardware to reshape how scientific data travels across networks.

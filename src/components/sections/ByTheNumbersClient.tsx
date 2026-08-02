@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Stat } from "@/lib/data/stats";
 
 const positions = [
@@ -107,9 +108,18 @@ export function ByTheNumbersClient({ stats }: { stats: Stat[] }) {
               <p className="text-sm font-bold text-fabric-navy uppercase tracking-wide mb-2">
                 {activeStat?.label}
               </p>
-              <p className="text-sm text-fabric-gray-600 leading-relaxed mb-6">
+              <p className="text-sm text-fabric-gray-600 leading-relaxed mb-4">
                 {activeStat?.detail}
               </p>
+              {activeStat?.href && (
+                <Link
+                  href={activeStat.href}
+                  {...(activeStat.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="text-xs font-medium text-fabric-blue hover:underline"
+                >
+                  Learn More →
+                </Link>
+              )}
             </div>
           </div>
         </div>

@@ -15,7 +15,13 @@ researchers:
     institution: "The Enrico Fermi Institute(EFI) from the University of Chicago"
     interests: ""
     contact: "https://efi.uchicago.edu/people/profile/ilija-vukotic/"
-    photo: "/imgs/testimonials/ilija-vukotic.jpg"
+    photo: "/imgs/highlights/researchers/ilija-vukotic.jpg"
+  - name: "Fengping Hu"
+    title: "Senior Scientific Software Developer"
+    institution: "University of Chicago"
+    interests: ""
+    contact: "https://www.linkedin.com/in/fengping-hu-7786a28/"
+    photo: "/imgs/highlights/researchers/fengping-hu.png"
 ---
 
 ATLAS, one of the largest particle physics experiments at CERN's Large Hadron Collider, generates immense amounts of data. Researchers at the University of Chicago developed a method using FABRIC that drastically reduces the time and bandwidth required for data analysis.

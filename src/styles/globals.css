@@ -86,6 +86,16 @@
            focus-visible:ring-2 focus-visible:ring-fabric-yellow focus-visible:ring-offset-2;
   }
 
+  .btn-yellow-outline {
+    @apply inline-flex items-center justify-center gap-2
+           bg-fabric-yellow text-fabric-navy font-semibold text-sm
+           px-5 py-2.5 rounded-full border-2 border-fabric-yellow
+           transition-all duration-200
+           hover:bg-transparent hover:text-fabric-yellow
+           active:scale-[0.98]
+           focus-visible:ring-2 focus-visible:ring-fabric-yellow focus-visible:ring-offset-2;
+  }
+
   .btn-blue {
     @apply inline-flex items-center justify-center gap-2
            bg-fabric-blue text-white font-semibold text-sm

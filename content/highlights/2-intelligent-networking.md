@@ -8,7 +8,7 @@ imagePlaceholder: "bg-gradient-to-br from-blue-500 to-cyan-400"
 institution: "University of South Carolina"
 domain: "AI / Machine Learning"
 learnMore:
-  projectUrl: "https://portal.fabric-testbed.net/experiments/public-projects/8eaa3ec2-65e7-49a3-8c09-e1761141a6ad"
+  projectUrl: "https://portal.fabric-testbed.net/experiments/public-projects/a1b14a26-45a5-4cc0-8860-f0ed31285678"
   artifacts:
     - label: "Introduction to P4-DPDK"
       url: "https://artifacts.fabric-testbed.net/artifacts/e4cc5ecd-66e8-4c36-9139-de22a7b05e8d"
@@ -20,13 +20,13 @@ researchers:
     institution: "University of South Carolina"
     interests: "P4 programmable data planes, computer networks, cybersecurity, and Blockchain"
     contact: "https://sc.edu/study/colleges_schools/engineering_and_computing/faculty-staff/elie_kfoury.php"
-    photo: "/imgs/testimonials/elie-kfoury.png"
+    photo: "/imgs/highlights/researchers/elie-kfoury.png"
   - name: "Jorge Crichigno"
     title: "Professor"
     institution: "University of South Carolina"
     interests: "Practical implementation of Science DMZs, including the design and implementation of high-speed switched networks, TCP optimization, and experimental evaluation of congestion control algorithms such as BBR, HTCP, and Cubic."
     contact: "https://sc.edu/study/colleges_schools/engineering_and_computing/faculty-staff/jorge_crichigno.php"
-    photo: "/imgs/testimonials/jorge-crichigno.png"
+    photo: "/imgs/highlights/researchers/jorge-crichigno.png"
 ---
 
 Programmable switches make it possible to customize how data flows through a network, enabling precise control over performance, security, and functionality. These smart switches are crucial for advancing networking and developing technologies that can adapt to the ever-changing demands of modern infrastructure.

@@ -25,9 +25,9 @@ export const navItems: NavItem[] = [
     label: "Facilities & Infrastructure",
     href:  "/facilities",
     children: [
-      { label: "Resource Map",                    href: "/facilities/resource-map" },
+      { label: "Resource Map",                    href: "https://portal.fabric-testbed.net/resources/overview" },
       { label: "Testbed & Facilities",            href: "/facilities/testbeds-and-facilities" },
-      { label: "Measuring & Monitoring",          href: "/facilities/measuring-and-monitoring" },
+      { label: "Measuring & Monitoring",          href: "https://portal.fabric-testbed.net/resources/tools" },
     ],
   },
   {

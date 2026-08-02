@@ -206,6 +206,7 @@ const connectsItems = [
   "Dedicated links at speeds up to 1.2Tbps",
   "Controllable peering with Internet",
   "Programmable computational resources, such as CPUs, GPUs, FPGAs, memory, and storage",
+  "In-network network switches (SDN) and smart NIC",
 ];
 
 function BlueBullet({ text }: { text: string }) {

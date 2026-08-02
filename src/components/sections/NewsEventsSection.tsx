@@ -15,7 +15,7 @@ export function NewsEventsSection() {
           {/* Events */}
           <div>
             <h2 className="text-xl font-bold text-fabric-navy mb-6 pb-3 border-b border-fabric-gray-200">
-              Events
+              Events & Workshops
             </h2>
             <div className="space-y-6">
               {events.map((event) => {
@@ -66,7 +66,7 @@ export function NewsEventsSection() {
           {/* News */}
           <div>
             <h2 className="text-xl font-bold text-fabric-navy mb-6 pb-3 border-b border-fabric-gray-200">
-              News
+              News & Blogs
             </h2>
             <div className="space-y-7">
               {news.map((item) => {

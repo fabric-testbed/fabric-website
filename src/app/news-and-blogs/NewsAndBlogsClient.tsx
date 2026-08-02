@@ -10,7 +10,6 @@ const filters = [
   { id: "all",          label: "All Content" },
   { id: "news",         label: "News" },
   { id: "blog",         label: "Blogs" },
-  { id: "news-archive", label: "News Archive" },
   { id: "newsletters",  label: "Newsletters" },
 ];
 
@@ -167,11 +166,9 @@ export function NewsAndBlogsClient({ articles }: { articles: ArticleMeta[] }) {
     let items = articles;
 
     if (activeFilter === "news") {
-      items = items.filter((i) => i.type === "news" && i.category !== "archive");
+      items = items.filter((i) => i.type === "news");
     } else if (activeFilter === "blog") {
       items = items.filter((i) => i.type === "blog");
-    } else if (activeFilter === "news-archive") {
-      items = items.filter((i) => i.type === "news" && i.category === "archive");
     } else if (activeFilter === "newsletters") {
       items = items.filter((i) => i.category === "newsletter" || i.tags?.includes("newsletter"));
     }

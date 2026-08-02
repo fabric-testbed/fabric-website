@@ -68,6 +68,21 @@ const ACRONYM_TO_LONG: Record<string, string> = {
   EDUKY:  "EDUKY",
 };
 
+// Topomap display name → portal acronym (only where they differ)
+const DISPLAY_TO_ACRONYM: Record<string, string> = {
+  "RENCI": "RENC",
+  "StarLight": "STAR",
+  "Washington": "WASH",
+  "Dallas": "DALL",
+  "Salt Lake City": "SALT",
+  "Los Angeles": "LOSA",
+  "New York": "NEWY",
+  "Kansas City": "KANS",
+  "Atlanta": "ATLA",
+  "Seattle": "SEAT",
+  "Hawaii": "HAWI",
+};
+
 const RESOURCE_ROWS = [
   { key: "Core",      label: "Cores"     },
   { key: "Disk",      label: "Disk (GB)" },
@@ -80,12 +95,11 @@ const RESOURCE_ROWS = [
   { key: "Switch",    label: "Switch"    },
 ];
 
-function nodeColor(type: string, selected: boolean, down: boolean) {
-  if (selected)                 return "#059669";
-  if (down)                     return "#838385";
-  if (type === "international") return "#F5C518";
-  if (type === "us_core")       return "#2196C9";
-  return "#1A73B5";
+function nodeColor(type: string, state?: string) {
+  if (state === "Maint")                               return "#838385";
+  if (state === "PreMaint" || state === "PartMaint")   return "#e94948";
+  if (type === "us_core")                              return "#0B5FA5";
+  return "#48BFE3";
 }
 
 function isDown(site: TopoSite) {
@@ -200,12 +214,13 @@ export function FabricTopomap({ siteMap, defaultNode = "StarLight", hideFooterLi
               const coords     = topomap.coordinates[name];
               if (!coords) return null;
               const isSelected = selectedNode === name;
-              const siteDown   = dataLoaded && (!siteMap[name] || siteMap[name]?.status?.state === "Maint");
+              const siteState  = dataLoaded ? (siteMap[name] ? siteMap[name].status?.state : "Maint") : undefined;
               const r          = type === "edge" ? 1.8 : 3.2;
-              const color      = nodeColor(type, isSelected, siteDown);
+              const color      = nodeColor(type, siteState);
               return (
                 <Marker key={name} coordinates={coords} onMouseEnter={() => setSelectedNode(name)}>
                   <circle r={r * 2.2} fill={color} fillOpacity={isSelected ? 0.25 : 0.15} />
+                  {isSelected && <circle r={r * 1.7} fill="none" stroke="#ffffff" strokeWidth={1.2} />}
                   <circle r={isSelected ? r * 1.4 : r} fill={color} style={{ cursor: "pointer" }} />
                   <text
                     textAnchor="middle"
@@ -249,47 +264,50 @@ export function FabricTopomap({ siteMap, defaultNode = "StarLight", hideFooterLi
             <span>L1/L2 Links</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="inline-block w-2 h-2 rounded-full bg-fabric-teal" />
+            <span style={{ display: "inline-block", width: "0.5rem", height: "0.5rem", borderRadius: "50%", background: "#0B5FA5" }} />
             <span>Core site</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="inline-block w-2 h-2 rounded-full bg-fabric-blue" />
+            <span style={{ display: "inline-block", width: "0.5rem", height: "0.5rem", borderRadius: "50%", background: "#48BFE3" }} />
             <span>Edge site</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="inline-block w-2 h-2 rounded-full bg-fabric-yellow" />
-            <span>International site</span>
           </div>
         </div>
       </div>
 
       {/* ── Site detail panel ── */}
       <div className="w-64 shrink-0 rounded-2xl border border-fabric-gray-200 bg-white flex flex-col overflow-hidden">
-        {selectedNode && (
+        {selectedNode && (() => {
+          const siteAcronym = selectedSite?.name ?? DISPLAY_TO_ACRONYM[selectedNode] ?? selectedNode;
+          return (
           <>
             {/* Header */}
             <div className="px-4 pt-4 pb-3 border-b border-fabric-gray-200">
               <div className="flex items-center gap-2 flex-wrap">
                 <p className="text-sm font-bold text-fabric-teal uppercase tracking-wide leading-snug">
-                  {selectedSite ? selectedSite.name : selectedNode.toUpperCase()}
+                  {siteAcronym}
                 </p>
-                {selectedSite && <StatusBadge state={selectedSite.status?.state} />}
+                {selectedSite ? (
+                  <StatusBadge state={selectedSite.status?.state} />
+                ) : (
+                  <span className="px-2 py-0.5 text-[10px] font-bold rounded bg-gray-700 text-white border border-gray-700 uppercase tracking-wide">
+                    Down
+                  </span>
+                )}
               </div>
               <p className="text-xs text-fabric-gray-400 mt-0.5 leading-snug">
-                {selectedSite
-                  ? (ACRONYM_TO_LONG[selectedSite.name] ?? selectedSite.displayName)
-                  : selectedNode}
+                {ACRONYM_TO_LONG[siteAcronym] ?? selectedSite?.displayName ?? selectedNode}
               </p>
             </div>
 
             {/* Body */}
             <div className="flex-1 overflow-y-auto">
               {(!selectedSite || isDown(selectedSite)) ? (
-                <div className="px-3 py-3 flex items-center justify-between">
-                  <span className="text-xs text-fabric-gray-600">Status</span>
-                  <span className="px-2.5 py-0.5 text-[10px] font-bold rounded bg-gray-700 text-white uppercase tracking-wide">
-                    Down
-                  </span>
+                <div className="px-3 py-3">
+                  {["LBNL", "UKY", "RENC"].includes(siteAcronym) && (
+                    <p className="text-xs text-fabric-gray-400">
+                      This is a development site and not available for general use.
+                    </p>
+                  )}
                 </div>
               ) : (
                 <div className="px-3 py-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-0">
@@ -314,15 +332,16 @@ export function FabricTopomap({ siteMap, defaultNode = "StarLight", hideFooterLi
             </div>
 
             {/* Footer */}
-            {!hideFooterLink && (
+            {!hideFooterLink && !["LBNL", "UKY", "RENC"].includes(siteAcronym) && (
               <div className="px-4 py-3 border-t border-fabric-gray-200">
-                <a href="/facilities/resource-map" className="text-xs text-fabric-blue hover:underline font-medium">
-                  View full resource map →
+                <a href={`https://portal.fabric-testbed.net/resources/sites/${siteAcronym}`} target="_blank" rel="noopener noreferrer" className="text-xs text-fabric-blue hover:underline font-medium">
+                  View site details in Portal →
                 </a>
               </div>
             )}
           </>
-        )}
+          );
+        })()}
       </div>
     </div>
   );

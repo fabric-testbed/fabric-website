@@ -30,15 +30,15 @@ export function HeroSection() {
             An innovative infrastructure to prototype and validate novel
             network and computing solutions.
           </p>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/use-fabric/get-started" className="btn-yellow">
+          <div className="flex flex-wrap gap-5">
+            <Link href="/use-fabric/get-started" className="btn-yellow-outline">
               Get Started
             </Link>
             <Link
               href="https://portal.fabric-testbed.net"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-white"
+              className="btn-yellow-outline"
             >
               Enter Portal
             </Link>

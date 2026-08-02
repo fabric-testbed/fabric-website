@@ -28,19 +28,19 @@ researchers:
     institution: "Illinois Institute of Technology"
     interests: "Distributed systems, Programmable networking, Security, Automated reasoning, Formal methods"
     contact: "https://www.iit.edu/directory/people/nik-sultana"
-    photo: "/imgs/testimonials/nik-sultana.jpg"
+    photo: "/imgs/highlights/researchers/nik-sultana.jpg"
   - name: "Alexander Wolosewicz"
     title: "PhD Student"
     institution: "Illinois Institute of Technology"
     interests: "Networking and security, improving visibility in virtual networks"
     contact: "https://transparnet.cs.iit.edu/~awolosewicz/"
-    photo: "/imgs/testimonials/alexander-wolosewicz.jpeg"
+    photo: "/imgs/highlights/researchers/alexander-wolosewicz.jpeg"
   - name: "Nishanth Shyamkumar"
     title: "Research Software Engineer"
     institution: "Illinois Institute of Technology"
     interests: "Performance evaluation in Data center and cloud networks"
     contact: "https://www.linkedin.com/in/nishanth-shyamkumar-9bb14980/?skipRedirect=true"
-    photo: "/imgs/testimonials/nishanth-shyamkumar.png"
+    photo: "/imgs/highlights/researchers/nishanth-shyamkumar.png"
 ---
 
 Programmable network hardware devices such as switches, routers or network interface cards are becoming more widespread. Although programmability gives network operators the ability to customize devices to meet the unique requirements of their network, this capability can also be used to undermine the security of the hardware and its users.

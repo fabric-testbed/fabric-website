@@ -18,13 +18,13 @@ researchers:
     institution: "Argonne National Laboratory and the University of Chicago"
     interests: "AI for science, HPC, data-intensive systems, and quantum networking"
     contact: "https://www.anl.gov/profile/rajkumar-kettimuthu"
-    photo: "/imgs/testimonials/rajkumar-kettimuthu.jpg"
+    photo: "/imgs/highlights/researchers/rajkumar-kettimuthu.jpg"
   - name: "Joaquin Chung"
     title: "Research Scientist"
     institution: "Argonne National Laboratory and the University of Chicago"
     interests: "Quantum networks, advanced wireless, software-defined networking"
     contact: "https://www.anl.gov/profile/joaquin-chung"
-    photo: "/imgs/testimonials/joaquin-chung.jpg"
+    photo: "/imgs/highlights/researchers/joaquin-chung.jpg"
 ---
 
 Researchers use distributed scientific instruments such as large sensor networks, climate monitoring stations, particle accelerators, and more to tackle complex, large-scale scientific questions. These instruments generate vast amounts of data at remarkable speeds, requiring efficient transfer across long distances for analysis. However, traditional file-based methods often encounter bottlenecks, especially when the instruments producing the data reside in stringent security domains with restricted external network connectivity.

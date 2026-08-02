@@ -86,7 +86,7 @@ export function ResourceMapSection() {
         <h2 className="text-2xl font-bold text-fabric-navy mb-8">Resource Map</h2>
         <FabricTopomap siteMap={siteMap} />
         <div className="flex justify-center mt-6">
-          <Link href="/facilities/resource-map" className="btn-yellow">Learn More</Link>
+          <Link href="https://portal.fabric-testbed.net/resources/overview" target="_blank" rel="noopener noreferrer" className="btn-yellow">Learn More</Link>
         </div>
       </div>
     </section>
