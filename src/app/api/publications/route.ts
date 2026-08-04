@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
+import { PUBLICATIONS_TRACKER_API_URL } from "@/lib/config";
 
-const API_URL = "https://publications.fabric-testbed.net/api/publications";
-const ALLOWED_ORIGIN = "https://publications.fabric-testbed.net";
+const API_URL = PUBLICATIONS_TRACKER_API_URL || "https://publications.fabric-testbed.net/api/publications";
+const ALLOWED_ORIGIN = new URL(API_URL).origin;
 const MAX_PAGES = 50;
 const MAX_RESULTS = 5000;
 
