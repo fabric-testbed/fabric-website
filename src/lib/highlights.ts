@@ -49,8 +49,12 @@ export function getAllHighlightSlugs(): string[] {
     .map((f) => f.replace(/\.md$/, ""));
 }
 
+const SAFE_SLUG = /^[a-z0-9][a-z0-9._-]*$/;
+
 export async function getHighlightBySlug(slug: string): Promise<HighlightDetail | null> {
+  if (!SAFE_SLUG.test(slug)) return null;
   const filePath = path.join(HIGHLIGHTS_DIR, `${slug}.md`);
+  if (!path.resolve(filePath).startsWith(path.resolve(HIGHLIGHTS_DIR))) return null;
   if (!fs.existsSync(filePath)) return null;
 
   const raw = fs.readFileSync(filePath, "utf8");

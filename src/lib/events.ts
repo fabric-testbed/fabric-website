@@ -127,8 +127,12 @@ export function getAllEventsMeta(): EventMeta[] {
     .sort((a, b) => b.event_date.localeCompare(a.event_date));
 }
 
+const SAFE_SLUG = /^[a-z0-9][a-z0-9._-]*$/;
+
 export async function getEventBySlug(slug: string): Promise<EventDetail | null> {
+  if (!SAFE_SLUG.test(slug)) return null;
   const filePath = path.join(EVENTS_DIR, `${slug}.md`);
+  if (!path.resolve(filePath).startsWith(path.resolve(EVENTS_DIR))) return null;
   if (!fs.existsSync(filePath)) return null;
   const raw = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(raw);

@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 
 const API_URL = "https://publications.fabric-testbed.net/api/publications";
+const ALLOWED_ORIGIN = "https://publications.fabric-testbed.net";
+const MAX_PAGES = 50;
+const MAX_RESULTS = 5000;
 
 export const revalidate = 3600; // cache 1 hour
 
@@ -15,16 +18,23 @@ export async function GET() {
   try {
     const allResults: unknown[] = [];
     let url: string | null = API_URL;
+    let pages = 0;
 
     while (url) {
+      // Validate that the next URL is from the expected origin
+      if (!url.startsWith(ALLOWED_ORIGIN)) break;
+      if (++pages > MAX_PAGES) break;
+
       const res = await fetch(url, {
         headers: { Accept: "application/json" },
+        signal: AbortSignal.timeout(15_000),
       });
       if (!res.ok) {
         return NextResponse.json({ error: `API returned ${res.status}` }, { status: res.status });
       }
       const data: ApiResponse = await res.json();
       allResults.push(...data.results);
+      if (allResults.length >= MAX_RESULTS) break;
       url = data.next;
     }
 

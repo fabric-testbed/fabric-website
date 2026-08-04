@@ -17,9 +17,8 @@ node_modules/
 dist/
 
 # env
-.env
-.env.local
-.env*.local
+.env*
+!.env.example
 
 # vercel
 .vercel
@@ -30,6 +29,13 @@ next-env.d.ts
 
 # config (contains sensitive API URLs — copy config.json.template → config.json)
 config.json
+
+# editor
+.vscode/
+.idea/
+
+# claude code
+.claude/
 
 # misc
 .DS_Store

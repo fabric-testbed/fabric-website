@@ -103,8 +103,12 @@ export function getAllArticlesMeta(): ArticleMeta[] {
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
+const SAFE_SLUG = /^[a-z0-9][a-z0-9._-]*$/;
+
 export async function getArticleBySlug(slug: string): Promise<ArticleDetail | null> {
+  if (!SAFE_SLUG.test(slug)) return null;
   const filePath = path.join(ARTICLES_DIR, `${slug}.md`);
+  if (!path.resolve(filePath).startsWith(path.resolve(ARTICLES_DIR))) return null;
   if (!fs.existsSync(filePath)) return null;
   const raw = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(raw);

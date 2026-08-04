@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@eslint/eslintrc": "^3.3.5",
@@ -36,10 +37,12 @@
     "@types/turndown": "^5.0.6",
     "@types/xml2js": "^0.4.14",
     "autoprefixer": "^10.4.19",
+    "decap-server": "^3.10.0",
     "eslint": "^10.8.0",
     "eslint-config-next": "^16.2.12",
     "postcss": "^8.5.15",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.23.5",
     "turndown": "^7.2.4",
     "typescript": "^5",
     "xml2js": "^0.6.2"
