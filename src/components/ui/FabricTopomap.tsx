@@ -160,7 +160,7 @@ export function FabricTopomap({ siteMap, defaultNode = "StarLight", hideFooterLi
   function handleZoomOut() { if (position.zoom > 1) setPosition((p) => ({ ...p, zoom: p.zoom / 1.6 })); }
 
   return (
-    <div className="flex gap-4 items-stretch">
+    <div className="flex flex-col lg:flex-row gap-4 items-stretch">
       {/* ── Map ── */}
       <div className="relative flex-1 min-w-0 rounded-2xl border border-fabric-gray-200 overflow-hidden bg-[#EAF4FB]">
         <ComposableMap
@@ -275,7 +275,7 @@ export function FabricTopomap({ siteMap, defaultNode = "StarLight", hideFooterLi
       </div>
 
       {/* ── Site detail panel ── */}
-      <div className="w-64 shrink-0 rounded-2xl border border-fabric-gray-200 bg-white flex flex-col overflow-hidden">
+      <div className="w-full lg:w-64 shrink-0 rounded-2xl border border-fabric-gray-200 bg-white flex flex-col overflow-hidden">
         {selectedNode && (() => {
           const siteAcronym = selectedSite?.name ?? DISPLAY_TO_ACRONYM[selectedNode] ?? selectedNode;
           return (

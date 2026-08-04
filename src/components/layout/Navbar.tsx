@@ -30,7 +30,7 @@ export function Navbar() {
       style={{ boxShadow: "0 3px 3px rgba(0,0,0,0.16)" }}
     >
       <div className="w-full px-4 xl:px-6">
-        <nav className="flex items-center justify-between h-16" ref={dropdownRef}>
+        <nav className="flex items-center h-16" ref={dropdownRef}>
 
           {/* ── Logo ── */}
           <Link href="/" className="shrink-0">
@@ -42,7 +42,7 @@ export function Navbar() {
           </Link>
 
           {/* ── Desktop nav ── */}
-          <div className="hidden xl:flex items-center">
+          <div className="hidden xl:flex items-center ml-6">
             {navItems.map((item) => {
               const isActive = pathname.startsWith(item.href);
               const isOpen   = activeDropdown === item.label;
@@ -120,7 +120,7 @@ export function Navbar() {
           </div>
 
           {/* ── Portal button + mobile toggle ── */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 ml-auto">
             {/* Outlined "Portal" button — exactly as in XD */}
             <Link
               href="https://portal.fabric-testbed.net"
@@ -179,13 +179,17 @@ export function Navbar() {
                       <Link
                         key={child.href}
                         href={child.href}
+                        {...(child.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                         onClick={() => setMobileOpen(false)}
-                        className="block px-4 py-2 rounded-lg text-sm hover:text-fabric-blue hover:bg-fabric-light transition-colors"
+                        className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm hover:text-fabric-blue hover:bg-fabric-light transition-colors"
                         style={{ color: "#5A6370" }}
                       >
                         {child.label}
+                        {child.href.startsWith("http") && (
+                          <ExternalLink className="h-3 w-3 opacity-50" />
+                        )}
                         {child.badge && (
-                          <span className="ml-2 px-1.5 py-0.5 text-[10px] font-bold uppercase rounded bg-fabric-yellow text-fabric-navy leading-none">
+                          <span className="ml-1 px-1.5 py-0.5 text-[10px] font-bold uppercase rounded bg-fabric-yellow text-fabric-navy leading-none">
                             {child.badge}
                           </span>
                         )}

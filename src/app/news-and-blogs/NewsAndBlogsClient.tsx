@@ -134,6 +134,17 @@ export function NewsAndBlogsClient({ articles }: { articles: ArticleMeta[] }) {
   const [activeFilter, setActiveFilter] = useState(searchParams.get("filter") || "all");
   const [searchQuery, setSearchQuery]   = useState("");
   const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
+  const [selectedYear, setSelectedYear] = useState<string>("all");
+
+  const newsletterYears = useMemo(() => {
+    const years = new Set<string>();
+    articles.forEach((a) => {
+      if (a.category === "newsletter" || a.tags?.includes("newsletter") || a.title.toLowerCase().includes("newsletter")) {
+        years.add(a.date.slice(0, 4));
+      }
+    });
+    return Array.from(years).sort().reverse();
+  }, [articles]);
 
   const allTags = useMemo(() => {
     const tagSet = new Set<string>();
@@ -158,6 +169,7 @@ export function NewsAndBlogsClient({ articles }: { articles: ArticleMeta[] }) {
   // Sync filter to URL (only when user changes filter)
   function handleFilterChange(id: string) {
     setActiveFilter(id);
+    if (id !== "newsletters") setSelectedYear("all");
     const url = id === "all" ? "/news-and-blogs" : `/news-and-blogs?filter=${id}`;
     router.replace(url, { scroll: false });
   }
@@ -170,7 +182,11 @@ export function NewsAndBlogsClient({ articles }: { articles: ArticleMeta[] }) {
     } else if (activeFilter === "blog") {
       items = items.filter((i) => i.type === "blog");
     } else if (activeFilter === "newsletters") {
-      items = items.filter((i) => i.category === "newsletter" || i.tags?.includes("newsletter"));
+      items = items.filter((i) => i.category === "newsletter" || i.tags?.includes("newsletter") || i.title.toLowerCase().includes("newsletter"));
+    }
+
+    if (activeFilter === "newsletters" && selectedYear !== "all") {
+      items = items.filter((i) => i.date.startsWith(selectedYear));
     }
 
     if (selectedTags.size > 0) {
@@ -187,7 +203,7 @@ export function NewsAndBlogsClient({ articles }: { articles: ArticleMeta[] }) {
     }
 
     return [...items].sort((a, b) => b.date.localeCompare(a.date));
-  }, [activeFilter, searchQuery, selectedTags, articles]);
+  }, [activeFilter, searchQuery, selectedTags, selectedYear, articles]);
 
   return (
     <>
@@ -256,6 +272,35 @@ export function NewsAndBlogsClient({ articles }: { articles: ArticleMeta[] }) {
               </button>
             ))}
           </div>
+
+          {/* Year filter — only for Newsletters */}
+          {activeFilter === "newsletters" && newsletterYears.length > 0 && (
+            <div className="flex gap-2 flex-wrap -mt-4">
+              <button
+                onClick={() => setSelectedYear("all")}
+                className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
+                  selectedYear === "all"
+                    ? "bg-fabric-navy text-white"
+                    : "bg-fabric-gray-100 text-fabric-gray-600 hover:bg-fabric-gray-200"
+                }`}
+              >
+                All Years
+              </button>
+              {newsletterYears.map((year) => (
+                <button
+                  key={year}
+                  onClick={() => setSelectedYear(year)}
+                  className={`px-3 py-1 rounded-full text-xs font-semibold transition-colors ${
+                    selectedYear === year
+                      ? "bg-fabric-navy text-white"
+                      : "bg-fabric-gray-100 text-fabric-gray-600 hover:bg-fabric-gray-200"
+                  }`}
+                >
+                  {year}
+                </button>
+              ))}
+            </div>
+          )}
 
         </div>
       </section>

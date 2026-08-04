@@ -34,12 +34,15 @@ export default function GetStartedPage() {
       <main className="pt-16">
 
         {/* ── Section 1: Hero ──────────────────────────────────────── */}
-        <section
-          className="bg-cover bg-center bg-no-repeat py-20"
-          style={{ backgroundImage: "url('/imgs/get-started-hero.png')" }} 
-        >
-          <div className="page-container max-w-5xl py-40">
-          </div>
+        <section className="relative overflow-hidden">
+          <Image
+            src="/imgs/get-started-hero.png"
+            alt="Get started with FABRIC"
+            width={1920}
+            height={600}
+            className="w-full h-auto object-contain"
+            priority
+          />
         </section>
 
         {/* ── Section 2: Testimonial carousel ──────────────────────── */}

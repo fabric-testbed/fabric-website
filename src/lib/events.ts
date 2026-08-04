@@ -34,11 +34,11 @@ function youtubeIframe(videoId: string): string {
   return `<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:1.5rem 0;border-radius:0.75rem"><iframe src="https://www.youtube.com/embed/${videoId}" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe></div>`;
 }
 
-// Convert "Register Here" links into styled buttons
+// Ensure "Register Here" links open in new tab
 function styleRegisterLinks(html: string): string {
   return html.replace(
-    /<a([^>]*href="[^"]*"[^>]*)>\s*Register Here\s*<\/a>/gi,
-    '<div style="margin-top:1.5rem"><a$1 class="btn-yellow no-underline hover:no-underline" style="text-decoration:none" target="_blank" rel="noopener noreferrer">Register Here</a></div>',
+    /<a([^>]*href="[^"]*"[^>]*)>\s*(register here)\s*<\/a>/gi,
+    '<a$1 target="_blank" rel="noopener noreferrer">$2</a>',
   );
 }
 

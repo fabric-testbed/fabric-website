@@ -210,7 +210,6 @@ export default function EventsClient({ upcoming, past }: Props) {
   const [showPast, setShowPast]         = useState(!!initialTag);
   const [selectedYear, setSelectedYear] = useState<string>("all");
   const [onlyHosted, setOnlyHosted]     = useState(false);
-  const [onlyWebinar, setOnlyWebinar]   = useState(false);
   const [selectedTags, setSelectedTags] = useState<Set<string>>(
     initialTag ? new Set([initialTag.toLowerCase()]) : new Set()
   );
@@ -253,12 +252,11 @@ export default function EventsClient({ upcoming, past }: Props) {
     return past.filter((e) => {
       if (selectedYear !== "all" && !e.event_date.startsWith(selectedYear)) return false;
       if (onlyHosted  && !e.fabric_hosted) return false;
-      if (onlyWebinar && e.category !== "webinar" && e.category !== "webinars") return false;
       if (search && !matches(e, search)) return false;
       if (selectedTags.size > 0 && !hasAnyTag(e, selectedTags)) return false;
       return true;
     });
-  }, [past, selectedYear, onlyHosted, onlyWebinar, search, selectedTags]);
+  }, [past, selectedYear, onlyHosted, search, selectedTags]);
 
   const searchActive = search.length > 0;
 
@@ -326,9 +324,6 @@ export default function EventsClient({ upcoming, past }: Props) {
 
                 <FilterPill active={onlyHosted} onClick={() => setOnlyHosted((v) => !v)}>
                   FABRIC Hosted
-                </FilterPill>
-                <FilterPill active={onlyWebinar} onClick={() => setOnlyWebinar((v) => !v)}>
-                  Webinar
                 </FilterPill>
               </div>
 
