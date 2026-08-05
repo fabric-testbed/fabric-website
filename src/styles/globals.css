@@ -201,6 +201,11 @@
     @apply my-8 border-fabric-gray-200;
   }
 
+  /* Highlight article body */
+  .highlight-body a {
+    @apply text-fabric-blue hover:underline;
+  }
+
   /* Delay utilities */
   .delay-100 { animation-delay: 100ms; }
   .delay-200 { animation-delay: 200ms; }

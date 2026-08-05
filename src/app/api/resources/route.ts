@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { ORCHESTRATOR_API_URL } from "@/lib/config";
 
 const ORCHESTRATOR_URL =
-  `${ORCHESTRATOR_API_URL}portalresources?graph_format=JSON_NODELINK&level=1`;
+  `${ORCHESTRATOR_API_URL}/portalresources?graph_format=JSON_NODELINK&level=1`;
 
 export const revalidate = 60; // cache for 1 minute
 

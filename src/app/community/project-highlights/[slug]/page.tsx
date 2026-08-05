@@ -75,7 +75,7 @@ export default async function HighlightPage({
 
             {/* Article body */}
             <div
-              className="prose prose-sm max-w-none text-fabric-gray-600 leading-relaxed
+              className="highlight-body prose prose-sm max-w-none text-fabric-gray-600 leading-relaxed
                 prose-headings:text-fabric-blue prose-headings:font-semibold prose-headings:text-base
                 prose-p:mb-5 prose-h2:mt-10 prose-h2:mb-3
                 [&>p]:mb-5 [&>h2]:mt-10 [&>h2]:mb-3"

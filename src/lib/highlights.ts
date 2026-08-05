@@ -2,7 +2,9 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { remark } from "remark";
-import html from "remark-html";
+import remarkRehype from "remark-rehype";
+import rehypeRaw from "rehype-raw";
+import rehypeStringify from "rehype-stringify";
 
 const HIGHLIGHTS_DIR = path.join(process.cwd(), "content/highlights");
 
@@ -60,7 +62,11 @@ export async function getHighlightBySlug(slug: string): Promise<HighlightDetail 
   const raw = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(raw);
 
-  const processed = await remark().use(html).process(content);
+  const processed = await remark()
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeStringify)
+    .process(content);
   const contentHtml = processed.toString();
 
   return {
