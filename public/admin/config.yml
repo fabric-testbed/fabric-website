@@ -1,10 +1,10 @@
-local_backend: true
+# local_backend: true
 
 backend:
   name: github
   repo: fabric-testbed/fabric-website
   branch: main
-  base_url: https://whatisfabric.net   # OAuth callback URL (update if using vercel.app for now)
+  base_url: https://www.whatisfabric.net
   auth_endpoint: /api/auth
 
 media_folder: "public/imgs/uploads"

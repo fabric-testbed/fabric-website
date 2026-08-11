@@ -19,7 +19,7 @@ researchers:
     institution: "NYU Tandon School of Engineering"
     interests: ""
     contact: "https://engineering.nyu.edu/student/fatih-berkay-sarpkaya"
-    photo: "/imgs/highlights/researchers/fatih-berkay-sarpkaya.png"
+    photo: "/imgs/highlights/researchers/fatih-berkay-sarpkaya.jpg"
 ---
 
 The Low Latency, Low Loss, Scalable Throughput (L4S) architecture is a set of protocols which, when deployed on endpoints and routers across a network, can dramatically reduce the delay experienced by packets traversing the network, enabling latency-sensitive applications like online gaming, video conferencing, and virtual reality.

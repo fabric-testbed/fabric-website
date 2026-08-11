@@ -36,7 +36,7 @@ export default function GetStartedPage() {
         {/* ── Section 1: Hero ──────────────────────────────────────── */}
         <section className="relative overflow-hidden">
           <Image
-            src="/imgs/get-started-hero.png"
+            src="/imgs/get-started-hero.jpg"
             alt="Get started with FABRIC"
             width={1920}
             height={600}

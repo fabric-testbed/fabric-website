@@ -40,7 +40,7 @@ researchers:
     institution: "Illinois Institute of Technology"
     interests: "Performance evaluation in Data center and cloud networks"
     contact: "https://www.linkedin.com/in/nishanth-shyamkumar-9bb14980/?skipRedirect=true"
-    photo: "/imgs/highlights/researchers/nishanth-shyamkumar.png"
+    photo: "/imgs/highlights/researchers/nishanth-shyamkumar.jpg"
 ---
 
 Programmable network hardware devices such as switches, routers or network interface cards are becoming more widespread. Although programmability gives network operators the ability to customize devices to meet the unique requirements of their network, this capability can also be used to undermine the security of the hardware and its users.

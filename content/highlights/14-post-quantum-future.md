@@ -16,7 +16,7 @@ researchers:
     institution: "University of Illinois at Urbana-Champaign"
     interests: "Network Security, Cryptocurrency Security, AI Security, Scientific Cyberinfrastructure , Post Quantum Crypto (PQC) Risk"
     contact: "https://ischool.illinois.edu/people/anita-nikolich"
-    photo: "/imgs/highlights/researchers/Anita-Nikolich.png"
+    photo: "/imgs/highlights/researchers/Anita-Nikolich.jpg"
   - name: "Phuong Cao"
     title: "Research Scientist"
     institution: "University of Illinois at Urbana-Champaign"

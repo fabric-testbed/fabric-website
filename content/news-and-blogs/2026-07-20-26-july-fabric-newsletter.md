@@ -61,7 +61,7 @@ Note: The MERIF Workshop will follow KNIT13 and the PAWR PI Meeting and will be 
 
 **July 21, 2026 3:00-4:30 pm ET**
 
-![Exploring the National Data Platform and Opportunities for Data-Driven Research on FABRIC](/imgs/events/ndp-tips-tricks-webinar.png)
+![Exploring the National Data Platform and Opportunities for Data-Driven Research on FABRIC](/imgs/events/ndp-tips-tricks-webinar.jpg)
 
 Join us tomorrow, on July 21, 2026, from 3:00–4:30 PM ET for a FABRIC Tips & Tricks webinar featuring Dr. Manish Parashar, Co-PI of the National Data Platform (NDP). As data-intensive research continues to grow across scientific disciplines, researchers need robust platforms that can help them discover, access, integrate, and analyze data at scale. In this session, Dr. Parashar will provide an overview of the NDP and its vision for advancing data-driven discovery through a national ecosystem of data services and infrastructure.
 

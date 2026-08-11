@@ -13,7 +13,7 @@ tags:
 
 **Time:** 3:00-4:00 PM ET
 
-![AI Infrastructure for Reproducible Experimentation on FABRIC](/imgs/events/ai-infrastructure-reproducible-experimentation.png)
+![AI Infrastructure for Reproducible Experimentation on FABRIC](/imgs/events/ai-infrastructure-reproducible-experimentation.jpg)
 
 Join us for the next Stitching Together Innovation with FABRIC Users webinar as we explore how researchers are leveraging FABRIC to advance cutting-edge cyberinfrastructure and AI-enabled research. In this session, Dr. Peipei Zhou (Brown University) will showcase an NSF Major Research Instrumentation (MRI) project focused on building an AI infrastructure that integrates with the FABRIC testbed to enable reproducible, scalable experimentation, with a focus on Asynchronous GPU-SSD Integration to allow efficient AI system deployment. Attendees will receive an overview of the project's vision, learn why FABRIC was selected as the underlying research platform, and see demonstrations of the team's current experimental environment and published research outcomes.
 
