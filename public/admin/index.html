@@ -13,9 +13,13 @@
   </style>
 </head>
 <body>
+  <script>window.CMS_MANUAL_INIT = true;</script>
   <script src="https://unpkg.com/decap-cms@3.3.3/dist/decap-cms.js"
           integrity="sha384-Ch3bpZcxxjHMuIde+QMTyDdxGqjtafFkpoGgvLjf50nHhptNH7bZyPTyKSkOvEo+"
           crossorigin="anonymous"></script>
+  <script>
+    CMS.init({ config: { load_config_file: true, config_url: '/admin/config.yml' } });
+  </script>
   <script>
     // Replace Decap logo with FABRIC logo after CMS renders
     var observer = new MutationObserver(function() {
