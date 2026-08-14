@@ -16,6 +16,13 @@ function embedYouTube(html: string): string {
   return html;
 }
 
+function externalLinksNewTab(html: string): string {
+  return html.replace(
+    /<a\s+href="(https?:\/\/[^"]+)"/g,
+    '<a href="$1" target="_blank" rel="noopener noreferrer"'
+  );
+}
+
 // Extract a meaningful excerpt from body content
 function extractExcerpt(content: string, maxLen = 200): string {
   const lines = content.split("\n").filter((l) => {
@@ -120,6 +127,6 @@ export async function getArticleBySlug(slug: string): Promise<ArticleDetail | nu
     slug,
     ...(data as Omit<ArticleMeta, "slug">),
     date: String(data.date).slice(0, 10),
-    contentHtml: embedYouTube(processed.toString()),
+    contentHtml: externalLinksNewTab(embedYouTube(processed.toString())),
   };
 }
