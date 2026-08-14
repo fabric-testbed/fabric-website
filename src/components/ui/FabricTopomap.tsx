@@ -31,39 +31,39 @@ export interface TopoSite {
 }
 
 const ACRONYM_TO_LONG: Record<string, string> = {
-  RENC:   "Renaissance Computing Institute",
-  UKY:    "University of Kentucky",
-  LBNL:   "Lawrence Berkeley National Laboratory",
+  RENC:   "RENCI",
+  UKY:    "UKY",
+  LBNL:   "LBNL",
   STAR:   "StarLight",
-  MAX:    "Mid-Atlantic Crossroads",
-  TACC:   "Texas Advanced Computing Center",
+  MAX:    "University of Maryland/MAX",
+  TACC:   "TACC",
   MICH:   "University of Michigan",
-  MASS:   "UMass (MGHPCC)",
+  MASS:   "UMass",
   UTAH:   "University of Utah",
-  NCSA:   "National Center for Supercomputing Applications",
-  WASH:   "University of Washington",
+  NCSA:   "NCSA",
+  WASH:   "Washington",
   DALL:   "Dallas",
   SALT:   "Salt Lake City",
-  UCSD:   "UC San Diego",
-  GPN:    "Great Plains Network",
+  UCSD:   "UCSD",
+  GPN:    "GPN",
   FIU:    "Florida International University",
-  CLEM:   "Clemson University",
-  GATECH: "Georgia Institute of Technology",
+  CLEM:   "Clemson",
+  GATECH: "Georgia Tech",
   LOSA:   "Los Angeles",
   NEWY:   "New York",
   KANS:   "Kansas City",
   ATLA:   "Atlanta",
   SEAT:   "Seattle",
-  PRIN:   "Princeton University",
+  PRIN:   "Princeton",
   INDI:   "Indiana University",
-  PSC:    "Pittsburgh Supercomputing Center",
-  RUTG:   "Rutgers University",
-  SRI:    "SRI International",
+  PSC:    "PSC",
+  RUTG:   "Rutgers",
+  SRI:    "SRI",
   CERN:   "CERN",
   BRIST:  "University of Bristol",
   AMST:   "University of Amsterdam",
   TOKY:   "University of Tokyo",
-  HAWI:   "Hawaii",
+  HAWI:   "University of Hawai'i",
   EDC:    "EDC",
   EDUKY:  "EDUKY",
 };
@@ -96,10 +96,11 @@ const RESOURCE_ROWS = [
 ];
 
 function nodeColor(type: string, state?: string) {
-  if (state === "Maint")                               return "#838385";
-  if (state === "PreMaint" || state === "PartMaint")   return "#e94948";
-  if (type === "us_core")                              return "#0B5FA5";
-  return "#48BFE3";
+  if (!state || state === "Unknown")                   return "#838385"; // gray – unknown/down
+  if (state === "Maint")                               return "#e94948"; // red – error/critical
+  if (state === "PreMaint" || state === "PartMaint")   return "#ff8542"; // orange – warning/partial maint
+  if (type === "us_core")                              return "#2196C9"; // teal – active core
+  return "#5BC4E5";                                                      // sky – active edge/international
 }
 
 function isDown(site: TopoSite) {
@@ -107,7 +108,7 @@ function isDown(site: TopoSite) {
 }
 
 function StatusBadge({ state }: { state?: string }) {
-  if (!state || state === "Active") {
+  if (state === "Active") {
     return (
       <span className="px-2 py-0.5 text-[10px] font-bold rounded bg-emerald-100 text-emerald-700 border border-emerald-200 uppercase tracking-wide">
         Active
@@ -115,11 +116,13 @@ function StatusBadge({ state }: { state?: string }) {
     );
   }
   const cfg: Record<string, { label: string; cls: string }> = {
-    Maint:    { label: "Down",            cls: "bg-gray-700 text-white border-gray-700" },
+    Maint:    { label: "Maintenance",     cls: "bg-red-100 text-red-700 border-red-200" },
+    Unknown:  { label: "Down",            cls: "bg-gray-700 text-white border-gray-700" },
     PreMaint: { label: "Pre-Maintenance", cls: "bg-amber-100 text-amber-700 border-amber-200" },
     PartMaint:{ label: "Partial Maint",   cls: "bg-amber-100 text-amber-700 border-amber-200" },
   };
-  const c = cfg[state] ?? { label: state, cls: "bg-gray-100 text-gray-600 border-gray-200" };
+  const key = state ?? "Unknown";
+  const c = cfg[key] ?? { label: key, cls: "bg-gray-100 text-gray-600 border-gray-200" };
   return (
     <span className={`px-2 py-0.5 text-[10px] font-bold rounded border uppercase tracking-wide ${c.cls}`}>
       {c.label}
@@ -214,7 +217,7 @@ export function FabricTopomap({ siteMap, defaultNode = "StarLight", hideFooterLi
               const coords     = topomap.coordinates[name];
               if (!coords) return null;
               const isSelected = selectedNode === name;
-              const siteState  = dataLoaded ? (siteMap[name] ? siteMap[name].status?.state : "Maint") : undefined;
+              const siteState  = dataLoaded ? (siteMap[name] ? siteMap[name].status?.state ?? "Active" : "Unknown") : undefined;
               const r          = type === "edge" ? 1.8 : 3.2;
               const color      = nodeColor(type, siteState);
               return (
@@ -264,11 +267,11 @@ export function FabricTopomap({ siteMap, defaultNode = "StarLight", hideFooterLi
             <span>L1/L2 Links</span>
           </div>
           <div className="flex items-center gap-2">
-            <span style={{ display: "inline-block", width: "0.5rem", height: "0.5rem", borderRadius: "50%", background: "#0B5FA5" }} />
+            <span style={{ display: "inline-block", width: "0.5rem", height: "0.5rem", borderRadius: "50%", background: "#2196C9" }} />
             <span>Core site</span>
           </div>
           <div className="flex items-center gap-2">
-            <span style={{ display: "inline-block", width: "0.5rem", height: "0.5rem", borderRadius: "50%", background: "#48BFE3" }} />
+            <span style={{ display: "inline-block", width: "0.5rem", height: "0.5rem", borderRadius: "50%", background: "#5BC4E5" }} />
             <span>Edge site</span>
           </div>
         </div>
@@ -286,13 +289,7 @@ export function FabricTopomap({ siteMap, defaultNode = "StarLight", hideFooterLi
                 <p className="text-sm font-bold text-fabric-teal uppercase tracking-wide leading-snug">
                   {siteAcronym}
                 </p>
-                {selectedSite ? (
-                  <StatusBadge state={selectedSite.status?.state} />
-                ) : (
-                  <span className="px-2 py-0.5 text-[10px] font-bold rounded bg-gray-700 text-white border border-gray-700 uppercase tracking-wide">
-                    Down
-                  </span>
-                )}
+                <StatusBadge state={selectedSite ? selectedSite.status?.state : "Unknown"} />
               </div>
               <p className="text-xs text-fabric-gray-400 mt-0.5 leading-snug">
                 {ACRONYM_TO_LONG[siteAcronym] ?? selectedSite?.displayName ?? selectedNode}
