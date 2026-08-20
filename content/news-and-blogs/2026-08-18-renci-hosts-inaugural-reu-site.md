@@ -1,6 +1,6 @@
 ---
 title: RENCI Hosts Inaugural REU Site
-date: 2026-08-18
+date: 2026-08-20
 type: news
 category: announcements
 excerpt: "This summer, RENCI hosted its inaugural NSF Research Experience for
