@@ -103,7 +103,9 @@ export function getAllArticlesMeta(): ArticleMeta[] {
       return {
         slug,
         ...(data as Omit<ArticleMeta, "slug">),
-        date: String(data.date).slice(0, 10),
+        date: data.date instanceof Date
+          ? data.date.toISOString().slice(0, 10)
+          : String(data.date).slice(0, 10),
         excerpt: goodExcerpt,
       };
     })
@@ -126,7 +128,9 @@ export async function getArticleBySlug(slug: string): Promise<ArticleDetail | nu
   return {
     slug,
     ...(data as Omit<ArticleMeta, "slug">),
-    date: String(data.date).slice(0, 10),
+    date: data.date instanceof Date
+      ? data.date.toISOString().slice(0, 10)
+      : String(data.date).slice(0, 10),
     contentHtml: externalLinksNewTab(embedYouTube(processed.toString())),
   };
 }

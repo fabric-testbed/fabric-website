@@ -110,7 +110,10 @@ export function getAllEventsMeta(): EventMeta[] {
     .map((slug) => {
       const raw = fs.readFileSync(path.join(EVENTS_DIR, `${slug}.md`), "utf8");
       const { data, content } = matter(raw);
-      const event_date = String(data.event_date || data.date || "").slice(0, 10);
+      const rawDate = data.event_date || data.date || "";
+      const event_date = rawDate instanceof Date
+        ? rawDate.toISOString().slice(0, 10)
+        : String(rawDate).slice(0, 10);
       return {
         slug,
         title:            String(data.title || ""),
@@ -147,7 +150,10 @@ export async function getEventBySlug(slug: string): Promise<EventDetail | null> 
 
   const processed = await remark().use(html).process(cleanedContent);
   const contentHtml = styleRegisterLinks(embedYouTube(processed.toString()));
-  const event_date = String(data.event_date || data.date || "").slice(0, 10);
+  const rawDate = data.event_date || data.date || "";
+  const event_date = rawDate instanceof Date
+    ? rawDate.toISOString().slice(0, 10)
+    : String(rawDate).slice(0, 10);
   return {
     slug,
     title:            String(data.title || ""),
