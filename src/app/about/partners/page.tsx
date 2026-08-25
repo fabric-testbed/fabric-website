@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 const corePartners = [
   { file: "renci.png",                alt: "RENCI",                      height: 56 },
   { file: "uk.png",                   alt: "University of Kentucky",      height: 40 },
-  { file: "clemson.png",              alt: "Clemson University",          height: 40 },
+  { file: "binghamton-university.png", alt: "Binghamton University",       height: 40 },
   { file: "university-of-illinios.png", alt: "University of Illinois",   height: 40 },
   { file: "esnet.png",                alt: "ESnet",                       height: 40 },
 ];

@@ -21,8 +21,8 @@ const leaders = [
   },
   {
     name: "Kuang-Ching Wang",
-    photo: "/imgs/leadership/kuang-ching-wang.jpg",
-    bio: "Kuang-Ching (KC) Wang joined the Watt Family Innovation Center as the associate director of research in July 2017. KC has been a Professor of Electrical and Computer Engineering at Clemson University since 2004. His core research interests include future networking and computing architecture, software-defined infrastructure, and more recently, artificial intelligence. He is also an adjunct professor for Public Health Sciences and a faculty scholar in the Clemson University School of Health Research. From 2012 to 2015, KC was a visiting professor with Stanford University, the Open Networking Lab (ON.Lab), and Big Switch Networks, Inc. From 2015 to 2017, he was the Networking Chief Technology Officer for Clemson.",
+    photo: "/imgs/leadership/kuang-ching-wang.png",
+    bio: "Kuang-Ching \"KC\" Wang is Empire Innovation Professor of Trustworthy AI and Director of the School of Computing at the Thomas J. Watson College of Engineering and Applied Science. Prior to Binghamton, Wang served at Clemson University as Provost Distinguished Professor of Electrical and Computer Engineering, the C. Tycho Howle Endowed Chair in Collaborative Computing, and Co-director of the Clemson AI Research Institute. His research centers on computing and networking systems, developing innovative solutions for applications in artificial intelligence, healthcare, cyber-physical systems and cybersecurity. From 2012 to 2015, KC was a visiting professor with Stanford University and the Open Networking Lab (ON.Lab), and Big Switch Networks, Inc. From 2015 to 2017, he was the Networking Chief Technology Officer for Clemson.",
   },
   {
     name: "Inder Monga",
