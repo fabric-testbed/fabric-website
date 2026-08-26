@@ -1,6 +1,6 @@
 ---
 title: "Introducing LoomAI: A New AI-Powered Way to Build Experiments on FABRIC"
-date: 1906-08-26
+date: 2026-08-26
 type: blog
 category: announcements
 excerpt: Getting started with FABRIC is now easier with LoomAI, a hosted,
