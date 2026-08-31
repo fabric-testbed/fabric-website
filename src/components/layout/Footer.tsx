@@ -3,11 +3,11 @@ import Image from "next/image";
 import { TwitterIcon, GithubIcon, YoutubeIcon, Mail } from "lucide-react";
 
 const footerLinks = {
+  "Acceptable Use Policy": "/about/acceptable-use-policy",
   "Branding Resources": "/about/branding",
   "Support":            "https://portal.fabric-testbed.net/help",
   "Portal":             "https://portal.fabric-testbed.net",
   "Knowledge Base":     "https://learn.fabric-testbed.net",
-  "Newsletter":         "/news-and-blogs?filter=newsletters",
 };
 
 const socials = [
