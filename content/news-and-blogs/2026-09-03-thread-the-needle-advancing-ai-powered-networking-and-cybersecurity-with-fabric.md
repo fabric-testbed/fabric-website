@@ -80,3 +80,9 @@ Their next phase of work explores how small language models can run directly on 
 As AI continues reshaping computing, the role of programmable network accelerators will only continue to grow.
 
 By combining advanced hardware, machine learning, and the capabilities of the FABRIC testbed, Kfoury, Crichigno, and their students are helping build the intelligent, secure, and high-performance networks that tomorrow's AI applications will depend on.
+
+![](/imgs/uploads/image3.jpg "Best Paper Award, IEEE International Black Sea Conference on Communications and Networking, Bucharest, Rumania, June 2026. Award received by Sergio Elizalde, PhD student working under Dr. Elie Kfoury and Dr. Jorge Crichigno.")
+
+![](/imgs/uploads/image2.jpg "Best Paper Award, IEEE/IFIP NOMS – IPSN Workshop, Seoul, Korea, May 2024. Award received by Dr. Crichigno (center).")
+
+![](/imgs/uploads/image1.jpg "The Minority Serving – Cyberinfrastructure Consortium (MS-CC) 2025 Annual Meeting, Nashville, Tennessee, May 2025. Dr. Elie Kfoury leading a session on conducting research on DPUs using FABRIC.")
