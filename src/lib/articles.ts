@@ -16,6 +16,21 @@ function embedYouTube(html: string): string {
   return html;
 }
 
+function imageFigures(html: string): string {
+  return html.replace(
+    /<p>\s*<img([^>]*)\/?>\s*<\/p>/g,
+    (_match, attrs: string) => {
+      const imgStyle = 'style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:0.5rem"';
+      const figStyle = 'style="max-width:36rem;margin:1.5rem 0"';
+      const titleMatch = attrs.match(/title="([^"]*)"/);
+      if (!titleMatch) return `<figure ${figStyle}><img${attrs} ${imgStyle}/></figure>`;
+      const caption = titleMatch[1];
+      const capStyle = 'style="margin-top:0.5rem;font-size:0.875rem;font-weight:600;font-style:italic;line-height:1.4;color:#4a5568"';
+      return `<figure ${figStyle}><img${attrs} ${imgStyle}/><figcaption ${capStyle}>${caption}</figcaption></figure>`;
+    }
+  );
+}
+
 function externalLinksNewTab(html: string): string {
   return html.replace(
     /<a\s+href="(https?:\/\/[^"]+)"/g,
@@ -131,6 +146,6 @@ export async function getArticleBySlug(slug: string): Promise<ArticleDetail | nu
     date: data.date instanceof Date
       ? data.date.toISOString().slice(0, 10)
       : String(data.date).slice(0, 10),
-    contentHtml: externalLinksNewTab(embedYouTube(processed.toString())),
+    contentHtml: imageFigures(externalLinksNewTab(embedYouTube(processed.toString()))),
   };
 }
