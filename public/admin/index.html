@@ -18,6 +18,16 @@
           integrity="sha384-Ch3bpZcxxjHMuIde+QMTyDdxGqjtafFkpoGgvLjf50nHhptNH7bZyPTyKSkOvEo+"
           crossorigin="anonymous"></script>
   <script>
+    // Register custom "Horizontal Rule" editor component
+    CMS.registerEditorComponent({
+      id: "hr",
+      label: "Horizontal Rule",
+      pattern: /^---$/m,
+      fromBlock: function() { return {}; },
+      toBlock: function() { return "---"; },
+      toPreview: function() { return '<hr />'; },
+    });
+
     // Replace Decap logo with FABRIC logo after CMS renders
     var observer = new MutationObserver(function() {
       var root = document.getElementById('nc-root');
