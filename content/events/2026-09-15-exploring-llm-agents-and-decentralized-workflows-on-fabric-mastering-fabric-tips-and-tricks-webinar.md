@@ -8,6 +8,7 @@ fabric_hosted: true
 location: https://renci.zoom.us/webinar/register/WN_tRkTXEqfRwOGE8cIYvsMvw
 time: 3:00-4:30 PM ET
 registration_url: https://renci.zoom.us/webinar/register/WN_tRkTXEqfRwOGE8cIYvsMvw
+excerpt: "YouTube Link: https://www.youtube.com/watch?v=7GyHSk5SNOA"
 tags:
   - events
 ---
