@@ -30,14 +30,14 @@ function EventCard({ event, onTagClick }: { event: EventMeta; onTagClick: (tag: 
               {event.time && <><br />{event.time}</>}
             </span>
           </div>
-          {event.location && (
+          {(event.location || event.registration_url) && (
             <div className="flex items-start gap-1.5 text-sm text-fabric-gray-600">
               <MapPin className="h-4 w-4 shrink-0 mt-0.5 text-fabric-teal" />
               <span>
-                {event.location}
+                {event.location && !/^https?:\/\//.test(event.location) && event.location}
                 {event.registration_url && (
                   <>
-                    {": "}
+                    {event.location && !/^https?:\/\//.test(event.location) ? ": " : ""}
                     <a
                       href={event.registration_url}
                       target="_blank"
