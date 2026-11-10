@@ -1,7 +1,7 @@
 ---
 title: "QFabric: Explore Quantum Networking Hands-On with FABRIC | Mastering
   FABRIC: Tips and Tricks Webinar "
-date: 2026-11-17
+date: 2026-11-24
 type: event
 category: webinar
 fabric_hosted: true
@@ -11,7 +11,7 @@ registration_url: https://renci.zoom.us/webinar/register/WN_FLl4sC1PQqeYy9X4nkcd
 tags:
   - events
 ---
-Join us for the next Mastering FABRIC: Tips and Tricks webinar on November 17, 2026, from 3:00 to 4:30 PM ET.
+Join us for the next Mastering FABRIC: Tips and Tricks webinar on November 24, 2026, from 3:00 to 4:30 PM ET.
 
 Quantum network is often taught through simulators that mathematically model the photon's propagation losses based on quantum mechanics.  Since quantum networks today have very limited ranges (much less than 100 miles), impacts of real network latency have not been emphasized.  For a future where large-scale quantum networks become a reality, realistic latencies and loss properties need to be accounted for together for effective network engineering. QFabric lets FABRIC users explore quantum networking protocols as truly distributed experiments running across slices over a real wide-area network.
 
