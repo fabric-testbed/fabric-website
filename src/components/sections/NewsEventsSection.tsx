@@ -35,7 +35,7 @@ export function NewsEventsSection() {
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      {event.location && (
+                      {event.location && !/^https?:\/\//.test(event.location) && (
                         <p className="text-xs text-fabric-gray-400 mb-1">{event.location}</p>
                       )}
                       {event.time && (

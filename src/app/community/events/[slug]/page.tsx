@@ -53,7 +53,9 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
                 <div className="flex items-start gap-2 flex-1">
                   <MapPin className="h-4 w-4 text-fabric-teal shrink-0 mt-0.5" />
                   <div className="text-sm text-fabric-gray-600">
-                    {event.location && <p className="font-medium">{event.location}</p>}
+                    {event.location && !/^https?:\/\//.test(event.location) && (
+                      <p className="font-medium">{event.location}</p>
+                    )}
                     {event.registration_url && (
                       <a
                         href={event.registration_url}
