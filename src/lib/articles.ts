@@ -20,7 +20,7 @@ function imageFigures(html: string): string {
   return html.replace(
     /<p>\s*<img([^>]*)\/?>\s*<\/p>/g,
     (_match, attrs: string) => {
-      const imgStyle = 'style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:0.5rem"';
+      const imgStyle = 'style="width:100%;height:auto;border-radius:0.5rem"';
       const figStyle = 'style="max-width:36rem;margin:1.5rem 0"';
       const titleMatch = attrs.match(/title="([^"]*)"/);
       if (!titleMatch) return `<figure ${figStyle}><img${attrs} ${imgStyle}/></figure>`;

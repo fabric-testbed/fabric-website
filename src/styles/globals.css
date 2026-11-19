@@ -197,6 +197,9 @@
   .article-body strong {
     @apply font-semibold text-fabric-navy;
   }
+  .article-body img {
+    @apply max-w-full h-auto rounded;
+  }
   .article-body hr {
     @apply my-8 border-fabric-gray-200;
   }
